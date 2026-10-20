@@ -342,6 +342,51 @@ select.input{appearance:none;-webkit-appearance:none;padding-right:34px;backgrou
 .chip:hover{border-color:var(--gold)}
 .chip b{display:block;font-size:13.5px}.chip small{font-size:12px;color:var(--label-2)}
 
+.g5{grid-template-columns:repeat(5,minmax(0,1fr))}
+.nofoto{display:flex;flex-direction:column;align-items:center;gap:8px;color:#DAD5CA;text-align:center;padding:40px 20px}
+.nofoto b{font:600 18px var(--font-d);color:#fff}.nofoto span{font-size:13px;color:#A39D92;max-width:32ch}
+.viewer.blur svg{filter:blur(2.6px)}
+.stage .pill,.card>.pill,.stage .btn{align-self:flex-start}
+.newveh{border:1px solid var(--orange-b);border-left:4px solid var(--orange-b)}
+.stages.two{grid-template-columns:repeat(2,minmax(0,1fr))}.stages.one{grid-template-columns:minmax(0,1fr)}
+.flow{display:flex;flex-direction:column;gap:14px}
+.flow-h{display:flex;align-items:baseline;gap:10px;margin-bottom:8px}
+.flow-split{display:flex;align-items:center;gap:10px}
+.flow-split::before,.flow-split::after{content:"";flex:1;height:2px;background:var(--border)}
+.lines{display:grid;gap:14px}.lines.two{grid-template-columns:repeat(2,minmax(0,1fr))}.lines.multi{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.stages.three{grid-template-columns:repeat(3,minmax(0,1fr))}.stages.four{grid-template-columns:repeat(2,minmax(0,1fr))}.card.comp{border-top-color:var(--orange-b)}.lines.two .stages.three,.lines.multi .stages.three,.lines.multi .stages.two{grid-template-columns:minmax(0,1fr)}
+.line{border-top:3px solid var(--purple-b)}
+.mini{display:flex;flex-direction:column;gap:6px;padding:8px 0}.mini+.mini{border-top:1px solid var(--sep)}
+.mini b{font-size:13.5px}
+.chips-st{display:flex;gap:6px;flex-wrap:wrap}
+.chips-st .st{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:600;padding:2px 8px;border-radius:3px;background:var(--fill);color:var(--label-3);border:1px solid var(--stroke)}
+.chips-st .st.ok{background:color-mix(in srgb,var(--green) 11%,transparent);color:var(--green);border-color:color-mix(in srgb,var(--green) 25%,transparent)}
+.zoomwrap{background:var(--viewer);display:grid;place-items:center;padding:24px;max-height:86vh;overflow:auto}
+.zoomwrap svg,.zoomwrap img{width:min(620px,100%);height:auto;display:block}
+.overlay.zoomov .modal{width:min(720px,100%);border-top:0}
+.cal-wrap{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:16px;align-items:start}
+.cal-head{display:flex;align-items:center;gap:10px;justify-content:space-between;flex-wrap:wrap}
+.cal{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
+.cal .wd{font-size:12.5px;font-weight:600;color:var(--label-3);padding:0 4px 2px}
+.cal-d{position:relative;min-height:94px;border:1px solid var(--border);border-radius:4px;background:var(--surface);padding:6px 8px;text-align:left;display:flex;flex-direction:column;gap:1px;overflow:hidden}
+.cal-d:hover{border-color:var(--gold)}
+.cal-d.blank{background:transparent;border:0;pointer-events:none}
+.cal-d .dn{font:600 13.5px var(--font-d);align-self:flex-start;padding:0 4px;border-radius:3px}
+.cal-d.today .dn{background:var(--ink);color:#fff}
+.cal-d.sel{box-shadow:inset 0 0 0 2px var(--ink)}
+.cal-d .cnt{font:700 19px var(--font-d);margin-top:auto;line-height:1.1}
+.cal-d .cnt small{font:500 11.5px var(--font);color:var(--label-2)}
+.cal-d .ton{font-size:12px;color:var(--label-2);font-variant-numeric:tabular-nums}
+.cal-d .mk{position:absolute;top:8px;right:8px;display:flex;gap:3px}
+.cal-d .mk i{width:8px;height:8px;border-radius:1px}.mk .o{background:var(--orange-b)}.mk .r{background:var(--red-b)}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12.5px;color:var(--label-2)}
+.legend span{display:inline-flex;align-items:center;gap:6px}.legend i{width:10px;height:10px;border-radius:2px;display:inline-block}
+.pager{padding:2px 4px}
+@media (max-width:1180px){.cal-wrap{grid-template-columns:minmax(0,1fr)}.lines.two{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:1100px){.g5{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:760px){.g5{grid-template-columns:repeat(2,minmax(0,1fr))}.stages.two,.stages.three,.stages.four{grid-template-columns:minmax(0,1fr)}
+  .cal{gap:3px}.cal-d .mk{top:auto;bottom:6px;right:5px}.cal-d{min-height:56px;padding:4px 5px}.cal-d .ton,.cal-d .cnt small{display:none}.cal-d .cnt{font-size:15px}.cal .wd{font-size:11px;padding:0 2px}}
+
 /* ---------- Adaptación ---------- */
 @media (max-width:1180px){
   .split,.split-l{grid-template-columns:minmax(0,1fr)!important}
@@ -490,7 +535,7 @@ function seed(){
     {u:'jcondor',nombre:'J. Cóndor',rol:'Supervisor de planta',activo:true,pass:'consmin2027',ultimo:d(12,3,9,38),g:3},
     {u:'lhuaman',nombre:'L. Huamán',rol:'Administrativo',activo:false,pass:'consmin2027',ultimo:d(20,2,16,5),g:4}];
   const transportistas=[{id:'T1',razon:'Transportes Huallaga',ruc:'20604123457',activo:true},{id:'T2',razon:'Servicios Mineros Pillco',ruc:'20611890231',activo:true},{id:'T3',razon:'Logística Andina del Centro',ruc:'20487654321',activo:true}];
-  const minerales=[{cod:'MOA',nombre:'Mineral óxido tipo A',activo:true},{cod:'MOB',nombre:'Mineral óxido tipo B',activo:true},{cod:'MOC',nombre:'Mineral óxido tipo C',activo:false}];
+  const minerales=[{cod:'MOA',nombre:'Mineral óxido Pingüino',activo:true},{cod:'MOB',nombre:'Mineral óxido tipo B',activo:true},{cod:'MOC',nombre:'Mineral óxido tipo C',activo:false}];
   const V=(placa,tit,transp,cap,tara,extra)=>Object.assign({placa,tit,transp,cap,tara,taraF:tara==null?null:d(8,1,8,0),taraU:tara==null?null:'jcondor',activo:true,alta:d(5,1,9,0)},extra||{});
   const vehiculos=[V('V2K-841','Propio',null,18,11.8),V('A7M-309','Propio',null,16,11.2),V('B5A-812','Externo','T1',20,12.6),V('C9K-741','Externo','T2',15,12.1),
     V('D3P-552','Externo','T1',17,12.3,{activo:false,baja:d(10,3,17,0)}),V('E4R-208','Propio',null,17.5,null,{alta:d(12,3,8,50)}),V('F7T-615','Externo','T1',19,12.8)];
@@ -500,7 +545,7 @@ function seed(){
     const f=d(dd,mm,h,mi), tara=vt(placa), c=(k)=>+(0.9+((n*7+k*3)%9)/100).toFixed(2);
     const ini=add(f,240+(n%5)*25), fin=add(ini,150+(n%4)*22);
     const o={cod:'ING-2027-'+String(n).padStart(5,'0'),placa,fecha:f,min,bruto,tara,neto:tara==null?null:+(bruto-tara).toFixed(2),
-      estado:tara==null?'proc':'reg',user,ini,fin,lote:null,just:{},corr:false,
+      estado:tara==null?'proc':'reg',user,ini,fin,lote:null,just:{},corr:false,ticket:String(4669+n).padStart(6,'0'),
       ocr:{placa:[placa,c(1)],fecha:[f,c(2)],bruto:[bruto,c(3)]},
       val:{V1:'ok',V2:tara==null?'omit':'ok',V3:'ok',V4:tara==null?'omit':'ok',V5:'ok'}};
     ingresos.push(Object.assign(o,extra||{})); return o;};
@@ -517,13 +562,24 @@ function seed(){
   const i148=I(148,12,3,7,42,'C9K-741','MOA',28.4,'rpalomino',{ini:d(12,3,7,46,3),fin:d(12,3,7,49,12)});
   i148.ocr={placa:['C9K-741',0.96],fecha:[i148.fecha,0.97],bruto:[28.1,0.71]};i148.val.V4='warn';i148.just={V4:'Carga con humedad por lluvia en la mina; se verificó el volquete en cancha antes de confirmar.'};
   I(149,12,3,9,15,'E4R-208','MOA',29.1,'jcondor',{ini:d(12,3,9,19,40),fin:d(12,3,9,22,8)});
+  I(150,12,3,10,5,'V2K-841','MOA',27.3,'jcondor');
   i144.estado='anul';i144.anul={motivo:'Ticket registrado dos veces por error de digitación; el ingreso válido es ING-2027-00145.',u:'rpalomino',t:d(10,3,15,20)};
   const g=c=>ingresos.find(i=>i.cod===c);
+  const C=n=>'ING-2027-00'+n;
   const lotes=[
-    {cod:'LOT-2027-016',min:'MOA',ap:d(16,2,8,0),ci:d(27,2,17,30),estado:'cerrado',ing:['ING-2027-00131','ING-2027-00133','ING-2027-00135','ING-2027-00137','ING-2027-00139'],etapas:[{e:'Secado',f:d(28,2,9,10),u:'jcondor'},{e:'Zarandeo',f:d(1,3,10,0),u:'jcondor'},{e:'Molienda',f:d(2,3,11,20),u:'jcondor'},{e:'Ensacado',f:d(3,3,15,40),u:'jcondor'}]},
-    {cod:'LOT-2027-017',min:'MOB',ap:d(17,2,8,30),ci:d(27,2,17,45),estado:'cerrado',ing:['ING-2027-00132','ING-2027-00134','ING-2027-00136','ING-2027-00138','ING-2027-00140'],etapas:[{e:'Secado',f:d(1,3,9,0),u:'jcondor'},{e:'Zarandeo',f:d(2,3,10,15),u:'jcondor'},{e:'Molienda',f:d(3,3,11,30),u:'jcondor'},{e:'Ensacado',f:d(4,3,16,0),u:'jcondor'}]},
-    {cod:'LOT-2027-018',min:'MOA',ap:d(9,3,8,45),ci:d(12,3,8,10),estado:'cerrado',ing:['ING-2027-00141','ING-2027-00143','ING-2027-00147','ING-2027-00148'],etapas:[{e:'Secado',f:d(12,3,9,40),u:'jcondor',obs:'Cancha 2, secado al sol'}]},
-    {cod:'LOT-2027-019',min:'MOB',ap:d(11,3,17,0),ci:null,estado:'abierto',ing:['ING-2027-00142','ING-2027-00145'],etapas:[]}];
+    {cod:'LOT-2027-016',nombre:'Lote Pingüino Febrero',min:'MOA',ap:d(16,2,8,0),ci:d(27,2,17,30),estado:'cerrado',alta:{f:d(5,3,10,0),u:'rpalomino',obs:'Despachado al comprador en 86 bigbags'},ing:[C(131),C(133),C(135),C(137),C(139)],tarde:[],comp:[],
+      comunes:[{e:'Secado',f:d(28,2,9,10),u:'jcondor'}],
+      lineas:[{id:'A',nombre:'Lote Pingüino Febrero',ruta:'completo',ton:null,etapas:[{e:'Zarandeo',f:d(1,3,10,0),u:'jcondor'},{e:'Molienda',f:d(2,3,11,20),u:'jcondor',horas:9},{e:'Ensacado',f:d(3,3,15,40),u:'jcondor'}]}],
+      bb:[{lin:'A',etapa:'Ensacado',cant:86,peso:1,rec:true,ref:87.75,pref:'PF',ini:1,f:d(3,3,15,40),u:'jcondor'}]},
+    {cod:'LOT-2027-017',nombre:'Lote Óxido B Febrero',min:'MOB',ap:d(17,2,8,30),ci:d(27,2,17,45),estado:'cerrado',ing:[C(132),C(134),C(136),C(138),C(140)],tarde:[],comp:[],
+      comunes:[{e:'Secado',f:d(1,3,9,0),u:'jcondor'}],
+      lineas:[{id:'A',nombre:'Lote Óxido B Febrero',ruta:'zaranda',ton:null,etapas:[{e:'Zarandeo',f:d(2,3,10,15),u:'jcondor'},{e:'Ensacado',f:d(3,3,16,0),u:'jcondor',obs:'Ensacado sin moler'}]}],
+      bb:[{lin:'A',etapa:'Ensacado',cant:80,peso:1,rec:true,ref:81.65,pref:'OBF',ini:1,f:d(3,3,16,0),u:'jcondor'}]},
+    {cod:'LOT-2027-018',nombre:'Lote Pique Pingüino',min:'MOA',ap:d(9,3,8,45),ci:d(12,3,8,10),estado:'cerrado',ing:[C(141),C(143),C(147),C(148),C(150)],tarde:[C(150)],comp:[{id:'K1',ing:C(150),etapas:[],partes:[]}],
+      comunes:[{e:'Secado',f:d(12,3,9,10),u:'jcondor',obs:'Cancha 2, secado al sol'}],
+      lineas:[{id:'A',nombre:'Lote Pique Pingüino Molido',ruta:'molido',ton:40,etapas:[]},{id:'B',nombre:'Lote Pique Pingüino Zaranda',ruta:'zaranda',ton:24.25,etapas:[{e:'Zarandeo',f:d(12,3,9,55),u:'jcondor'},{e:'Ensacado',f:d(12,3,10,20),u:'jcondor',obs:'Ensacado sin moler'}]}],
+      bb:[{lin:'B',etapa:'Ensacado',cant:24,peso:1,rec:true,ref:24.25,pref:'PPZ',ini:1,f:d(12,3,10,20),u:'jcondor'}]},
+    {cod:'LOT-2027-019',nombre:'Lote Cancha 2 Óxido B',min:'MOB',ap:d(11,3,17,0),ci:null,estado:'abierto',ing:[C(142),C(145)],tarde:[],comunes:[],lineas:[{id:'A',nombre:'Lote Cancha 2 Óxido B',ruta:null,ton:null,etapas:[]}],bb:[],comp:[]}];
   lotes.forEach(l=>l.ing.forEach(c=>{g(c).lote=l.cod;}));
   // Auditoría
   const audit=[];let ev=0;
@@ -535,10 +591,15 @@ function seed(){
     L(i.fin,i.user,'Ingreso registrado','Ingreso',i.cod,(i.estado==='proc'?'En proceso, pendiente del destare':'Registrado')+(i.just.V4?', con advertencia V4 justificada':''),null,{placa:i.placa,peso_bruto:i.bruto,peso_neto:i.neto,estado:i.estado==='proc'?'En proceso':'Registrado'});});
   L(d(11,3,15,2),'mvasquez','Ingreso corregido','Ingreso','ING-2027-00146','Motivo: el peso bruto se leyó mal; se verificó con la imagen del ticket',{peso_bruto:29.3,peso_neto:16.7},{peso_bruto:29.8,peso_neto:17.2});
   L(i144.anul.t,'rpalomino','Ingreso anulado','Ingreso','ING-2027-00144','Motivo: '+i144.anul.motivo,{estado:'Registrado'},{estado:'Anulado'});
-  lotes.forEach(l=>{L(l.ap,'mvasquez','Lote abierto','Lote',l.cod,minName0(minerales,l.min));
-    L(add(l.ap,600),'mvasquez','Ingresos asignados','Lote',l.cod,l.ing.join(', '));
+  lotes.forEach(l=>{L(l.ap,'mvasquez','Lote abierto','Lote',l.cod,l.nombre+', '+minName0(minerales,l.min));
+    L(add(l.ap,600),'mvasquez','Ingresos asignados','Lote',l.cod,l.ing.filter(c=>!l.tarde.includes(c)).join(', '));
+    if(l.tarde.length)L(d(12,3,10,12),'mvasquez','Ingresos agregados después del cierre','Lote',l.cod,l.tarde.join(', ')+', con secado propio');
     if(l.ci)L(l.ci,'mvasquez','Lote cerrado','Lote',l.cod,l.ing.length+' ingresos');
-    l.etapas.forEach(e=>L(e.f,e.u,'Etapa registrada','Lote',l.cod,e.e));});
+    l.comunes.forEach(e=>L(e.f,e.u,'Etapa registrada','Lote',l.cod,e.e+' de '+l.nombre));
+    if(l.lineas.length>1)L(add(l.comunes[0].f,240),'rpalomino','Lote dividido','Lote',l.cod,l.lineas.map(x=>x.nombre+' ('+num(x.ton)+' t)').join(' y '));
+    l.lineas.forEach(x=>x.etapas.forEach(e=>L(e.f,e.u,'Etapa registrada','Lote',l.cod,e.e+' de '+x.nombre)));
+    l.bb.forEach(b=>L(add(b.f,30),b.u,'Bigbags asociados','Lote',l.cod,b.cant+' bigbags ('+bbRange(b)+')'));
+    if(l.alta)L(l.alta.f,l.alta.u,'Lote dado de alta','Lote',l.cod,l.nombre+(l.alta.obs?'. '+l.alta.obs:''));});
   L(d(12,3,8,50),'mvasquez','Vehículo registrado','Vehículo','E4R-208','Alta sin tara: se registrará en el destare',null,{placa:'E4R-208',titularidad:'Propio',capacidad:17.5});
   L(d(3,3,16,20),'mvasquez','Consolidación exportada','Consolidación','2027-02','Febrero de 2027, formato XLSX');
   L(d(12,3,7,44),'mvasquez','Inicio de sesión','Usuario','mvasquez','');
@@ -546,14 +607,14 @@ function seed(){
   L(d(12,3,9,38),'jcondor','Inicio de sesión','Usuario','jcondor','');
   L(d(12,3,9,52),'jcondor','Acceso rechazado','Usuario','jcondor','Intentó abrir Administración sin autorización');
   audit.sort((a,b)=>b.t.localeCompare(a.t));
-  return {v:1,users,transportistas,minerales,vehiculos,ingresos,lotes,audit,seq:{ing:149,lot:19,ev},session:null,lastNow:null};
+  return {v:5,users,transportistas,minerales,vehiculos,ingresos,lotes,audit,seq:{ing:150,lot:19,ev,tk:4819},session:null,lastNow:null};
 }
 function minName0(ms,c){const m=ms.find(x=>x.cod===c);return m?m.nombre:c;}
 
 /* ================= Estado y persistencia ================= */
-const KEY='consmin-sistema-demo-v1', TKEY='consmin-tema';
+const KEY='consmin-sistema-demo-v5', TKEY='consmin-tema';
 let S=null;const IMG={};
-function load(){try{const raw=localStorage.getItem(KEY);if(raw){const x=JSON.parse(raw);if(x&&x.v===1)S=x;}}catch(e){}
+function load(){try{const raw=localStorage.getItem(KEY);if(raw){const x=JSON.parse(raw);if(x&&x.v===5)S=x;}}catch(e){}
   if(!S)S=seed();clockBase=Math.max(DEFAULT_NOW,S.lastNow?new Date(S.lastNow).getTime():0);T0=Date.now();}
 function save(){S.lastNow=now().toISOString();try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
 function applyTheme(){let t='auto';try{t=localStorage.getItem(TKEY)||'auto';}catch(e){}if(t==='auto')document.documentElement.removeAttribute('data-theme');else document.documentElement.setAttribute('data-theme',t);return t;}
@@ -572,30 +633,33 @@ function log(acc,ent,ref,det,antes,despues){S.seq.ev++;const u=me();S.audit.unsh
 
 /* ================= Roles (HU-M01-03) ================= */
 const PERM={'Administrador':'*',
-  'Administrativo':['inicio','ingresos','registrar','destare','corregir','lotes','lotes.gestion','lotes.etapa','consulta','consolidacion','exportar','catalogos'],
-  'Supervisor de planta':['inicio','ingresos','registrar','destare','lotes','lotes.etapa','consulta']};
+  'Administrativo':['inicio','ingresos','registrar','destare','corregir','lotes','lotes.gestion','lotes.etapa','consulta','consolidacion','exportar','catalogos','vehiculo.alta'],
+  'Supervisor de planta':['inicio','ingresos','registrar','destare','vehiculo.alta','lotes','lotes.etapa','consulta']};
 const canRole=(rol,p)=>{const x=PERM[rol];return x==='*'||(x&&x.includes(p));};
 const can=p=>{const u=me();return !!u&&canRole(u.rol,p);};
-const FUNCS=[['registrar','Registrar un ingreso con la foto del ticket'],['destare','Registrar el destare de un vehículo'],['ingresos','Ver la lista y el detalle de ingresos'],['consulta','Consultar un ingreso por placa y fecha'],['corregir','Corregir un ingreso registrado'],['anular','Anular un ingreso'],['lotes.gestion','Abrir, asignar y cerrar lotes de proceso'],['lotes.etapa','Registrar el paso de un lote por una etapa'],['consolidacion','Consolidar la producción mensual'],['exportar','Exportar el total mensual'],['catalogos','Gestionar vehículos, minerales y transportistas'],['tara','Modificar la tara de un vehículo'],['admin','Gestionar usuarios y consultar la auditoría']];
+const FUNCS=[['registrar','Registrar un ingreso, con foto del ticket o sin ella'],['vehiculo.alta','Registrar un vehículo nuevo desde el registro de ingreso'],['destare','Registrar el destare de un vehículo'],['ingresos','Ver la lista y el detalle de ingresos'],['consulta','Consultar un ingreso por placa y fecha'],['corregir','Corregir un ingreso registrado'],['anular','Anular un ingreso'],['lotes.gestion','Abrir, asignar y cerrar lotes de proceso'],['lotes.etapa','Registrar el paso de un lote por una etapa'],['consolidacion','Consolidar la producción mensual'],['exportar','Exportar el total mensual'],['catalogos','Gestionar vehículos, minerales y transportistas'],['tara','Modificar la tara de un vehículo'],['alta','Dar de alta un lote para la venta'],['admin','Gestionar usuarios y consultar la auditoría']];
 
 /* ================= Reglas de consistencia V1–V5 (HU-M05-01) ================= */
-const RULES=[['V1','Ticket no duplicado'],['V2','Tara menor que el peso bruto'],['V3','Placa registrada y activa'],['V4','Peso neto dentro de la capacidad'],['V5','Fecha no posterior al registro']];
+const RULES=[['V1','Ticket no duplicado'],['V2','Tara menor que el peso bruto'],['V3','Formato de placa válido'],['V4','Peso neto dentro de la capacidad'],['V5','Fecha no posterior al registro']];
 const RES={ok:['Cumple','green','checkC'],warn:['Requiere justificación','orange','warn'],just:['Justificada','orange','warn'],block:['Bloquea el registro','red','xCircle'],omit:['Se evalúa en el destare','gray','clock'],pend:['Faltan datos','gray','clock']};
+const PLACA_RE=/^[A-Z0-9]{3}-[A-Z0-9]{3}$/;
+const normPlaca=s=>String(s||'').toUpperCase().replace(/[^A-Z0-9]/g,'');
+function dtOf(d){return d.fecha?d.fecha+'T'+(d.hora||'00:00'):'';}
 function evaluar(dt,excluir){
-  const r={},msg={};const v=dt.placa?veh(dt.placa):null;let neto=null,dup=null;
-  if(!dt.placa)r.V3='pend';else if(!v){r.V3='block';msg.V3='La placa '+dt.placa+' no está registrada en el catálogo de vehículos';}
-  else if(!v.activo){r.V3='block';msg.V3='El vehículo '+dt.placa+' está dado de baja en el catálogo';}else{r.V3='ok';msg.V3=v.tit+(v.transp?', '+transp(v.transp).razon:'');}
-  const fOk=dt.fecha&&!isNaN(D(dt.fecha));
-  if(!fOk)r.V5='pend';else if(D(dt.fecha)>now()){r.V5='block';msg.V5='La fecha del ticket no puede ser posterior a la fecha de registro';}else{r.V5='ok';msg.V5=fDT(dt.fecha)+' es anterior al registro';}
+  const r={},msg={};const fmt=!!dt.placa&&PLACA_RE.test(dt.placa);const v=fmt?veh(dt.placa):null;let neto=null,dup=null;
+  if(!dt.placa)r.V3='pend';else if(!fmt){r.V3='block';msg.V3='La placa no tiene un formato válido';}else{r.V3='ok';msg.V3='Formato de placa peruana';}
+  const vehEstado=!fmt?null:(!v?'nuevo':(!v.activo?'baja':'ok'));
+  const f=dtOf(dt),fOk=!!dt.fecha&&!!dt.hora&&!isNaN(D(f));
+  if(!fOk)r.V5='pend';else if(D(f)>now()){r.V5='block';msg.V5='La fecha del ticket no puede ser posterior a la fecha de registro';}else{r.V5='ok';msg.V5=fDT(f)+', anterior al registro';}
   const bOk=typeof dt.bruto==='number'&&dt.bruto>0;
-  if(dt.placa&&fOk&&bOk)dup=S.ingresos.find(i=>i.cod!==excluir&&i.estado!=='anul'&&i.placa===dt.placa&&iso(i.fecha)===iso(dt.fecha)&&Math.abs(i.bruto-dt.bruto)<0.001);
-  if(!(dt.placa&&fOk&&bOk))r.V1='pend';else if(dup){r.V1='warn';msg.V1='El ticket parece duplicado: ya existe el ingreso '+dup.cod;}else{r.V1='ok';msg.V1='Sin coincidencias de placa, fecha y peso bruto';}
-  if(!v||!bOk){r.V2='pend';r.V4='pend';}
-  else if(v.tara==null){r.V2='omit';r.V4='omit';msg.V2=msg.V4='El vehículo aún no tiene tara: se evalúa al registrar el destare';}
+  if(fmt&&dt.fecha&&bOk)dup=S.ingresos.find(i=>i.cod!==excluir&&i.estado!=='anul'&&i.placa===dt.placa&&isoD(i.fecha)===dt.fecha&&Math.abs(i.bruto-dt.bruto)<0.001);
+  if(!(fmt&&dt.fecha&&bOk))r.V1='pend';else if(dup){r.V1='warn';msg.V1='El ticket parece duplicado: ya existe el ingreso '+dup.cod+' con la misma placa, fecha y peso';}else{r.V1='ok';msg.V1='Sin otro ingreso con la misma placa, fecha y peso bruto';}
+  if(vehEstado==='nuevo'||(v&&v.tara==null)){r.V2='omit';r.V4='omit';msg.V2=msg.V4=vehEstado==='nuevo'?'Vehículo nuevo: se evalúa al registrar el destare':'El vehículo aún no tiene tara: se evalúa al registrar el destare';}
+  else if(!v||!v.activo||!bOk){r.V2='pend';r.V4='pend';}
   else if(v.tara>=dt.bruto){r.V2='block';msg.V2='La tara no puede ser mayor o igual que el peso bruto';r.V4='pend';}
   else{r.V2='ok';msg.V2=tn(v.tara)+' < '+tn(dt.bruto);neto=+(dt.bruto-v.tara).toFixed(2);
     if(neto>v.cap){r.V4='warn';msg.V4='El peso neto está fuera del rango de carga del vehículo '+v.placa+': '+tn(neto)+' supera '+tn(v.cap);}else{r.V4='ok';msg.V4=tn(neto)+' ≤ '+tn(v.cap);}}
-  return {r,msg,v,neto,dup};}
+  return {r,msg,v,neto,dup,vehEstado};}
 
 /* ================= Piezas de interfaz ================= */
 const pill=(t,tone,dot)=>'<span class="pill '+tone+'">'+(dot?'<i></i>':'')+esc(t)+'</span>';
@@ -611,8 +675,79 @@ const segLinks=(items,active)=>'<nav class="seg" aria-label="Secciones">'+items.
 const segBtns=(items,active,action)=>'<div class="seg" role="tablist">'+items.map(([k,t])=>'<button type="button" role="tab" aria-selected="'+(k===active)+'" class="'+(k===active?'on':'')+'" data-a="'+action+'" data-k="'+k+'">'+t+'</button>').join('')+'</div>';
 function ruleRow(code,title,res,msg){const x=RES[res];return '<div class="rule"><span class="tone-'+x[1]+'">'+ic(x[2],20)+'</span><div class="r-t"><b>'+code+' · '+title+'</b>'+(msg?'<small>'+esc(msg)+'</small>':'')+'</div>'+pill(x[0],x[1])+'</div>';}
 const vehTit=p=>{const v=veh(p);return v?v.tit:'—';};
-function loteEstado(l){if(l.estado==='abierto')return['Abierto','blue'];if(l.etapas.length>=4)return['Proceso completo','green'];return['Cerrado','gray'];}
-const loteTon=l=>l.ing.reduce((a,c)=>a+(ing(c)&&ing(c).neto||0),0);
+const RUTAS={zaranda:['Zarandeo','Ensacado'],molido:['Molienda','Ensacado'],completo:['Zarandeo','Molienda','Ensacado']};
+const RUTA_TXT={zaranda:'Zarandeo y ensacado, sin moler',molido:'Molienda directa y ensacado',completo:'Zarandeo, molienda y ensacado'};
+const RUTA_CORTO={zaranda:'Zaranda',molido:'Molido',completo:'Zarandeado y molido'};
+function bbRange(b){const p=n=>b.pref+'-'+String(n).padStart(3,'0');return b.cant>1?p(b.ini)+' a '+p(b.ini+b.cant-1):p(b.ini);}
+function bbPref(s){return ((s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').split(/\s+/).filter(w=>w&&!/^(lote|de|del|la|el)$/i.test(w)).map(w=>w[0]).join('').toUpperCase().replace(/[^A-Z0-9]/g,'')||'BB').slice(0,5);}
+function nextBB(pre){let mx=0;S.lotes.forEach(o=>o.bb.forEach(b=>{if(b.pref===pre)mx=Math.max(mx,b.ini+b.cant-1);}));return mx+1;}
+const bbPeso=b=>b.peso?'≈ '+tn(b.peso):'—', bbTotal=b=>b.peso?'≈ '+tn(b.cant*b.peso):'—';
+const lineDone=(l,x)=>l.comunes.length>=1&&!!x.ruta&&x.etapas.length===RUTAS[x.ruta].length;
+const compTon=k=>{const i=ing(k.ing);return i&&i.estado==='reg'?i.neto:0;};
+const partUnif=p=>!!p.unido||(!!p.ruta&&p.etapas.length===RUTAS[p.ruta].length);
+const compDone=k=>k.etapas.length>0&&(k.partes||[]).length>0&&k.partes.every(partUnif);
+const compIngs=l=>new Set((l.comp||[]).map(k=>k.ing));
+const baseTon=l=>{const s=compIngs(l);return +l.ing.reduce((a,c)=>{if(s.has(c))return a;const i=ing(c);return a+(i&&i.estado==='reg'&&i.neto||0);},0).toFixed(2);};
+function compPartsFor(l,x,only){const r=[];(l.comp||[]).forEach(k=>(k.partes||[]).forEach(p=>{if(p.lin===x.id&&(!only||partUnif(p)))r.push({k,p});}));return r;}
+const lineaTon=(l,x)=>+((x.ton==null?baseTon(l):x.ton)+compPartsFor(l,x,true).reduce((s,o)=>s+o.p.ton,0)).toFixed(2);
+const lineKeys=(l,x)=>[x.id].concat(compPartsFor(l,x,true).filter(o=>!o.p.unido).map(o=>o.k.id+'-'+o.p.lin));
+const loteCompleto=l=>l.estado==='cerrado'&&l.lineas.every(x=>lineDone(l,x))&&(l.comp||[]).every(compDone);
+function loteEstado(l){if(l.alta)return['Dado de alta','gray'];if(l.estado==='abierto')return['Abierto','blue'];if(loteCompleto(l))return['Listo para alta','green'];return['En recorrido','purple'];}
+const loteTon=l=>+l.ing.reduce((a,c)=>{const i=ing(c);return a+(i&&i.estado==='reg'&&i.neto||0);},0).toFixed(2);
+const loteBB=l=>l.bb.reduce((a,b)=>a+b.cant,0);
+function loteAvance(l){let tot=1,done=Math.min(l.comunes.length,1);l.lineas.forEach(x=>{tot+=x.ruta?RUTAS[x.ruta].length:2;done+=x.etapas.length;});
+  (l.comp||[]).forEach(k=>{tot+=1;done+=k.etapas.length;(k.partes||[]).forEach(p=>{if(!p.unido){tot+=RUTAS[p.ruta].length;done+=p.etapas.length;}});});return [done,tot];}
+function nextStep(l,x){if(l.estado!=='cerrado'||l.alta)return null;if(l.comunes.length<1)return x?null:'Secado';if(!x)return null;if(!x.ruta)return 'elegir';const r=RUTAS[x.ruta];return x.etapas.length<r.length?r[x.etapas.length]:null;}
+const compNext=(l,k)=>(l.estado!=='cerrado'||l.alta||k.etapas.length)?null:'Secado';
+const partNext=(l,p)=>(l.alta||partUnif(p))?null:RUTAS[p.ruta][p.etapas.length];
+const ensacada=x=>x.etapas.some(r=>r.e==='Ensacado');
+function rend(rec,ton){return rec&&rec.horas?'<p class="small"><b>'+num(rec.horas).replace(',00','')+' h</b> de molienda · <b>'+num(ton/rec.horas)+' t/h</b></p>':'';}
+const bbSumKeys=(l,keys)=>l.bb.filter(b=>keys.includes(b.lin)).reduce((s,b)=>s+(b.peso?b.cant*b.peso:0),0);
+const bbCntKeys=(l,keys)=>l.bb.filter(b=>keys.includes(b.lin)).reduce((s,b)=>s+b.cant,0);
+const bbSum=(l,lin)=>bbSumKeys(l,[lin]);
+function ensSummary(l,keys,ton){const n=bbCntKeys(l,keys);if(!n)return '<span class="small muted">Sin bigbags registrados</span>';const tot=bbSumKeys(l,keys),d=+(tot-ton).toFixed(2);
+  return '<span class="small row" style="gap:6px">'+ic('box',15)+'<span><b>'+n+' bigbags</b>, ≈ '+tn(tot)+' ensacadas · '+(Math.abs(d)<0.005?'<span class="tone-green">igual a lo registrado</span>':(d<0?'<span class="muted">'+num(d)+' t frente a '+tn(ton)+' registradas (merma)</span>':'<span style="color:var(--orange);font-weight:600">+'+num(d)+' t: supera lo registrado</span>'))+'</span></span>';}
+function stCard(name,rec,state,action,extra){const cls=rec?'ok':(state==='next'?'next':'');
+  const body=rec?pill('Completada','green')+'<p class="small muted">'+fDT(rec.f)+', '+userName(rec.u)+'</p>'+(extra||'')+(rec.obs?'<p class="xs faint">'+esc(rec.obs)+'</p>':''):(state==='next'?pill('Siguiente etapa','blue'):(state==='wait'?pill('Espera el cierre del lote','gray'):pill('Pendiente','gray')));
+  return '<div class="stage '+cls+'"><div class="row"><span class="s-n">'+(rec?ic('check',16):ic(name==='Ensacado'?'box':'clock',15))+'</span><h3>'+name+'</h3></div>'+body+(action||'')+'</div>';}
+const stCls=n=>['','one','two','three','four'][n]||'two';
+function trazView(l,edit){edit=edit&&!l.alta;const g=edit&&can('lotes.etapa');
+  const rec0=l.comunes[0],st0=rec0?'ok':(l.estado==='abierto'?'wait':'next');
+  let h='<div class="flow"><div><div class="flow-h"><h3>Etapa común</h3><span class="xs faint">Todo el lote se seca junto</span></div><div class="stages one">'+
+    stCard('Secado',rec0,st0,!rec0&&st0==='next'&&g?B('Registrar secado','primary sm','lote-paso','data-c="'+l.cod+'" data-l=""'):'')+'</div></div>';
+  const n=l.lineas.length,div=n>1;
+  h+='<div class="flow-split">'+(div?pill('Dividido en '+n+' lotes','purple'):'<span class="xs faint">Después del secado</span>')+'</div><div class="lines'+(n===2?' two':(n>2?' multi':''))+'">'+
+    l.lineas.map(x=>{const nx=nextStep(l,x);const ton=lineaTon(l,x);let cards;
+      if(!x.ruta)cards='<div class="stages one"><div class="stage'+(nx==='elegir'?' next':'')+'"><h3>Ruta por definir</h3><p class="small muted">'+(nx==='elegir'?'Elija si este mineral se zarandea, se muele directo o pasa por ambos antes del ensacado.':'Se decide al terminar el secado.')+'</p>'+(nx==='elegir'&&g?B('Registrar siguiente paso','primary sm','lote-paso','data-c="'+l.cod+'" data-l="'+x.id+'"'):'')+'</div></div>';
+      else{const steps=RUTAS[x.ruta];cards='<div class="stages '+stCls(steps.length)+'">'+steps.map((e,k)=>{const rec=x.etapas[k];const st=rec?'ok':(nx===e?'next':'pend');
+        return stCard(e,rec,st,!rec&&nx===e&&g?B('Registrar '+e.toLowerCase(),'primary sm','lote-paso','data-c="'+l.cod+'" data-l="'+x.id+'"'):'',e==='Molienda'?rend(rec,x.ton==null?baseTon(l):x.ton):'');}).join('')+'</div>';}
+      const cps=compPartsFor(l,x,false);
+      const inc=cps.length?'<p class="xs muted">'+cps.map(o=>'Incluye '+o.k.ing+': +'+tn(o.p.ton)+(partUnif(o.p)?' (unificado)':' (en proceso)')).join(' · ')+'</p>':'';
+      return '<div class="card line"><div class="card-h"><div><h3>'+esc(x.nombre)+'</h3><p class="xs muted">'+(x.ruta?RUTA_TXT[x.ruta]:'Ruta por definir')+', '+tn(ton)+'</p></div>'+(lineDone(l,x)?pill('Ensacado','green',1):'')+'</div>'+inc+cards+
+        (ensacada(x)?'<div class="row between wrap">'+ensSummary(l,lineKeys(l,x),ton)+(g?B(ic('plus',14)+'Asociar bigbags','secondary sm','lote-bb','data-c="'+l.cod+'" data-l="'+x.id+'"'):'')+'</div>':'')+'</div>';}).join('')+'</div>';
+  const CP=l.comp||[];
+  if(CP.length)h+='<div class="flow-split">'+pill('Ingresos agregados después del secado','orange')+'</div><div class="stack">'+CP.map(k=>{const i=ing(k.ing),ton=compTon(k),sec=k.etapas[0];
+      const est=compDone(k)?pill('Unificado al lote','green',1):(sec?pill('En proceso','orange'):pill('Secado pendiente','orange'));
+      let body='<div class="stages one">'+stCard('Secado propio',sec,sec?'ok':(compNext(l,k)?'next':'pend'),!sec&&compNext(l,k)&&g?B('Registrar secado','primary sm','comp-paso','data-c="'+l.cod+'" data-k="'+k.id+'" data-p=""'):'')+'</div>';
+      if(!sec)body+='<p class="xs muted">'+(l.lineas.length>1?'Al registrar su secado, sus toneladas se reparten entre las '+l.lineas.length+' partes del lote.':'Al registrar su secado, sigue la ruta de '+esc(l.lineas[0].nombre)+'.')+'</p>';
+      else body+='<div class="lines'+((k.partes||[]).length>1?' two':'')+'">'+(k.partes||[]).map((p,j)=>{const x=l.lineas.find(y=>y.id===p.lin)||{nombre:'—'};const key=k.id+'-'+p.lin;
+        if(p.unido)return '<div class="card" style="box-shadow:none;background:var(--surface-2)"><div class="card-h"><h3>'+esc(x.nombre)+' · '+tn(p.ton)+'</h3>'+pill('Unido','green',1)+'</div><p class="xs muted">'+esc(x.nombre)+' aún no había empezado su ruta: estas toneladas siguen con ella.</p></div>';
+        const nx=partNext(l,p);const steps=RUTAS[p.ruta];
+        return '<div class="card" style="box-shadow:none;background:var(--surface-2)"><div class="card-h"><h3>'+esc(x.nombre)+' · '+tn(p.ton)+'</h3>'+(partUnif(p)?pill('Unificado','green',1):pill('Recorre '+steps.length+' etapas','orange'))+'</div>'+
+          '<div class="stages '+stCls(steps.length)+'">'+steps.map((e,s)=>{const rec=p.etapas[s];const st=rec?'ok':(nx===e?'next':'pend');return stCard(e,rec,st,!rec&&nx===e&&g?B('Registrar '+e.toLowerCase(),'primary sm','comp-paso','data-c="'+l.cod+'" data-k="'+k.id+'" data-p="'+j+'"'):'',e==='Molienda'?rend(rec,p.ton):'');}).join('')+'</div>'+
+          (p.etapas.some(r=>r.e==='Ensacado')?'<div class="row between wrap">'+ensSummary(l,[key],p.ton)+(g?B(ic('plus',14)+'Asociar bigbags','secondary sm','lote-bb','data-c="'+l.cod+'" data-l="'+key+'"'):'')+'</div>':'')+'</div>';}).join('')+'</div>';
+      return '<div class="card line comp"><div class="card-h"><div><h3>'+k.ing+'</h3><p class="xs muted">'+(i?i.placa+', '+fDT(i.fecha)+', ':'')+tn(ton)+'</p></div>'+est+'</div>'+body+'</div>';}).join('')+'</div>';
+  return h+'</div>';}
+function trazMini(l){const row=(name,recs,steps)=>'<div class="mini"><b>'+esc(name)+'</b><div class="chips-st">'+steps.map((e,k)=>'<span class="st'+(recs[k]?' ok':'')+'">'+(recs[k]?ic('check',12):'')+e+'</span>').join('')+'</div></div>';
+  let h=row('Etapa común',l.comunes,['Secado']);
+  l.lineas.forEach(x=>{const m=x.etapas.find(r=>r.e==='Molienda'&&r.horas);h+=row(x.nombre+' · '+tn(lineaTon(l,x))+(m?' · '+num((x.ton==null?baseTon(l):x.ton)/m.horas)+' t/h':''),x.etapas,x.ruta?RUTAS[x.ruta]:['Ruta por definir']);});
+  (l.comp||[]).forEach(k=>{h+=row('Complemento '+k.ing+' · '+tn(compTon(k)),k.etapas,['Secado propio']);(k.partes||[]).filter(p=>!p.unido).forEach(p=>{const x=l.lineas.find(y=>y.id===p.lin)||{};h+=row('  '+k.ing+' → '+(x.nombre||'')+' · '+tn(p.ton),p.etapas,RUTAS[p.ruta]);});});
+  return h;}
+function loteResumen(l,i){const e=loteEstado(l),av=loteAvance(l);
+  return '<div class="card"><div class="row wrap"><span class="tone-purple">'+ic('box',26)+'</span><div style="flex:1;min-width:200px"><h2><a href="#/lotes/'+l.cod+'">'+esc(l.nombre)+'</a></h2><p class="small muted">'+l.cod+', '+minName(l.min)+'</p></div>'+pill(e[0],e[1],1)+'</div>'+
+    '<div class="grid g3">'+kv('Ingresos del lote',l.ing.length)+kv('Toneladas netas',tn(loteTon(l)))+kv('Bigbags',loteBB(l)||'—')+kv('Apertura',fD(l.ap))+kv('Cierre',l.ci?fD(l.ci):'Aún abierto')+kv(l.alta?'Dado de alta':'Avance',l.alta?fD(l.alta.f):av[0]+' de '+av[1]+' etapas')+'</div>'+
+    (l.lineas.length>1?'<p class="small muted">Dividido en '+l.lineas.map(x=>esc(x.nombre)+' ('+tn(lineaTon(l,x))+')').join(', ')+'.</p>':'')+
+    (i&&l.tarde.includes(i.cod)?'<div>'+pill('Agregado después del cierre','orange')+'</div>':'')+(i&&i.estado==='anul'?bn('red','xCircle','Este ingreso está anulado: ya no suma en el lote.'):'')+'</div>';}
 
 /* Ticket de balanza: el papel real solo imprime placa, fecha y peso bruto */
 function ticketSVG(t,hl){
@@ -624,11 +759,11 @@ function ticketSVG(t,hl){
   '<text x="150" y="46" text-anchor="middle" font-size="15" font-weight="700" fill="#1D1D1F" font-family="ui-monospace,Menlo,monospace">BALANZA ELECTRÓNICA</text>'+
   '<text x="150" y="66" text-anchor="middle" font-size="11" fill="#6E6E73" font-family="ui-monospace,Menlo,monospace">Servicio de pesaje · Pillcomarca</text>'+
   '<line x1="24" y1="88" x2="276" y2="88" stroke="#AEAEB2" stroke-dasharray="4 4"/>'+
-  box(128,'FECHA',fD(f),c.fecha)+box(176,'HORA',fT(f),null)+box(224,'PLACA',t.placa,c.placa)+box(272,'P. BRUTO',kgs(t.bruto),c.bruto)+
+  box(140,'FECHA',fD(f),c.fecha)+box(204,'PLACA',t.placa,c.placa)+box(268,'P. BRUTO',kgs(t.bruto),c.bruto)+
   '<line x1="24" y1="304" x2="276" y2="304" stroke="#AEAEB2" stroke-dasharray="4 4"/>'+
   '<text x="150" y="334" text-anchor="middle" font-size="11" fill="#8E8E93" font-family="ui-monospace,Menlo,monospace">Conserve este comprobante</text>'+
   '<text x="150" y="376" text-anchor="middle" font-size="22" fill="#C7C7CC" font-family="ui-monospace,Menlo,monospace" letter-spacing="2">|||| ||| |||| || |||</text></svg>';}
-function ticketFor(i){return IMG[i.cod]?'<img src="'+IMG[i.cod]+'" alt="Fotografía del ticket de '+esc(i.cod)+'">':ticketSVG({placa:i.placa,fecha:i.fecha,bruto:i.bruto});}
+function ticketFor(i){if(i.foto===false)return '<div class="nofoto">'+ic('photo',34)+'<b>Sin respaldo fotográfico</b><span>'+esc(i.manual&&i.manual.motivo||'Registrado sin fotografía del ticket')+'</span></div>';return IMG[i.cod]?'<img src="'+IMG[i.cod]+'" alt="Fotografía del ticket de '+esc(i.cod)+'">':ticketSVG({placa:i.placa,fecha:i.fecha,bruto:i.bruto});}
 
 /* ================= Descargas (capacidad del visor) ================= */
 const DL=true;
@@ -642,13 +777,15 @@ async function saveFile(name,data,label){
 const NAV=[{sec:'General'},
   {k:'inicio',t:'Inicio',i:'home',h:'#/inicio',p:'inicio'},
   {k:'ingresos',t:'Ingresos',i:'tray',h:'#/ingresos',p:'ingresos',badge:()=>S.ingresos.filter(i=>i.estado==='proc').length},
+  {k:'calendario',t:'Calendario',i:'cal',h:'#/calendario',p:'ingresos'},
   {k:'lotes',t:'Trazabilidad',i:'flow',h:'#/lotes',p:'lotes'},
+  {k:'altas',t:'Alta de lotes',i:'checkC',h:'#/altas',p:'alta'},
   {k:'consulta',t:'Consulta',i:'search',h:'#/consulta',p:'consulta'},
   {k:'consolidacion',t:'Consolidación',i:'chart',h:'#/consolidacion',p:'consolidacion'},
   {sec:'Gestión'},
   {k:'catalogos',t:'Catálogos',i:'doc',h:'#/catalogos/vehiculos',p:'catalogos'},
   {k:'admin',t:'Administración',i:'shield',h:'#/admin/usuarios',p:'admin'}];
-const TITLES={inicio:'Inicio',ingresos:'Ingresos',lotes:'Trazabilidad',consulta:'Consulta',consolidacion:'Consolidación',catalogos:'Catálogos',admin:'Administración'};
+const TITLES={inicio:'Inicio',ingresos:'Ingresos',calendario:'Calendario',altas:'Alta de lotes',lotes:'Trazabilidad',consulta:'Consulta',consolidacion:'Consolidación',catalogos:'Catálogos',admin:'Administración'};
 function navHTML(active){let out='',pendSec=null;
   NAV.forEach(n=>{if(n.sec){pendSec=n.sec;return;}if(!can(n.p))return;if(pendSec){out+='<div class="nav-sec">'+pendSec+'</div>';pendSec=null;}
     const b=n.badge?n.badge():0;
@@ -688,7 +825,7 @@ function pInicio(){const u=me(),n=now(),hoy=isoD(n);
   const deHoy=S.ingresos.filter(i=>isoD(i.fecha)===hoy&&i.estado!=='anul');
   const netoHoy=deHoy.filter(i=>i.estado==='reg').reduce((a,i)=>a+i.neto,0);
   const pend=S.ingresos.filter(i=>i.estado==='proc');
-  const enCurso=S.lotes.filter(l=>l.etapas.length<4);
+  const enCurso=S.lotes.filter(l=>!loteCompleto(l));
   const h=n.getHours(),saludo=h<12?'Buenos días':h<19?'Buenas tardes':'Buenas noches';
   const acts=(can('consulta')?B('Consultar por placa','secondary','go','data-h="#/consulta"'):'')+(can('registrar')?B(ic('camera',16)+'Registrar ingreso','primary','go','data-h="#/registrar"'):'');
   const kp=(l,v,u,s,icn,tone,h)=>'<div class="card kpi'+(h?' link" data-a="go" data-h="'+h+'" role="link" tabindex="0':'')+'"><div class="k-top"><span>'+l+'</span><span class="tone-'+tone+'">'+ic(icn,18)+'</span></div><div class="k-val num">'+v+'<small>'+u+'</small></div><div class="k-sub">'+s+'</div></div>';
@@ -697,7 +834,7 @@ function pInicio(){const u=me(),n=now(),hoy=isoD(n);
   html+='<div class="grid g4">'+kp('Ingresos de hoy',deHoy.length,deHoy.length===1?'ingreso':'ingresos',ult?'Último a las '+fT(ult.fecha)+', '+ult.placa:'Aún no hay ingresos hoy','tray','blue',can('ingresos')?'#/ingresos':'')+
     kp('Toneladas netas hoy',num(netoHoy),'t',pend.length?'Sin contar '+pend.length+' en proceso':'Todos los ingresos tienen peso neto','scale','green',can('consolidacion')?'#/consolidacion':'')+
     kp('Pendientes de destare',pend.length,pend.length===1?'ingreso':'ingresos',pend.length?[...new Set(pend.map(i=>i.placa))].join(', ')+', vehículo sin tara':'Ningún vehículo espera destare','clock','orange',can('destare')?'#/destare':'')+
-    kp('Lotes en proceso',enCurso.length,enCurso.length===1?'lote':'lotes',enCurso.map(l=>l.cod.slice(4)).join(', ')||'Sin lotes activos','box','purple',can('lotes')?'#/lotes':'')+'</div>';
+    kp('Lotes en proceso',enCurso.length,enCurso.length===1?'lote':'lotes',enCurso.map(l=>l.nombre).join(', ')||'Sin lotes activos','box','purple',can('lotes')?'#/lotes':'')+'</div>';
   if(pend.length&&can('destare'))html+=bn('orange','warn','<b>'+pend.map(i=>i.cod).join(', ')+'</b> '+(pend.length===1?'está':'están')+' En proceso: registre el destare del vehículo para calcular el peso neto.',B('Registrar destare','plain sm','go','data-h="#/destare"'));
   // gráfico semanal
   const days=[];for(let k=6;k>=0;k--){const d=new Date(n);d.setDate(d.getDate()-k);const key=isoD(d);const L=S.ingresos.filter(i=>i.estado==='reg'&&isoD(i.fecha)===key);days.push({d,v:L.reduce((a,i)=>a+i.neto,0),c:L.length,today:k===0});}
@@ -712,62 +849,62 @@ function pInicio(){const u=me(),n=now(),hoy=isoD(n);
   return html;}
 
 /* ================= Ingresos (HU-M07-02) ================= */
-let FI=null;
-function resetFI(){const n=now();FI={est:'todos',desde:n.getFullYear()+'-'+pad(n.getMonth()+1)+'-01',hasta:isoD(n),min:'',q:''};}
-function filtrarIng(){return S.ingresos.filter(i=>{if(FI.est!=='todos'&&i.estado!==FI.est)return false;const d=isoD(i.fecha);
-  if(FI.desde&&d<FI.desde)return false;if(FI.hasta&&d>FI.hasta)return false;if(FI.min&&i.min!==FI.min)return false;
-  if(FI.q){const q=FI.q.toUpperCase().trim();if(!i.placa.includes(q)&&!i.cod.includes(q))return false;}return true;}).sort((a,b)=>b.fecha.localeCompare(a.fecha));}
-function ingTable(){const L=filtrarIng();
+let FI=null;const PS=8;
+function resetFI(){const n=now();FI={est:'todos',desde:n.getFullYear()+'-'+pad(n.getMonth()+1)+'-01',hasta:isoD(n),min:'',tit:'',q:'',page:1};}
+function filtrarIng(){const q=normPlaca(FI.q);return S.ingresos.filter(i=>{if(FI.est!=='todos'&&i.estado!==FI.est)return false;const d=isoD(i.fecha);
+  if(FI.desde&&d<FI.desde)return false;if(FI.hasta&&d>FI.hasta)return false;if(FI.min&&i.min!==FI.min)return false;if(FI.tit&&vehTit(i.placa)!==FI.tit)return false;
+  if(q&&!normPlaca(i.placa).includes(q)&&!normPlaca(i.cod).includes(q))return false;return true;}).sort((a,b)=>b.fecha.localeCompare(a.fecha));}
+function ingTable(){if(FI.desde&&FI.hasta&&FI.desde>FI.hasta)return bn('red','xCircle','La fecha inicial no puede ser posterior a la fecha final');
+  const L=filtrarIng();
   if(!L.length)return '<div class="card">'+empty('tray','No hay ingresos con estos filtros','Amplíe el rango de fechas o limpie los filtros para ver más resultados.',B('Limpiar filtros','secondary','ing-clear'))+'</div>';
-  const reg=L.filter(i=>i.estado==='reg'),tot=reg.reduce((a,i)=>a+i.neto,0);
-  return '<div class="card flush"><div class="table-scroll"><table class="tbl"><thead><tr><th>Código</th><th>Fecha y hora del ticket</th><th>Placa</th><th>Vehículo</th><th>Tipo de mineral</th><th class="r">Neto (t)</th><th>Estado</th><th>Registrado por</th><th><span class="hide">Acciones</span></th></tr></thead><tbody>'+
-  L.map(i=>'<tr class="click'+(i.estado==='anul'?' dim':'')+'" data-a="go" data-h="#/ingresos/'+i.cod+'"><td class="main" data-l="Código">'+i.cod+'</td><td data-l="Fecha y hora" class="num">'+fDT(i.fecha)+'</td><td data-l="Placa"><b>'+i.placa+'</b></td><td data-l="Vehículo" class="mh">'+vehTit(i.placa)+'</td><td data-l="Mineral">'+minName(i.min)+'</td><td class="r" data-l="Neto (t)">'+num(i.neto)+'</td><td data-l="Estado">'+estPill(i)+'</td><td data-l="Registrado por" class="mh">'+userName(i.user)+'</td><td class="act"><button type="button" class="icon-btn sm" data-a="row-menu" data-c="'+i.cod+'" aria-label="Acciones de '+i.cod+'">'+ic('more',18)+'</button></td></tr>').join('')+
-  '</tbody><tfoot><tr><td colspan="5" data-l="">'+L.length+(L.length===1?' ingreso':' ingresos')+'</td><td class="r" data-l="Neto registrado">'+num(tot)+'</td><td colspan="3" class="mh faint" style="font-weight:400">Solo suman los Registrados</td></tr></tfoot></table></div></div>';}
+  const pages=Math.ceil(L.length/PS);if(FI.page>pages)FI.page=pages;if(FI.page<1)FI.page=1;const P=L.slice((FI.page-1)*PS,FI.page*PS);
+  const tot=L.filter(i=>i.estado==='reg').reduce((a,i)=>a+i.neto,0);
+  return '<div class="card flush"><div class="table-scroll"><table class="tbl"><thead><tr><th>Código</th><th>Fecha y hora del pesaje</th><th>Placa</th><th>Vehículo</th><th>Tipo de mineral</th><th class="r">Neto (t)</th><th>Estado</th><th>Registrado por</th><th><span class="hide">Acciones</span></th></tr></thead><tbody>'+
+  P.map(i=>'<tr class="click'+(i.estado==='anul'?' dim':'')+'" data-a="go" data-h="#/ingresos/'+i.cod+'"><td class="main" data-l="Código">'+i.cod+'</td><td data-l="Pesaje" class="num">'+fDT(i.fecha)+'</td><td data-l="Placa"><b>'+i.placa+'</b></td><td data-l="Vehículo" class="mh">'+vehTit(i.placa)+'</td><td data-l="Mineral">'+minName(i.min)+'</td><td class="r" data-l="Neto (t)">'+(i.estado==='proc'?'<span class="faint">Pendiente</span>':num(i.neto))+'</td><td data-l="Estado">'+pill(ST[i.estado][0],ST[i.estado][1],1)+(i.foto===false?' '+pill('Sin foto','gray'):'')+'</td><td data-l="Registrado por" class="mh">'+userName(i.user)+'</td><td class="act"><button type="button" class="icon-btn sm" data-a="row-menu" data-c="'+i.cod+'" aria-label="Acciones de '+i.cod+'">'+ic('more',18)+'</button></td></tr>').join('')+
+  '</tbody><tfoot><tr><td colspan="5" data-l="">'+L.length+(L.length===1?' ingreso':' ingresos')+'</td><td class="r" data-l="Neto registrado">'+num(tot)+'</td><td colspan="3" class="mh faint" style="font-weight:400">Solo suman los Registrados</td></tr></tfoot></table></div></div>'+
+  '<div class="row between wrap pager"><span class="small muted">Mostrando '+((FI.page-1)*PS+1)+' a '+Math.min(FI.page*PS,L.length)+' de '+L.length+'</span><div class="actions">'+B(ic('chevL',16),'secondary sm','ing-page','data-k="'+(FI.page-1)+'" aria-label="Página anterior"'+(FI.page<=1?' disabled':''))+'<span class="small">Página '+FI.page+' de '+pages+'</span>'+B(ic('chevR',16),'secondary sm','ing-page','data-k="'+(FI.page+1)+'" aria-label="Página siguiente"'+(FI.page>=pages?' disabled':''))+'</div></div>';}
 function pIngresos(){if(!FI)resetFI();
-  const acts=(can('exportar')&&DL?B(ic('down',16)+'Exportar','secondary','ing-export'):'')+(can('destare')?B('Registrar destare','secondary','go','data-h="#/destare"'):'')+(can('registrar')?B(ic('camera',16)+'Registrar ingreso','primary','go','data-h="#/registrar"'):'');
+  const acts=B(ic('cal',16)+'Calendario','secondary','go','data-h="#/calendario"')+(can('exportar')&&DL?B(ic('down',16)+'Exportar','secondary','ing-export'):'')+(can('destare')?B('Registrar destare','secondary','go','data-h="#/destare"'):'')+(can('registrar')?B(ic('camera',16)+'Registrar ingreso','primary','go','data-h="#/registrar"'):'');
   const c=k=>S.ingresos.filter(i=>k==='todos'||i.estado===k).length;
   return head('Ingresos','Ingresos de mineral registrados en la planta, con su ticket de respaldo',acts)+
   '<div class="stack tight"><div class="row wrap">'+segBtns([['todos','Todos'],['reg','Registrados'],['proc','En proceso ('+c('proc')+')'],['anul','Anulados']],FI.est,'ing-est')+'</div>'+
-  '<div class="grid g4">'+
+  '<div class="grid g5">'+
     '<div class="field"><label for="fi-d">Desde</label><input class="input" type="date" id="fi-d" value="'+FI.desde+'" data-ch="ing-f" data-k="desde"></div>'+
     '<div class="field"><label for="fi-h">Hasta</label><input class="input" type="date" id="fi-h" value="'+FI.hasta+'" data-ch="ing-f" data-k="hasta"></div>'+
     '<div class="field"><label for="fi-m">Tipo de mineral</label><select class="input" id="fi-m" data-ch="ing-f" data-k="min"><option value="">Todos</option>'+S.minerales.map(m=>'<option value="'+m.cod+'"'+(FI.min===m.cod?' selected':'')+'>'+esc(m.nombre)+'</option>').join('')+'</select></div>'+
-    '<div class="field"><label for="fi-q">Placa o código</label><div class="input-wrap"><span class="prefix">'+ic('search',16)+'</span><input class="input" id="fi-q" value="'+esc(FI.q)+'" placeholder="Ej. C9K-741" data-in="ing-q" autocomplete="off"></div></div></div></div>'+
-  '<div id="ing-table">'+ingTable()+'</div>';}
+    '<div class="field"><label for="fi-t">Titularidad</label><select class="input" id="fi-t" data-ch="ing-f" data-k="tit"><option value="">Todas</option><option'+(FI.tit==='Propio'?' selected':'')+'>Propio</option><option'+(FI.tit==='Externo'?' selected':'')+'>Externo</option></select></div>'+
+    '<div class="field"><label for="fi-q">Vehículo o código</label><div class="input-wrap"><span class="prefix">'+ic('search',16)+'</span><input class="input" id="fi-q" value="'+esc(FI.q)+'" placeholder="Ej. C9K741" data-in="ing-q" autocomplete="off"></div></div></div></div>'+
+  '<div id="ing-table" class="stack tight">'+ingTable()+'</div>';}
 
 /* ================= Detalle del ingreso ================= */
 const DTABS=[['datos','Datos'],['ticket','Ticket'],['reconocimiento','Reconocimiento'],['validacion','Validación'],['trazabilidad','Trazabilidad'],['historial','Historial']];
-function stageCards(l,withAction){return '<div class="stages">'+ETAPAS.map((e,k)=>{const r=l.etapas[k];const next=!r&&k===l.etapas.length;
-  const cls=r?'ok':(next&&l.estado==='cerrado'?'next':'');
-  let body=r?pill('Completada','green')+'<p class="small muted">'+fDT(r.f)+', '+userName(r.u)+'</p>'+(r.obs?'<p class="xs faint">'+esc(r.obs)+'</p>':''):
-    next?(l.estado==='abierto'?pill('Espera el cierre del lote','gray')+'<p class="small muted">El lote debe cerrarse antes de registrar etapas</p>':pill('Siguiente etapa','blue')+'<p class="small muted">'+(k?'Después de '+ETAPAS[k-1]:'Primera etapa del proceso')+'</p>'+(withAction&&can('lotes.etapa')?B('Registrar paso','primary sm','lote-paso','data-c="'+l.cod+'"'):'')):
-    pill('Pendiente','gray')+'<p class="small muted">Después de '+ETAPAS[k-1]+'</p>';
-  return '<div class="stage '+cls+'"><div class="row"><span class="s-n">'+(r?ic('check',16):k+1)+'</span><h3>'+e+'</h3></div>'+body+'</div>';}).join('')+'</div>';}
 function pDetalle(cod,tab){const i=ing(cod);if(!i)return head('Ingreso no encontrado','',null,['Ingresos','#/ingresos'])+'<div class="card">'+empty('search','No existe el ingreso '+esc(cod),'Revise el código o búsquelo por placa y fecha en Consulta.',B('Ir a Consulta','secondary','go','data-h="#/consulta"'))+'</div>';
   const v=veh(i.placa)||{};const tr=v.transp?transp(v.transp):null;
   let acts='';if(i.estado!=='anul'){if(can('corregir'))acts+=B(ic('edit',16)+'Corregir','secondary','corregir','data-c="'+i.cod+'"');if(can('anular'))acts+=B('Anular','danger-plain','anular','data-c="'+i.cod+'"');}
   if(i.estado==='proc'&&can('destare'))acts+=B('Registrar destare','primary','go','data-h="#/destare"');
   let html=head(i.cod,fDT(i.fecha)+', '+i.placa+', '+minName(i.min),acts,['Ingresos','#/ingresos']);
-  html+='<div class="row wrap">'+estPill(i)+(i.just.V1?pill('Posible duplicado justificado','orange'):'')+(i.just.V4?pill('Advertencia V4 justificada','orange'):'')+'</div>';
+  html+='<div class="row wrap">'+estPill(i)+(i.manual?pill(i.manual.tipo==='sinfoto'?'Sin foto del ticket':'Ingreso manual','gray'):'')+(i.just.V1?pill('Posible duplicado justificado','orange'):'')+(i.just.V4?pill('Advertencia V4 justificada','orange'):'')+'</div>';
   if(i.estado==='anul')html+=bn('red','xCircle','Anulado el '+fDT(i.anul.t)+' por '+userName(i.anul.u)+'. Motivo: '+esc(i.anul.motivo)+' Ya no cuenta en los totales, pero se conserva en el historial.');
   if(i.estado==='proc')html+=bn('orange','clock','Este ingreso está En proceso: el vehículo '+i.placa+' aún no tiene tara. El peso neto se calcula al registrar el destare.');
   html+=segLinks(DTABS.map(([k,t])=>[k,t,'#/ingresos/'+i.cod+'/'+k]),tab);
   if(tab==='datos'){
     html+='<div class="card pad-lg"><h2>Datos del ingreso</h2><div class="grid g4">'+kv('Placa',i.placa)+kv('Tipo de vehículo',v.tit||'—')+kv('Transportista',tr?esc(tr.razon):'No aplica')+kv('Capacidad del vehículo',tn(v.cap))+
       kv('Tipo de mineral',minName(i.min))+kv('Fecha y hora del ticket',fDT(i.fecha))+kv('Peso bruto',tn(i.bruto))+kv('Tara aplicada',i.tara==null?'Pendiente de destare':tn(i.tara))+
-      kv('Peso neto',tn(i.neto),'big')+kv('Lote de proceso',i.lote?'<a href="#/lotes/'+i.lote+'">'+i.lote+'</a>':'Sin asignar')+kv('Registrado por',userName(i.user))+kv('Estado',ST[i.estado][0])+'</div></div>';
+      kv('Peso neto',tn(i.neto),'big')+kv('Lote de proceso',i.lote?'<a href="#/lotes/'+i.lote+'">'+i.lote+'</a>':'Sin asignar')+kv('Registrado por',userName(i.user))+kv('Estado',ST[i.estado][0])+kv('Número de ticket',i.ticket||'No consignado')+kv('Forma de registro',i.manual?(i.manual.tipo==='sinfoto'?'Manual, sin foto':'Manual, ticket ilegible'):'Lectura automática')+'</div></div>';
     const dur=Math.round((D(i.fin)-D(i.ini))/1000);
     html+='<div class="grid g2"><div class="card"><h2>Marcas de tiempo del servidor</h2><div class="grid g3">'+kv('Inicio del registro',fDTS(i.ini))+kv('Fin del registro',fDTS(i.fin))+kv('Duración',Math.floor(dur/60)+' min '+pad(dur%60)+' s')+'</div><p class="small muted">Las asigna el servidor; sirven para medir la oportunidad del registro.</p></div>'+
       '<div class="card"><h2>Justificaciones</h2>'+(i.just.V1||i.just.V4?(i.just.V1?'<div class="kv"><span>Posible duplicado (V1)</span><b style="font-weight:400">'+esc(i.just.V1)+'</b></div>':'')+(i.just.V4?'<div class="kv"><span>Peso fuera de rango (V4)</span><b style="font-weight:400">'+esc(i.just.V4)+'</b></div>':''):'<p class="muted small">El ingreso cumplió todas las reglas; no requirió justificación.</p>')+'</div></div>';}
   if(tab==='ticket'){
-    html+='<div class="split"><div class="viewer">'+ticketFor(i)+'</div><div class="card"><h2>Respaldo fotográfico</h2>'+kv('Archivo',IMG[i.cod]?'foto_'+i.cod.toLowerCase()+'.jpg':'ticket_'+i.cod.slice(-5)+'.jpg')+kv('Subido',fDTS(i.ini)+', '+userName(i.user))+kv('Integridad','Imagen original sin modificaciones')+
-      '<hr class="sep">'+(DL?B(ic('down',16)+'Descargar imagen','secondary','dl-ticket','data-c="'+i.cod+'"'):'')+(can('consulta')?B('Abrir en Consulta','plain','go','data-h="#/consulta?placa='+i.placa+'&f='+isoD(i.fecha)+'"'):'')+'</div></div>';}
-  if(tab==='reconocimiento'){
-    const rows=[['Placa',i.ocr.placa[0],i.ocr.placa[1],i.placa,i.ocr.placa[0]===i.placa],['Fecha y hora',fDT(i.ocr.fecha[0]),i.ocr.fecha[1],fDT(i.fecha),iso(i.ocr.fecha[0])===iso(i.fecha)],['Peso bruto',tn(i.ocr.bruto[0]),i.ocr.bruto[1],tn(i.bruto),Math.abs(i.ocr.bruto[0]-i.bruto)<0.001]];
-    const avg=(i.ocr.placa[1]+i.ocr.fecha[1]+i.ocr.bruto[1])/3,corr=rows.filter(r=>!r[4]).length;
+    html+='<div class="split"><div class="viewer"'+(i.foto===false?'':' data-a="zoom" data-c="'+i.cod+'" style="cursor:zoom-in"')+'>'+ticketFor(i)+(i.foto===false?'':'<span class="vtag">'+ic('search',14)+'Ampliar</span>')+'</div><div class="card"><h2>Respaldo fotográfico</h2>'+
+      (i.foto===false?kv('Respaldo','Sin fotografía del ticket')+kv('Motivo',esc(i.manual&&i.manual.motivo||'—')):kv('Archivo',IMG[i.cod]?'foto_'+i.cod.toLowerCase()+'.jpg':'ticket_'+i.cod.slice(-5)+'.jpg')+kv('Subido',fDTS(i.ini)+', '+userName(i.user))+kv('Integridad','Imagen original sin modificaciones'))+
+      '<hr class="sep">'+(DL&&i.foto!==false?B(ic('down',16)+'Descargar imagen','secondary','dl-ticket','data-c="'+i.cod+'"'):'')+(can('consulta')?B('Abrir en Consulta','plain','go','data-h="#/consulta?placa='+i.placa+'&f='+isoD(i.fecha)+'"'):'')+'</div></div>';}
+  if(tab==='reconocimiento'&&!i.ocr)html+='<div class="card">'+empty('spark','No hubo reconocimiento automático',esc(i.manual?i.manual.motivo+'. Los datos se ingresaron manualmente.':''))+'</div>';
+  if(tab==='reconocimiento'&&i.ocr){
+    const rows=[['Placa',i.ocr.placa[0],i.ocr.placa[1],i.placa,i.ocr.placa[0]===i.placa],...(i.ocr.fecha?[['Fecha del pesaje',fD(i.ocr.fecha[0]),i.ocr.fecha[1],fD(i.fecha),isoD(i.ocr.fecha[0])===isoD(i.fecha)]]:[]),['Peso bruto',tn(i.ocr.bruto[0]),i.ocr.bruto[1],tn(i.bruto),Math.abs(i.ocr.bruto[0]-i.bruto)<0.001]];
+    const avg=rows.reduce((s,r)=>s+r[2],0)/rows.length,corr=rows.filter(r=>!r[4]).length;
     html+='<div class="grid g3"><div class="card kpi"><div class="k-top"><span>Confianza media</span><span class="tone-'+(avg<0.8?'orange':'green')+'">'+ic('spark',18)+'</span></div><div class="k-val num">'+num(avg)+'</div><div class="k-sub">Umbral de revisión: 0,80</div></div>'+
-      '<div class="card kpi"><div class="k-top"><span>Campos corregidos por el usuario</span><span class="tone-orange">'+ic('edit',18)+'</span></div><div class="k-val num">'+corr+'<small>de 3</small></div><div class="k-sub">Antes de confirmar el registro</div></div>'+
-      '<div class="card kpi"><div class="k-top"><span>Campos leídos</span><span class="tone-blue">'+ic('photo',18)+'</span></div><div class="k-val num">3<small>de 3</small></div><div class="k-sub">El ticket solo imprime placa, fecha y peso bruto</div></div></div>'+
+      '<div class="card kpi"><div class="k-top"><span>Campos corregidos por el usuario</span><span class="tone-orange">'+ic('edit',18)+'</span></div><div class="k-val num">'+corr+'<small>de '+rows.length+'</small></div><div class="k-sub">Antes de confirmar el registro</div></div>'+
+      '<div class="card kpi"><div class="k-top"><span>Campos leídos</span><span class="tone-blue">'+ic('photo',18)+'</span></div><div class="k-val num">'+rows.length+'</div><div class="k-sub">La fecha y la hora del pesaje las asigna el sistema</div></div></div>'+
       '<div class="card flush"><div class="table-scroll"><table class="tbl"><thead><tr><th>Campo</th><th>Leído por el sistema</th><th>Confianza</th><th>Confirmado por el usuario</th><th>Resultado</th></tr></thead><tbody>'+
       rows.map(r=>'<tr><td class="main" data-l="Campo">'+r[0]+'</td><td data-l="Leído">'+esc(r[1])+'</td><td data-l="Confianza">'+pill(num(r[2]),r[2]<0.8?'orange':'green')+'</td><td data-l="Confirmado">'+esc(r[3])+'</td><td data-l="Resultado">'+(r[4]?pill('Sin cambios','green'):pill('Corregido por el usuario','orange'))+'</td></tr>').join('')+'</tbody></table></div></div>'+
       bn('blue','info','Comparar lo leído con lo confirmado muestra en qué campos falla el reconocimiento. Los campos con confianza menor a 0,80 se marcan para revisión antes de confirmar.');}
@@ -775,9 +912,8 @@ function pDetalle(cod,tab){const i=ing(cod);if(!i)return head('Ingreso no encont
     html+='<div class="card"><div class="card-h"><h2>Reglas de consistencia</h2><span class="xs faint">Evaluadas sobre lo propuesto por el reconocimiento y sobre lo confirmado</span></div><div>'+
       RULES.map(([c,t])=>{let r=i.val[c]||'ok';if(r==='warn'&&i.just[c])r='just';return ruleRow(c,t,r,i.just[c]?'Justificación: '+i.just[c]:(r==='omit'?'Se evaluará al registrar el destare del vehículo':''));}).join('')+'</div></div>';}
   if(tab==='trazabilidad'){const l=i.lote?lote(i.lote):null;
-    if(!l)html+='<div class="card">'+empty('box','Este ingreso aún no está en un lote',i.estado==='reg'?'El mineral espera en cancha hasta que se asigne a un lote de proceso de '+minName(i.min)+'.':'Solo los ingresos Registrados pueden asignarse a un lote.',i.estado==='reg'&&can('lotes.gestion')?B('Ir a lotes de proceso','secondary','go','data-h="#/lotes"'):'')+'</div>';
-    else{const le=loteEstado(l);html+='<div class="card"><div class="row wrap"><span class="tone-purple">'+ic('box',26)+'</span><div style="flex:1;min-width:200px"><h2>'+l.cod+'</h2><p class="small muted">'+minName(l.min)+', '+l.ing.length+' ingresos, '+tn(loteTon(l))+'</p></div>'+pill(le[0],le[1],1)+B('Ver lote','secondary','go','data-h="#/lotes/'+l.cod+'"')+'</div></div>'+
-      '<div class="row between"><h2>Recorrido del mineral</h2><span class="small muted">'+l.etapas.length+' de 4 etapas completadas</span></div>'+stageCards(l,false);}}
+    if(!l)html+=bn('gray','info','Este ingreso aún no tiene lote. '+(i.estado==='reg'?'El mineral espera en cancha hasta que se agregue a un lote de '+minName(i.min)+'.':'Solo los ingresos Registrados pueden agregarse a un lote.'))+'<div class="stages">'+ETAPAS.map(e=>stCard(e,null,'pend','')).join('')+'</div><p class="small muted">0 de 4 etapas recorridas.</p>';
+    else html+=loteResumen(l,i)+trazView(l,false);}
   if(tab==='historial'){const ev=S.audit.filter(e=>e.ref===i.cod||(e.ent==='Lote'&&i.lote===e.ref&&(e.det.includes(i.cod)||e.acc==='Etapa registrada'||e.acc==='Lote cerrado'))).slice().sort((a,b)=>a.t.localeCompare(b.t));
     const tone={'Ticket reconocido':'#C98A1B','Dato propuesto corregido':'#E58A00','Ingreso registrado':'#2E7D32','Ingreso corregido':'#8A5C2B','Ingreso anulado':'#B3261E','Destare registrado':'#2E7D32'};
     html+='<div class="card"><div class="card-h"><h2>Historial del registro</h2>'+(can('admin')?'<a href="#/admin/auditoria" class="small" style="font-weight:500">Ver auditoría completa</a>':'')+'</div><div class="tl">'+
@@ -786,22 +922,31 @@ function pDetalle(cod,tab){const i=ing(cod);if(!i)return head('Ingreso no encont
 
 /* ================= Registrar ingreso (HU-M03-01, M04-01, M05-01) ================= */
 const DEMOS=[
-  {k:'normal',t:'Peso dentro de la capacidad',s:'V2K-841, vehículo propio con tara registrada',placa:'V2K-841',min:-6,bruto:29.2,c:[.97,.96,.94]},
-  {k:'baja',t:'Lectura con confianza baja',s:'B5A-812: el sistema no lee bien el peso bruto',placa:'B5A-812',min:-5,bruto:31.1,real:32.1,c:[.93,.95,.68]},
-  {k:'dup',t:'Ticket posiblemente duplicado',s:'C9K-741, el mismo ticket de las 07:42',placa:'C9K-741',fecha:'2027-03-12T07:42',bruto:28.4,c:[.96,.97,.95]},
-  {k:'sintara',t:'Vehículo nuevo sin tara',s:'E4R-208: el ingreso quedará En proceso',placa:'E4R-208',min:-4,bruto:28.8,c:[.95,.96,.93]},
-  {k:'futura',t:'Fecha posterior al registro',s:'F7T-615 con el reloj de la balanza adelantado',placa:'F7T-615',min:45,bruto:30.5,c:[.94,.9,.95]}];
+  {k:'normal',t:'Ticket legible',s:'V2K-841, vehículo propio con tara registrada',placa:['V2K-841',.97],bruto:[29.2,.94]},
+  {k:'placa',t:'Placa leída con error',s:'El sistema confunde un 8 con una B: corrija la placa',placa:['V2K-B41',.58],real:{placa:'V2K-841'},bruto:[27.9,.95]},
+  {k:'nuevo',t:'Vehículo que no está en el catálogo',s:'G7T-552 llega por primera vez: regístrelo sin salir',placa:['G7T-552',.95],bruto:[30.4,.93]},
+  {k:'baja',t:'Peso leído con baja confianza',s:'B5A-812: compare el peso con la imagen',placa:['B5A-812',.93],bruto:[31.1,.68],real:{bruto:32.1}},
+  {k:'sintara',t:'Vehículo sin tara',s:'E4R-208: el ingreso quedará En proceso',placa:['E4R-208',.95],bruto:[28.8,.93]},
+  {k:'dup',t:'Ticket posiblemente duplicado',s:'C9K-741 con el mismo peso de hoy',placa:['C9K-741',.96],bruto:[28.4,.95]},
+  {k:'ilegible',t:'Ticket ilegible',s:'Foto movida: los datos se ingresan a mano',fail:true}];
+const MOTIVOS_SF=['Ticket extraviado o dañado','Sin cámara o sin señal en el punto de pesaje','La balanza no emitió ticket','Otro'];
 let REG=null;
-function regNew(){REG={paso:1,err:null,img:null,sim:false,prop:null,imgT:null,dt:null,just:{},jkey:null,ini:null,cod:null,token:0};}
+const minOpts=sel=>'<option value="">Seleccione</option>'+S.minerales.filter(m=>m.activo).map(m=>'<option value="'+m.cod+'"'+(sel===m.cod?' selected':'')+'>'+esc(m.nombre)+'</option>').join('');
+function regNew(){REG={paso:1,err:null,img:null,sim:false,manual:null,prop:null,imgT:null,dt:null,just:{},jkey:null,ini:null,cod:null,token:0,aviso:null};}
 const regSteps=n=>'<div class="steps" aria-label="Pasos del registro"><div class="step '+(n===1?'on':'done')+'"><span class="n">'+(n>1?ic('check',14):'1')+'</span>Captura del ticket</div><div class="step-line'+(n>1?' done':'')+'"></div><div class="step '+(n===2?'on':(n>2?'done':''))+'"><span class="n">'+(n>2?ic('check',14):'2')+'</span>Revisión y confirmación</div></div>';
-function regViewer(scan){return '<div class="viewer">'+(REG.img?'<img src="'+REG.img+'" alt="Fotografía del ticket">':ticketSVG(REG.imgT,!scan))+(scan?'<div class="scan"></div><span class="vtag">'+ic('spark',14)+'Leyendo el ticket…</span>':'<span class="vtag">'+ic('spark',14)+'Lectura automática</span>')+'</div>';}
+function regViewer(scan){
+  if(REG.manual&&REG.manual.tipo==='sinfoto')return '<div class="viewer"><div class="nofoto">'+ic('photo',34)+'<b>Registro sin fotografía</b><span>El ingreso quedará sin respaldo del ticket y con el motivo que indique.</span></div></div>';
+  const blur=REG.imgT&&REG.imgT.blur&&!REG.img;
+  return '<div class="viewer'+(blur?' blur':'')+'">'+(REG.img?'<img src="'+REG.img+'" alt="Fotografía del ticket">':ticketSVG(REG.imgT,!scan&&!REG.manual))+
+    (scan?'<div class="scan"></div><span class="vtag">'+ic('spark',14)+'Leyendo el ticket…</span>':(REG.manual?'<span class="vtag">'+ic('edit',14)+'Ingreso manual</span>':'<span class="vtag">'+ic('spark',14)+'Lectura automática</span>'))+'</div>';}
 function regSide(){const d=REG.dt,e=evaluar(d),v=e.v;let h='';
   if(!d.placa)h+='<div class="card"><p class="muted small">Escriba la placa para ver los datos del vehículo.</p></div>';
-  else if(!v)h+=bn('red','xCircle','La placa <b>'+esc(d.placa)+'</b> no está en el catálogo de vehículos. Revise la lectura o pida que registren el vehículo.');
+  else if(e.r.V3==='block')h+=bn('red','xCircle','La placa no tiene un formato válido. Use el formato de placa peruana, por ejemplo ABC-123.');
+  else if(e.vehEstado==='nuevo')h+='<div class="card newveh"><div class="row top"><span class="tone-orange">'+ic('truck',24)+'</span><div style="flex:1"><h2>'+esc(d.placa)+' no está en el catálogo</h2><p class="small muted">Si es su primer viaje a la planta, regístrelo aquí mismo. No perderá la foto ni los datos que ya revisó.</p></div></div><div class="actions">'+B(ic('plus',16)+'Registrar vehículo','primary','veh-quick')+'</div><p class="xs faint">Si la placa está mal leída, corríjala en el campo Placa.</p></div>';
+  else if(e.vehEstado==='baja')h+=bn('red','xCircle','El vehículo '+esc(d.placa)+' está dado de baja: no puede asociarse a un ingreso nuevo.');
   else{const tr=v.transp?transp(v.transp):null;
-    h+='<div class="card"><div class="card-h"><div class="row"><span class="tone-'+(v.tara==null?'orange':'blue')+'">'+ic('truck',22)+'</span><div><h2>'+v.placa+'</h2><p class="small muted">Datos del catálogo de vehículos</p></div></div>'+(v.activo?(v.tara==null?pill('Sin tara','orange',1):pill('Activo','green',1)):pill('Dado de baja','red',1))+'</div>'+
-      '<div class="grid g4">'+kv('Titularidad',v.tit)+kv('Transportista',tr?esc(tr.razon):'No aplica')+kv('Capacidad',tn(v.cap))+kv('Tara registrada',v.tara==null?'Pendiente':tn(v.tara))+'</div></div>';}
-  if(v&&v.activo){
+    h+='<div class="card"><div class="card-h"><div class="row"><span class="tone-'+(v.tara==null?'orange':'blue')+'">'+ic('truck',22)+'</span><div><h2>'+v.placa+'</h2><p class="small muted">Datos del catálogo de vehículos</p></div></div>'+(v.tara==null?pill('Sin tara','orange',1):pill('Activo','green',1))+'</div>'+
+      '<div class="grid g4">'+kv('Titularidad',v.tit)+kv('Transportista',tr?esc(tr.razon):'No aplica')+kv('Capacidad',tn(v.cap))+kv('Tara registrada',v.tara==null?'Pendiente':tn(v.tara))+'</div></div>';
     if(v.tara==null)h+=bn('orange','clock','El vehículo aún no tiene tara. El ingreso se confirmará <b>En proceso</b> con su peso bruto y recibirá el peso neto al registrar el destare.');
     else if(e.neto!=null)h+='<div class="card"><div class="netbox"><div><h2>Peso neto calculado</h2><p class="small muted">Peso bruto '+tn(d.bruto)+' menos tara '+tn(v.tara)+'</p></div><div class="val">'+tn(e.neto)+'</div></div>'+(e.r.V4==='warn'?bn('orange','warn','Supera la capacidad del vehículo ('+tn(v.cap)+'). Puede confirmar indicando una justificación.'):'')+'</div>';}
   h+='<div class="card"><div class="card-h"><h2>Reglas de consistencia</h2><span class="xs faint">Se vuelven a evaluar al confirmar</span></div><div>'+RULES.map(([c,t])=>{let r=e.r[c];if(r==='warn'&&(REG.just[c]||'').trim())r='just';return ruleRow(c,t,r,e.msg[c]);}).join('')+'</div></div>';
@@ -809,40 +954,49 @@ function regSide(){const d=REG.dt,e=evaluar(d),v=e.v;let h='';
 function regJust(e){const need=['V1','V4'].filter(c=>e.r[c]==='warn');if(!need.length)return '';
   return '<div class="card"><h2>Justificaciones requeridas</h2>'+need.map(c=>'<div class="field"><label for="j-'+c+'">'+(c==='V1'?'Justificación del posible duplicado (V1) *':'Justificación del peso fuera de rango (V4) *')+'</label><textarea class="input" id="j-'+c+'" data-in="reg-just" data-k="'+c+'" placeholder="'+(c==='V1'?'Ej. el volquete hizo dos viajes con el mismo peso':'Ej. carga con humedad por lluvia; se verificó el volquete')+'">'+esc(REG.just[c]||'')+'</textarea></div>').join('')+'</div>';}
 function pRegistrar(){if(!REG)regNew();
-  const H=head('Registrar ingreso',REG.paso===2?'Revise lo que leyó el sistema, corrija si hace falta y confirme':'Fotografíe el ticket de balanza apenas el volquete sale de la balanza',null,['Ingresos','#/ingresos']);
+  const H=head('Registrar ingreso',REG.paso===2?'Revise los datos, corrija lo que haga falta y confirme':'Fotografíe el ticket de balanza apenas el volquete sale de la balanza',null,['Ingresos','#/ingresos']);
   if(REG.paso===1){
     return H+regSteps(1)+(REG.err?bn('red','xCircle',esc(REG.err)):'')+'<div class="split"><div class="drop'+(REG.err?' err':'')+'" id="drop"><div class="d-ic">'+ic(REG.err?'photo':'camera',34)+'</div><h2>Fotografíe o seleccione el ticket de balanza</h2><p class="muted small">También puede arrastrar la imagen a esta zona. JPG o PNG, hasta 10 MB.</p>'+
       '<div class="actions" style="justify-content:center">'+B(ic('camera',16)+'Tomar foto','primary lg','reg-pick','data-t="cam"')+B('Seleccionar archivo','secondary lg','reg-pick','data-t="file"')+'</div>'+
-      B('Usar un ticket de ejemplo','plain sm','reg-demos')+
+      '<div class="actions" style="justify-content:center">'+B('Usar un ticket de ejemplo','plain sm','reg-demos')+B(ic('edit',14)+'Registrar sin foto','plain sm','reg-manual')+'</div>'+
       '<input type="file" id="reg-file" accept="image/jpeg,image/png" hidden data-ch="reg-file"><input type="file" id="reg-cam" accept="image/*" capture="environment" hidden data-ch="reg-file"></div>'+
       '<div class="card"><h2>Para una buena lectura</h2>'+['El ticket completo dentro del encuadre','Luz pareja, sin reflejos sobre el peso','Papel extendido, sin dobleces'].map(s=>'<div class="row"><span class="tone-green">'+ic('checkC',18)+'</span><span class="small">'+s+'</span></div>').join('')+
-      '<hr class="sep"><p class="small muted">El sistema lee la placa, la fecha y el peso bruto, que es lo único que imprime el ticket. Nada se guarda hasta que confirme en el paso 2.</p></div></div>';}
+      '<hr class="sep"><p class="small muted">El sistema lee la placa, la fecha y el peso bruto, que es lo que imprime el ticket. Si no hay ticket o no se puede fotografiar, use «Registrar sin foto».</p></div></div>';}
   if(REG.paso==='leyendo'){
-    return H+regSteps(1)+'<div class="split-l">'+regViewer(true)+'<div class="card pad-lg"><h2 style="font-size:22px">Leyendo el ticket…</h2><p class="muted">El reconocimiento tarda unos segundos. No cierre esta ventana.</p><div class="progress"><i></i></div>'+
+    return H+regSteps(1)+'<div class="split-l">'+regViewer(true)+'<div class="card pad-lg"><h2 style="font-size:24px">Leyendo el ticket…</h2><p class="muted">El reconocimiento tarda unos segundos. No cierre esta ventana.</p><div class="progress"><i></i></div>'+
       '<div class="stack tight"><div class="row"><span class="tone-green">'+ic('checkC',18)+'</span><span class="small">Imagen recibida</span></div><div class="row"><span class="tone-blue">'+ic('spark',18)+'</span><span class="small">Reconociendo placa, fecha y peso bruto</span></div><div class="row"><span class="tone-gray">'+ic('clock',18)+'</span><span class="small muted">Validando consistencia (V1 a V5)</span></div></div></div></div>';}
   if(REG.paso===2){const d=REG.dt,p=REG.prop,e=evaluar(d);REG.jkey=['V1','V4'].filter(c=>e.r[c]==='warn').join(',');
-    const low=p.c[2]<0.8&&Math.abs((d.bruto||0)-p.bruto)<0.001;
-    const lab=(t,conf)=>'<span>'+t+' *</span><span class="spacer"></span>'+pill('Confianza '+num(conf),conf<0.8?'orange':'green');
-    return H+regSteps(2)+'<div class="split-l"><div class="stack tight">'+regViewer(false)+(REG.sim?'<p class="xs faint">Imagen propia: en esta demostración los valores propuestos son de ejemplo. En el sistema real los lee el servidor.</p>':'<p class="xs faint">Los recuadros marcan lo que reconoció el sistema y su confianza.</p>')+'</div>'+
-      '<div class="stack"><div class="card"><div class="card-h"><h2>Datos reconocidos del ticket</h2>'+pill('Lectura automática','purple')+'</div><div class="grid g2">'+
-      '<div class="field"><label class="lbl" for="r-placa">'+lab('Placa',p.c[0])+'</label><input class="input" id="r-placa" value="'+esc(d.placa)+'" data-in="reg-in" data-k="placa" autocomplete="off" autocapitalize="characters" spellcheck="false"></div>'+
-      '<div class="field"><label class="lbl" for="r-fecha">'+lab('Fecha y hora del ticket',p.c[1])+'</label><input class="input" type="datetime-local" id="r-fecha" value="'+esc(d.fecha)+'" data-in="reg-in" data-k="fecha"></div>'+
-      '<div class="field"><label class="lbl" for="r-bruto">'+lab('Peso bruto',p.c[2])+'</label><div class="input-wrap"><input class="input'+(low?' warn':'')+'" id="r-bruto" inputmode="decimal" value="'+num(d.bruto)+'" data-in="reg-in" data-k="bruto" autocomplete="off"><span class="suffix">t</span></div>'+(p.c[2]<0.8?'<span class="hint orange">Confianza baja: compare el peso con la imagen antes de confirmar</span>':'')+'</div>'+
-      '<div class="field"><label for="r-min">Tipo de mineral *</label><select class="input" id="r-min" data-ch="reg-in" data-k="min"><option value="">Seleccione</option>'+S.minerales.filter(m=>m.activo).map(m=>'<option value="'+m.cod+'"'+(d.min===m.cod?' selected':'')+'>'+esc(m.nombre)+'</option>').join('')+'</select><span class="hint">El ticket no lo imprime: elíjalo del catálogo</span></div>'+
+    const conf=k=>p&&!REG.manual?p.c[k]:null;
+    const lab=(t,c,req)=>'<span>'+t+(req?' *':'')+'</span>'+(c!=null?'<span class="spacer"></span>'+pill((c<0.8?'Revisar · ':'Confianza ')+num(c),c<0.8?'orange':'green'):'');
+    const lowP=conf(0)!=null&&conf(0)<0.8&&d.placa===p.placa, lowB=conf(1)!=null&&conf(1)<0.8&&Math.abs((d.bruto||0)-p.bruto)<0.001;
+    const sf=REG.manual&&REG.manual.tipo==='sinfoto';const tkNext=String(S.seq.tk+1).padStart(6,'0');
+    return H+regSteps(2)+(REG.aviso?bn('orange','warn',esc(REG.aviso)):'')+'<div class="split-l"><div class="stack tight">'+regViewer(false)+
+      (REG.manual?'':(REG.sim?'<p class="xs faint">Imagen propia: en esta demostración los valores propuestos son de ejemplo.</p>':'<p class="xs faint">Los recuadros marcan lo que reconoció el sistema y su confianza.</p>'))+'</div>'+
+      '<div class="stack"><div class="card"><div class="card-h"><h2>Datos del ingreso</h2>'+(REG.manual?pill(sf?'Sin foto':'Ingreso manual','gray'):pill('Lectura automática','purple'))+'</div>'+
+      '<div class="grid g2">'+kv('Número de ticket','N.° '+tkNext+' <span class="faint" style="font-weight:400;font-size:13px">(lo asigna el sistema)</span>')+
+      (REG.manual?'<div></div>':kv('Fecha y hora del pesaje',fDT(now())+' <span class="faint" style="font-weight:400;font-size:13px">(automática)</span>'))+'</div><div class="grid g2">'+
+      '<div class="field"><label class="lbl" for="r-placa">'+lab('Placa',conf(0),1)+'</label><input class="input'+(lowP?' warn':'')+'" id="r-placa" value="'+esc(d.placa)+'" placeholder="ABC-123" data-in="reg-in" data-k="placa" autocomplete="off" autocapitalize="characters" spellcheck="false">'+(lowP?'<span class="hint orange">Verifique este dato: lectura con baja confianza</span>':'<span class="hint">Puede corregirla si se leyó mal</span>')+'</div>'+
+      '<div class="field"><label class="lbl" for="r-bruto">'+lab('Peso bruto',conf(1),1)+'</label><div class="input-wrap"><input class="input'+(lowB?' warn':'')+'" id="r-bruto" inputmode="decimal" value="'+(d.bruto==null?'':num(d.bruto))+'" placeholder="0,00" data-in="reg-in" data-k="bruto" autocomplete="off"><span class="suffix">t</span></div>'+(lowB?'<span class="hint orange">Verifique este dato: lectura con baja confianza</span>':'')+'</div>'+
+      (REG.manual?'<div class="field"><label for="r-fecha">Fecha del pesaje *</label><input class="input" type="date" id="r-fecha" value="'+esc(d.fecha)+'" data-in="reg-in" data-k="fecha"></div><div class="field"><label for="r-hora">Hora del pesaje *</label><input class="input" type="time" id="r-hora" value="'+esc(d.hora)+'" data-in="reg-in" data-k="hora"><span class="hint">Ingreso manual: indique cuándo se pesó</span></div>':'')+
+      '<div class="field"><label for="r-min">Tipo de mineral *</label><select class="input" id="r-min" data-ch="reg-in" data-k="min">'+minOpts(d.min)+'</select>'+(can('catalogos')?'<button type="button" class="btn plain sm" data-a="min-quick" style="align-self:flex-start;margin-left:-10px">'+ic('plus',14)+'Nuevo tipo de mineral</button>':'<span class="hint">Si no está en la lista, pida a un administrativo que lo registre</span>')+'</div>'+
+      (sf?'<div class="field"><label for="r-mot">Motivo del registro sin foto *</label><select class="input" id="r-mot" data-ch="reg-in" data-k="motivo"><option value="">Seleccione</option>'+MOTIVOS_SF.map(m=>'<option'+(d.motivo===m?' selected':'')+'>'+m+'</option>').join('')+'</select></div>':'')+
       '</div></div><div id="reg-side" class="stack">'+regSide()+'</div><div id="reg-just">'+regJust(e)+'</div><div class="form-err" id="reg-err" role="alert"></div></div></div>'+
       '<div class="stickybar"><span class="muted">'+ic('info',18)+'Ningún dato se ha guardado todavía</span>'+B('Descartar','secondary','reg-discard')+B('Confirmar registro','primary','reg-confirm')+'</div>';}
   if(REG.paso==='ok'){const i=ing(REG.cod);if(!i){regNew();return pRegistrar();}const pr=i.estado==='proc';const dur=Math.round((D(i.fin)-D(i.ini))/1000);
-    return H+regSteps(3)+'<div class="card pad-lg" style="align-items:center;text-align:center;max-width:780px;width:100%;margin:0 auto;gap:16px"><div class="done-ic'+(pr?' orange':'')+'">'+ic(pr?'clock':'check',40)+'</div><h1>'+(pr?'Ingreso registrado En proceso':'Ingreso registrado')+'</h1><p class="muted">'+i.cod+', confirmado el '+fDTS(i.fin)+'</p><div class="row wrap" style="justify-content:center">'+estPill(i)+(i.just.V1?pill('Posible duplicado justificado','orange'):'')+(i.just.V4?pill('Advertencia V4 justificada','orange'):'')+'</div>'+
-      '<hr class="sep" style="width:100%"><div class="grid g4" style="width:100%;text-align:left">'+kv('Placa',i.placa)+kv('Tipo de mineral',minName(i.min))+kv('Peso bruto',tn(i.bruto))+kv('Peso neto',pr?'Tras el destare':tn(i.neto),'big')+kv('Tara aplicada',i.tara==null?'Pendiente':tn(i.tara))+kv('Duración del registro',Math.floor(dur/60)+' min '+pad(dur%60)+' s')+kv('Registrado por',userName(i.user))+kv('Siguiente paso',pr?'Registrar el destare':'Asignar a un lote')+'</div>'+
+    return H+regSteps(3)+'<div class="card pad-lg" style="align-items:center;text-align:center;max-width:800px;width:100%;margin:0 auto;gap:16px"><div class="done-ic'+(pr?' orange':'')+'">'+ic(pr?'clock':'check',40)+'</div><h1>'+(pr?'Ingreso registrado En proceso':'Ingreso registrado')+'</h1><p class="muted">'+(pr?'Ingreso '+i.cod+' registrado en proceso: pendiente del destare del vehículo '+i.placa:'Ingreso registrado con el código '+i.cod)+'</p><div class="row wrap" style="justify-content:center">'+estPill(i)+(i.manual?pill(i.manual.tipo==='sinfoto'?'Sin foto del ticket':'Ingreso manual','gray'):'')+(i.just.V1?pill('Posible duplicado justificado','orange'):'')+(i.just.V4?pill('Advertencia V4 justificada','orange'):'')+'</div>'+
+      '<hr class="sep" style="width:100%"><div class="grid g4" style="width:100%;text-align:left">'+kv('Número de ticket','N.° '+i.ticket)+kv('Placa',i.placa)+kv('Pesaje',fDT(i.fecha))+kv('Peso bruto',tn(i.bruto))+kv('Peso neto',pr?'Tras el destare':tn(i.neto),'big')+kv('Tara aplicada',i.tara==null?'Pendiente':tn(i.tara))+kv('Duración del registro',Math.floor(dur/60)+' min '+pad(dur%60)+' s')+kv('Registrado por',userName(i.user))+'</div>'+
       (pr?bn('orange','info','Cuando el volquete se pese vacío, registre el destare para completar el peso neto.'):'')+
       '<div class="actions" style="justify-content:center">'+B('Ver detalle','secondary lg','go','data-h="#/ingresos/'+i.cod+'"')+(pr&&can('destare')?B('Registrar destare','secondary lg','go','data-h="#/destare"'):'')+B(ic('camera',16)+'Registrar otro ingreso','primary lg','reg-new')+'</div></div>';}
   return H;}
-function startReading(demo,img){const n=now();REG.err=null;REG.img=img||null;REG.sim=!!img;REG.ini=REG.ini||n;
-  const fecha=demo.fecha||iso(new Date(n.getTime()+demo.min*60000));
-  REG.prop={placa:demo.placa,fecha,bruto:demo.bruto,c:demo.c};
-  REG.imgT={placa:demo.placa,fecha,bruto:demo.real||demo.bruto,conf:{placa:demo.c[0],fecha:demo.c[1],bruto:demo.c[2]}};
+function startReading(demo,img){const n=now();REG.err=null;REG.img=img||null;REG.sim=!!img;REG.ini=REG.ini||n;REG.manual=null;REG.aviso=null;
+  if(demo.fail){REG.prop=null;REG.imgT={placa:'A7M-309',fecha:n.toISOString(),bruto:26.9,blur:true};}
+  else{REG.prop={placa:demo.placa[0],bruto:demo.bruto[0],c:[demo.placa[1],demo.bruto[1]]};
+    REG.imgT={placa:(demo.real&&demo.real.placa)||demo.placa[0],fecha:n.toISOString(),bruto:(demo.real&&demo.real.bruto)||demo.bruto[0],conf:{placa:demo.placa[1],bruto:demo.bruto[1]}};}
   REG.paso='leyendo';const tok=++REG.token;route();
-  setTimeout(()=>{if(!REG||REG.token!==tok||REG.paso!=='leyendo')return;REG.dt={placa:REG.prop.placa,fecha:REG.prop.fecha,bruto:REG.prop.bruto,min:''};REG.just={};REG.paso=2;if(location.hash.indexOf('#/registrar')===0)route();},1900);}
+  setTimeout(()=>{if(!REG||REG.token!==tok||REG.paso!=='leyendo')return;const t=now();
+    if(demo.fail){REG.manual={tipo:'ilegible'};REG.dt={placa:'',fecha:isoD(t),hora:fT(t),bruto:null,min:'',motivo:''};REG.aviso='No fue posible leer el ticket. Ingrese los datos manualmente; la foto queda como respaldo.';}
+    else REG.dt={placa:REG.prop.placa,fecha:isoD(t),hora:fT(t),bruto:REG.prop.bruto,min:'',motivo:''};
+    REG.just={};REG.paso=2;if(location.hash.indexOf('#/registrar')===0)route();},1900);}
 function updReg(){const s=$('#reg-side');if(s)s.innerHTML=regSide();const e=evaluar(REG.dt);const key=['V1','V4'].filter(c=>e.r[c]==='warn').join(',');if(key!==REG.jkey){REG.jkey=key;const j=$('#reg-just');if(j)j.innerHTML=regJust(e);}}
 
 /* ================= Destare (HU-M03-04) ================= */
@@ -856,6 +1010,7 @@ function desPrev(){const v=veh(DES.placa),t=pnum(DES.tara);const L=S.ingresos.fi
       else{res=ruleRow('V2','Tara menor que el peso bruto','ok',tn(t)+' < '+tn(i.bruto))+ruleRow('V4','Peso neto dentro de la capacidad',nt>v.cap?((DES.just[i.cod]||'').trim()?'just':'warn'):'ok',nt>v.cap?'El peso neto está fuera del rango de carga del vehículo '+v.placa+': '+tn(nt)+' supera '+tn(v.cap):tn(nt)+' ≤ '+tn(v.cap));
         if(nt>v.cap)j='<div class="field"><label for="dj-'+i.cod+'">Justificación del peso fuera de rango (V4) *</label><textarea class="input" id="dj-'+i.cod+'" data-in="des-just" data-c="'+i.cod+'">'+esc(DES.just[i.cod]||'')+'</textarea></div>';}}
     return '<div class="card" style="box-shadow:none;background:var(--surface-2);border:0"><div class="row between wrap"><div><b>'+i.cod+'</b><p class="small muted">'+fDT(i.fecha)+', '+minName(i.min)+'</p></div><div style="text-align:right"><p class="small muted">Peso bruto '+tn(i.bruto)+'</p><p style="font-size:22px;font-weight:700" class="num">'+(t>0&&t<i.bruto?tn(i.bruto-t):'—')+'</p><p class="xs faint">peso neto</p></div></div>'+(res?'<div>'+res+'</div>':'')+j+'</div>';}).join('')+'</div>';}
+function enProcesoTabla(){const P=S.ingresos.filter(i=>i.estado==='proc').sort((a,b)=>b.fecha.localeCompare(a.fecha));return '<div class="card flush"><div class="card-h" style="padding:14px 20px 8px"><h2>Ingresos En proceso</h2><span class="small muted">'+P.length+' pendientes de destare. Toque uno para elegir su vehículo.</span></div><table class="tbl"><thead><tr><th>Código</th><th>Placa</th><th>Fecha del pesaje</th><th class="r">Peso bruto</th></tr></thead><tbody>'+P.map(i=>'<tr class="click'+(i.placa===DES.placa?' sel':'')+'" data-a="des-veh" data-k="'+i.placa+'"><td class="main" data-l="Código">'+i.cod+'</td><td data-l="Placa"><b>'+i.placa+'</b></td><td data-l="Fecha" class="num">'+fDT(i.fecha)+'</td><td class="r" data-l="Peso bruto">'+tn(i.bruto)+'</td></tr>').join('')+'</tbody></table></div>';}
 function pDestare(){if(!DES)desNew();
   const H=head('Registrar destare','Pese el volquete vacío en su primer viaje: su tara completa el peso neto de los ingresos En proceso',null,['Ingresos','#/ingresos']);
   if(DES.ok){const o=DES.ok,v=veh(o.placa);
@@ -867,7 +1022,7 @@ function pDestare(){if(!DES)desNew();
   if(!L.length)return H+'<div class="card">'+empty('checkC','No hay vehículos pendientes de destare','Todos los ingresos tienen peso neto. Cuando un vehículo nuevo haga su primer viaje, aparecerá aquí.',B('Ir a ingresos','secondary','go','data-h="#/ingresos"'))+'</div>';
   if(!DES.placa||!L.find(v=>v.placa===DES.placa))DES.placa=L[0].placa;
   const v=veh(DES.placa);const n=S.ingresos.filter(i=>i.estado==='proc'&&i.placa===v.placa).length;
-  return H+(L.length>1?'<div class="row wrap"><span class="small muted">Vehículos sin tara:</span>'+segBtns(L.map(x=>[x.placa,x.placa]),DES.placa,'des-veh')+'</div>':'')+
+  return H+enProcesoTabla()+
     '<div class="split" style="grid-template-columns:380px minmax(0,1fr)"><div class="card"><div class="row"><span class="tone-orange">'+ic('truck',26)+'</span><div style="flex:1"><h2 style="font-size:22px">'+v.placa+'</h2><p class="small muted">'+v.tit+(v.transp?', '+esc(transp(v.transp).razon):'')+'</p></div>'+pill('Sin tara','orange',1)+'</div><div class="grid g2">'+kv('Capacidad',tn(v.cap))+kv('Ingresos en proceso',n)+kv('Alta en el catálogo',fD(v.alta))+kv('Titularidad',v.tit)+'</div><p class="xs faint">El ticket de balanza solo imprime el peso bruto: sin la tara no se puede calcular el peso neto ni evaluar V2 y V4.</p></div>'+
     '<div class="card"><h2>Datos del destare</h2><div class="grid g2"><div class="field"><label for="d-tara">Tara del vehículo vacío *</label><div class="input-wrap"><input class="input" id="d-tara" inputmode="decimal" placeholder="0,00" value="'+esc(DES.tara)+'" data-in="des-in" data-k="tara" autocomplete="off"><span class="suffix">t</span></div><span class="hint">Se registra una sola vez por vehículo</span></div>'+
     '<div class="field"><label for="d-fecha">Fecha y hora del destare</label><input class="input" type="datetime-local" id="d-fecha" value="'+esc(DES.fecha)+'" data-in="des-in" data-k="fecha"></div></div>'+
@@ -876,49 +1031,120 @@ function pDestare(){if(!DES)desNew();
 /* ================= Trazabilidad (HU-M06-01/02/03) ================= */
 let FL='todos';
 function pLotes(){const acts=can('lotes.gestion')?B(ic('plus',16)+'Abrir lote','primary','lote-new'):'';
-  const L=S.lotes.filter(l=>FL==='todos'||(FL==='abierto'?l.estado==='abierto':(FL==='curso'?l.estado==='cerrado'&&l.etapas.length<4:l.etapas.length>=4))).sort((a,b)=>b.cod.localeCompare(a.cod));
+  const L=S.lotes.filter(l=>FL==='todos'||(FL==='abierto'?l.estado==='abierto':(FL==='curso'?l.estado==='cerrado'&&!loteCompleto(l):(FL==='alta'?!!l.alta:loteCompleto(l)&&!l.alta)))).sort((a,b)=>b.cod.localeCompare(a.cod));
   const libres=S.ingresos.filter(i=>i.estado==='reg'&&!i.lote);
-  let h=head('Lotes de proceso','El mineral de varios volquetes se mezcla en cancha: cada lote registra su paso por secado, zarandeo, molienda y ensacado',acts);
+  let h=head('Lotes de proceso','Agrupe los ingresos que se procesan juntos y siga su recorrido: secado, zarandeo y, según el caso, molienda y ensacado',acts);
   if(libres.length&&can('lotes.gestion'))h+=bn('blue','info',libres.length+(libres.length===1?' ingreso registrado espera':' ingresos registrados esperan')+' en cancha sin lote: '+libres.map(i=>i.cod+' ('+minName(i.min).replace('Mineral ','')+')').join(', ')+'.');
-  h+=segBtns([['todos','Todos'],['abierto','Abiertos'],['curso','En etapas'],['completo','Completos']],FL,'lote-f');
-  if(!L.length)return h+'<div class="card">'+empty('box','No hay lotes en esta vista','Cambie el filtro o abra un lote nuevo para agrupar los ingresos que se procesan juntos.')+'</div>';
-  return h+'<div class="card flush"><div class="table-scroll"><table class="tbl"><thead><tr><th>Código</th><th>Tipo de mineral</th><th>Apertura</th><th class="r">Ingresos</th><th class="r">Toneladas</th><th>Avance</th><th>Estado</th></tr></thead><tbody>'+
-    L.map(l=>{const e=loteEstado(l);return '<tr class="click" data-a="go" data-h="#/lotes/'+l.cod+'"><td class="main" data-l="Código">'+l.cod+'</td><td data-l="Mineral">'+minName(l.min)+'</td><td data-l="Apertura" class="num">'+fD(l.ap)+'</td><td class="r" data-l="Ingresos">'+l.ing.length+'</td><td class="r" data-l="Toneladas">'+num(loteTon(l))+'</td><td data-l="Avance"><div class="row" style="gap:8px;min-width:150px"><div class="bar '+(l.etapas.length>=4?'green':'purple')+'" style="flex:1"><i style="width:'+(l.etapas.length*25)+'%"></i></div><span class="xs muted">'+l.etapas.length+'/4</span></div></td><td data-l="Estado">'+pill(e[0],e[1],1)+'</td></tr>';}).join('')+'</tbody></table></div></div>';}
+  h+=segBtns([['todos','Todos'],['abierto','Abiertos'],['curso','En recorrido'],['completo','Listos para alta'],['alta','Dados de alta']],FL,'lote-f');
+  if(!L.length)return h+'<div class="card">'+empty('box','No hay lotes en esta vista','Cambie el filtro o abra un lote nuevo.')+'</div>';
+  return h+'<div class="card flush"><div class="table-scroll"><table class="tbl"><thead><tr><th>Lote</th><th>Tipo de mineral</th><th>Apertura</th><th class="r">Ingresos</th><th class="r">Toneladas</th><th>Avance</th><th class="r">Bigbags</th><th>Estado</th></tr></thead><tbody>'+
+    L.map(l=>{const e=loteEstado(l),av=loteAvance(l);return '<tr class="click" data-a="go" data-h="#/lotes/'+l.cod+'"><td class="main" data-l="">'+esc(l.nombre)+'<div class="xs faint" style="font-weight:400">'+l.cod+(l.lineas.length>1?', dividido en '+l.lineas.length:'')+'</div></td><td data-l="Mineral">'+minName(l.min)+'</td><td data-l="Apertura" class="num">'+fD(l.ap)+'</td><td class="r" data-l="Ingresos">'+l.ing.length+'</td><td class="r" data-l="Toneladas">'+num(loteTon(l))+'</td><td data-l="Avance"><div class="row" style="gap:8px;min-width:140px"><div class="bar '+(loteCompleto(l)?'green':'purple')+'" style="flex:1"><i style="width:'+Math.round(av[0]/av[1]*100)+'%"></i></div><span class="xs muted">'+av[0]+'/'+av[1]+'</span></div></td><td class="r" data-l="Bigbags">'+loteBB(l)+'</td><td data-l="Estado">'+pill(e[0],e[1],1)+'</td></tr>';}).join('')+'</tbody></table></div></div>';}
 function pLote(cod){const l=lote(cod);if(!l)return head('Lote no encontrado','',null,['Lotes de proceso','#/lotes'])+'<div class="card">'+empty('box','No existe el lote '+esc(cod),'')+'</div>';
-  const g=can('lotes.gestion'),ab=l.estado==='abierto',e=loteEstado(l);
-  const acts=ab&&g?B(ic('plus',16)+'Asignar ingresos','secondary','lote-asignar','data-c="'+l.cod+'"')+B('Cerrar lote','primary','lote-cerrar','data-c="'+l.cod+'"'):'';
-  let h=head(l.cod,minName(l.min)+', abierto el '+fD(l.ap),acts,['Lotes de proceso','#/lotes']);
-  h+='<div class="row wrap">'+pill(e[0],e[1],1)+pill(l.etapas.length+' de 4 etapas','purple')+'</div>';
-  h+='<div class="card"><div class="grid g4">'+kv('Tipo de mineral',minName(l.min))+kv('Apertura',fDT(l.ap))+kv('Cierre',l.ci?fDT(l.ci):'Aún abierto')+kv('Toneladas netas',tn(loteTon(l)),'big')+'</div></div>';
-  if(ab)h+=bn('blue','info','Mientras el lote está abierto puede asignar o retirar ingresos. Al cerrarlo, la composición queda fija y empieza el recorrido por las etapas.');
-  h+='<div class="row between"><h2>Recorrido del mineral</h2>'+(l.etapas.length>=4?pill('Mineral ensacado','green'):'')+'</div>'+stageCards(l,true);
+  const g=can('lotes.gestion')&&!l.alta,ab=l.estado==='abierto',e=loteEstado(l),av=loteAvance(l),comp=loteCompleto(l);
+  const canDiv=g&&l.lineas.length===1&&l.lineas[0].etapas.length===0&&!comp&&(l.comp||[]).every(k=>!(k.partes||[]).length);
+  const acts=(g&&!comp?B(ic('plus',16)+'Agregar ingresos','secondary','lote-asignar','data-c="'+l.cod+'"'):'')+(canDiv?B('Dividir lote','secondary','lote-dividir','data-c="'+l.cod+'"'):'')+(ab&&g?B('Cerrar e iniciar recorrido','primary','lote-cerrar','data-c="'+l.cod+'"'):'')+(comp&&!l.alta&&can('alta')?B(ic('checkC',16)+'Dar de alta','primary','go','data-h="#/altas/'+l.cod+'"'):'')+(l.alta?B('Ver resumen de alta','secondary','go','data-h="#/altas/'+l.cod+'"'):'');
+  let h=head(esc(l.nombre),l.cod+', '+minName(l.min)+', abierto el '+fD(l.ap),acts,['Lotes de proceso','#/lotes']);
+  h+='<div class="row wrap">'+pill(e[0],e[1],1)+pill(av[0]+' de '+av[1]+' etapas','purple')+(l.lineas.length>1?pill('Dividido en '+l.lineas.length+' lotes','gray'):'')+'</div>';
+  h+='<div class="card"><div class="grid g4">'+kv('Toneladas netas',tn(loteTon(l)),'big')+kv('Ingresos',l.ing.length+(l.tarde.length?' ('+l.tarde.length+' después del cierre)':''))+kv('Bigbags producidos',loteBB(l))+kv('Cierre',l.ci?fDT(l.ci):'Aún abierto')+'</div></div>';
+  if(l.alta)h+=bn('gray','checkC','Dado de alta para la venta el '+fDT(l.alta.f)+' por '+esc(userName(l.alta.u))+'. El lote está cerrado: no admite más ingresos ni etapas.');
+  else if(comp)h+=bn('green','checkC','Todo el mineral está ensacado. '+(can('alta')?'Puede darlo de alta para la venta.':'El Administrador puede darlo de alta para la venta.'));
+  if(ab)h+=bn('blue','info','Mientras el lote está abierto reúne ingresos. Al cerrarlo empieza el recorrido; aun así podrá agregar ingresos si llegan más volquetes.');
+  else if(!comp&&g)h+=bn('gray','info','El lote está en recorrido. Puede agregar ingresos que lleguen tarde'+(l.comunes.length?': cada uno tendrá su propio secado y luego se unirá a su parte o recorrerá sus etapas.':': se secarán junto con el resto del lote.'));
+  h+='<div class="row between"><h2>Recorrido del mineral</h2>'+(comp?pill('Todo el mineral ensacado','green'):'')+'</div>'+trazView(l,true);
+  if(l.bb.length){const ln=id=>{const x=l.lineas.find(y=>y.id===id);if(x)return x.nombre;const m=/^(K\d+)-(\w+)$/.exec(id);if(m){const k=(l.comp||[]).find(y=>y.id===m[1]);const px=l.lineas.find(y=>y.id===m[2]);if(k&&px)return px.nombre+' (complemento '+k.ing+')';}return '—';};
+    h+='<div class="row between"><h2>Bigbags</h2><span class="small muted">'+loteBB(l)+' en total</span></div><div class="card flush"><div class="table-scroll"><table class="tbl"><thead><tr><th>Códigos</th><th>Lote</th><th>Cálculo</th><th class="r">Cantidad</th><th class="r">Peso aprox. c/u</th><th class="r">Total aprox.</th><th>Registro</th></tr></thead><tbody>'+
+      l.bb.map(b=>'<tr><td class="main" data-l="">'+bbRange(b)+'</td><td data-l="Lote">'+esc(ln(b.lin))+'</td><td data-l="Cálculo">'+(b.rec?pill('Recalculado','orange'):pill('Calculado por el sistema','gray'))+'</td><td class="r" data-l="Cantidad">'+b.cant+'</td><td class="r" data-l="Peso c/u">'+bbPeso(b)+'</td><td class="r" data-l="Total">'+bbTotal(b)+'</td><td data-l="Registro" class="num">'+fDT(b.f)+', '+userName(b.u)+'</td></tr>').join('')+'</tbody></table></div></div>';}
   h+='<div class="row between"><h2>Composición del lote</h2><span class="small muted">'+l.ing.length+(l.ing.length===1?' ingreso':' ingresos')+'</span></div>';
-  if(!l.ing.length)h+='<div class="card">'+empty('tray','El lote no tiene ingresos asignados','Asigne ingresos Registrados de '+minName(l.min)+' antes de cerrarlo.',ab&&g?B('Asignar ingresos','primary','lote-asignar','data-c="'+l.cod+'"'):'')+'</div>';
-  else h+='<div class="card flush"><table class="tbl"><thead><tr><th>Ingreso</th><th>Placa</th><th>Fecha del ticket</th><th class="r">Peso neto</th>'+(ab&&g?'<th></th>':'')+'</tr></thead><tbody>'+
-    l.ing.map(c=>{const i=ing(c);return '<tr class="click" data-a="go" data-h="#/ingresos/'+c+'"><td class="main" data-l="Ingreso">'+c+'</td><td data-l="Placa">'+i.placa+'</td><td data-l="Fecha" class="num">'+fDT(i.fecha)+'</td><td class="r" data-l="Peso neto">'+tn(i.neto)+'</td>'+(ab&&g?'<td class="act">'+B('Retirar','danger-plain sm','lote-retirar','data-c="'+l.cod+'" data-i="'+c+'"')+'</td>':'')+'</tr>';}).join('')+
+  if(!l.ing.length)h+='<div class="card">'+empty('tray','El lote no tiene ingresos asignados','Agregue ingresos Registrados de '+minName(l.min)+' antes de cerrarlo.',g?B('Agregar ingresos','primary','lote-asignar','data-c="'+l.cod+'"'):'')+'</div>';
+  else h+='<div class="card flush"><table class="tbl"><thead><tr><th>Ingreso</th><th>Placa</th><th>Fecha del pesaje</th><th class="r">Peso neto</th>'+(ab&&g?'<th></th>':'')+'</tr></thead><tbody>'+
+    l.ing.map(c=>{const i=ing(c);return '<tr class="click'+(i.estado==='anul'?' dim':'')+'" data-a="go" data-h="#/ingresos/'+c+'"><td class="main" data-l="Ingreso">'+c+(l.tarde.includes(c)?' '+pill('Después del cierre','orange'):'')+(i.estado==='anul'?' '+pill('Anulado','red'):'')+'</td><td data-l="Placa">'+i.placa+'</td><td data-l="Fecha" class="num">'+fDT(i.fecha)+'</td><td class="r" data-l="Peso neto">'+tn(i.neto)+'</td>'+(ab&&g?'<td class="act">'+B('Retirar','danger-plain sm','lote-retirar','data-c="'+l.cod+'" data-i="'+c+'"')+'</td>':'')+'</tr>';}).join('')+
     '</tbody><tfoot><tr><td colspan="3" data-l="">Total</td><td class="r" data-l="Total">'+tn(loteTon(l))+'</td>'+(ab&&g?'<td></td>':'')+'</tr></tfoot></table></div>';
   return h;}
 
 /* ================= Consulta por placa y fecha (HU-M07-01) ================= */
 let CQ={placa:'',desde:'',hasta:'',res:null,sel:null,err:null};
-function runConsulta(){CQ.err=null;const p=CQ.placa.trim().toUpperCase();CQ.placa=p;
+function runConsulta(){CQ.err=null;const p=normPlaca(CQ.placa);CQ.placa=CQ.placa.trim().toUpperCase();
   if(!p&&!CQ.desde&&!CQ.hasta){CQ.err='Debe indicar al menos la placa o la fecha';CQ.res=null;return;}
   if(CQ.desde&&CQ.hasta&&CQ.desde>CQ.hasta){CQ.err='La fecha inicial no puede ser posterior a la fecha final';CQ.res=null;return;}
-  CQ.res=S.ingresos.filter(i=>{const d=isoD(i.fecha);if(p&&!i.placa.includes(p))return false;if(CQ.desde&&d<CQ.desde)return false;if(CQ.hasta&&d>CQ.hasta)return false;return true;}).sort((a,b)=>b.fecha.localeCompare(a.fecha)).map(i=>i.cod);
+  CQ.res=S.ingresos.filter(i=>{const d=isoD(i.fecha);if(p&&!normPlaca(i.placa).includes(p))return false;if(CQ.desde&&d<CQ.desde)return false;if(CQ.hasta&&d>CQ.hasta)return false;return true;}).sort((a,b)=>b.fecha.localeCompare(a.fecha)).map(i=>i.cod);
   CQ.sel=CQ.res[0]||null;}
 function pConsulta(){
-  let h=head('Consulta por placa y fecha','Encuentre un ingreso y vea la fotografía del ticket junto a sus datos, sin ir al archivador');
-  h+='<form class="card" data-submit="cq" novalidate><div class="grid g4" style="align-items:end"><div class="field"><label for="cq-p">Placa</label><div class="input-wrap"><span class="prefix">'+ic('truck',16)+'</span><input class="input" id="cq-p" value="'+esc(CQ.placa)+'" placeholder="Ej. C9K-741" autocomplete="off" autocapitalize="characters"></div></div>'+
+  let h=head('Consulta por placa y fecha','Encuentre un ingreso, vea la fotografía del ticket junto a sus datos y siga su recorrido en la planta');
+  h+='<form class="card" data-submit="cq" novalidate><div class="grid g4" style="align-items:end"><div class="field"><label for="cq-p">Placa (completa o parte)</label><div class="input-wrap"><span class="prefix">'+ic('truck',16)+'</span><input class="input" id="cq-p" value="'+esc(CQ.placa)+'" placeholder="Ej. C9K o C9K741" autocomplete="off" autocapitalize="characters"></div></div>'+
     '<div class="field"><label for="cq-d">Desde</label><input class="input" type="date" id="cq-d" value="'+CQ.desde+'"></div><div class="field"><label for="cq-h">Hasta</label><input class="input" type="date" id="cq-h" value="'+CQ.hasta+'"></div>'+
     '<div class="actions"><button class="btn primary lg block" type="submit">'+ic('search',16)+'Buscar</button></div></div>'+(CQ.err?'<div class="form-err show" role="alert">'+CQ.err+'</div>':'')+
     '<div class="row wrap"><span class="xs faint">Búsquedas frecuentes</span>'+['C9K-741','B5A-812','E4R-208','D7X-110'].map(p=>'<button type="button" class="btn secondary sm" data-a="cq-chip" data-p="'+p+'">'+p+'</button>').join('')+'</div></form>';
-  if(CQ.res===null)return h+'<div class="card">'+empty('search','Busque por placa, por fecha o por ambas','Verá la fotografía del ticket de balanza junto a los datos confirmados del ingreso.')+'</div>';
-  if(!CQ.res.length)return h+'<div class="card">'+empty('search','No se encontraron ingresos',(CQ.placa?'No hay ingresos de '+esc(CQ.placa):'No hay ingresos')+(CQ.desde||CQ.hasta?' entre '+(CQ.desde?fD(CQ.desde+'T00:00'):'el inicio')+' y '+(CQ.hasta?fD(CQ.hasta+'T00:00'):'hoy'):'')+'. Revise la placa o amplíe el rango de fechas.',B('Limpiar búsqueda','secondary','cq-clear'))+'</div>';
-  const i=ing(CQ.sel)||ing(CQ.res[0]);const v=veh(i.placa)||{};
-  h+='<div class="split" style="grid-template-columns:minmax(0,1fr) minmax(0,1.1fr)"><div class="card flush"><div class="card-h" style="padding:14px 20px 6px"><h2>'+CQ.res.length+(CQ.res.length===1?' resultado':' resultados')+'</h2></div><table class="tbl"><tbody>'+
-    CQ.res.map(c=>{const x=ing(c);return '<tr class="click'+(c===i.cod?' sel':'')+(x.estado==='anul'?' dim':'')+'" data-a="cq-sel" data-c="'+c+'"><td class="main" data-l="">'+c+'<div class="xs faint" style="font-weight:400">'+fDT(x.fecha)+', '+x.placa+'</div></td><td class="r" data-l="Neto">'+num(x.neto)+' t</td><td data-l="Estado">'+estPill(x)+'</td></tr>';}).join('')+'</tbody></table></div>'+
-    '<div class="stack"><div class="viewer" style="min-height:360px">'+ticketFor(i)+'</div><div class="card"><div class="card-h"><h2>'+i.cod+'</h2>'+estPill(i)+'</div><div class="grid g3">'+kv('Placa',i.placa)+kv('Fecha y hora del ticket',fDT(i.fecha))+kv('Tipo de mineral',minName(i.min))+kv('Peso bruto',tn(i.bruto))+kv('Tara',i.tara==null?'Pendiente':tn(i.tara))+kv('Peso neto',tn(i.neto),'big')+'</div>'+
-    (can('ingresos')?'<div class="actions">'+B('Ver detalle completo','secondary','go','data-h="#/ingresos/'+i.cod+'"')+'</div>':'')+'</div></div></div>';
+  if(CQ.res===null)return h+'<div class="card">'+empty('search','Busque por placa, por fecha o por ambas','Verá la fotografía del ticket, los datos confirmados y el lote y las etapas por las que pasó el mineral.')+'</div>';
+  if(!CQ.res.length)return h+'<div class="card">'+empty('search','No se encontraron ingresos con los criterios indicados','Revise la placa o amplíe el rango de fechas.',B('Limpiar búsqueda','secondary','cq-clear'))+'</div>';
+  const i=ing(CQ.sel)||ing(CQ.res[0]);const v=veh(i.placa)||{};const l=i.lote?lote(i.lote):null;
+  h+='<div class="split" style="grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)"><div class="card flush"><div class="card-h" style="padding:14px 20px 6px"><h2>'+CQ.res.length+(CQ.res.length===1?' resultado':' resultados')+'</h2></div><table class="tbl"><tbody>'+
+    CQ.res.map(c=>{const x=ing(c);return '<tr class="click'+(c===i.cod?' sel':'')+(x.estado==='anul'?' dim':'')+'" data-a="cq-sel" data-c="'+c+'"><td class="main" data-l="" style="white-space:normal">'+c+'<div class="xs faint" style="font-weight:400">'+fDT(x.fecha)+', '+x.placa+', '+minName(x.min)+'</div>'+(x.estado==='anul'?'<div class="xs" style="color:var(--red);font-weight:500">Anulado: '+esc(x.anul.motivo)+'</div>':'')+'</td><td class="r" data-l="Pesos"><div class="small">'+tn(x.bruto)+' bruto</div><div class="small faint">'+(x.estado==='proc'?'Neto pendiente del destare':tn(x.neto)+' neto')+'</div></td><td data-l="Estado">'+pill(ST[x.estado][0],ST[x.estado][1],1)+'</td></tr>';}).join('')+'</tbody></table></div>'+
+    '<div class="stack"><div class="viewer" style="min-height:340px'+(i.foto===false?'':';cursor:zoom-in')+'" data-a="zoom" data-c="'+i.cod+'">'+ticketFor(i)+(i.foto===false?'':'<span class="vtag">'+ic('search',14)+'Ampliar</span>')+'</div>'+
+    '<div class="card"><div class="card-h"><h2>'+i.cod+'</h2>'+estPill(i)+'</div><div class="grid g3">'+kv('Placa',i.placa)+kv('Pesaje',fDT(i.fecha))+kv('Tipo de mineral',minName(i.min))+kv('Peso bruto',tn(i.bruto))+kv('Tara',i.tara==null?'Pendiente':tn(i.tara))+kv('Peso neto',i.estado==='proc'?'Pendiente del destare':tn(i.neto),'big')+kv('Vehículo',v.tit||'—')+kv('Número de ticket',i.ticket||'No consignado')+kv('Registrado por',userName(i.user))+'</div>'+
+    (can('ingresos')?'<div class="actions">'+B('Ver detalle completo','secondary','go','data-h="#/ingresos/'+i.cod+'"')+'</div>':'')+'</div>'+
+    '<h2>Trazabilidad</h2>'+(l?loteResumen(l,i)+'<div class="card"><h3>Recorrido</h3>'+trazMini(l)+'</div>':bn('gray','info','Este ingreso aún no tiene lote: el mineral espera en cancha. Ninguna de las cuatro etapas se ha recorrido.'))+'</div></div>';
+  return h;}
+
+/* ================= Calendario de llegadas ================= */
+let CAL=null;
+function pCalendario(){const n=now();if(!CAL)CAL={y:n.getFullYear(),m:n.getMonth(),sel:isoD(n)};
+  const first=new Date(CAL.y,CAL.m,1),days=new Date(CAL.y,CAL.m+1,0).getDate(),off=(first.getDay()+6)%7;
+  const byDay={};S.ingresos.forEach(i=>{const k=isoD(i.fecha);(byDay[k]=byDay[k]||[]).push(i);});
+  const key=d=>CAL.y+'-'+pad(CAL.m+1)+'-'+pad(d);const tonOf=L=>L.filter(i=>i.estado==='reg').reduce((a,i)=>a+i.neto,0);
+  let maxT=0,mI=0,mT=0,mP=0,mD=0;for(let d=1;d<=days;d++){const L=byDay[key(d)]||[];const t=tonOf(L);maxT=Math.max(maxT,t);mI+=L.filter(i=>i.estado!=='anul').length;mT+=t;mP+=L.filter(i=>i.estado==='proc').length;if(L.length)mD++;}
+  let cells=['Lun','Mar','Mié','Jue','Vie','Sáb','Dom'].map(w=>'<div class="wd">'+w+'</div>').join('');
+  for(let k=0;k<off;k++)cells+='<div class="cal-d blank"></div>';
+  for(let d=1;d<=days;d++){const k=key(d),L=byDay[k]||[],t=tonOf(L),vis=L.filter(i=>i.estado!=='anul').length;const pc=maxT?Math.round(t/maxT*45):0;
+    cells+='<button type="button" class="cal-d'+(k===isoD(n)?' today':'')+(k===CAL.sel?' sel':'')+'" data-a="cal-day" data-k="'+k+'"'+(pc?' style="background:color-mix(in srgb,var(--gold) '+pc+'%,var(--surface))"':'')+' aria-label="'+d+' de '+MES[CAL.m]+': '+vis+' ingresos"><span class="dn">'+d+'</span>'+
+      (L.length?'<span class="mk">'+(L.some(i=>i.estado==='proc')?'<i class="o" title="En proceso"></i>':'')+(L.some(i=>i.estado==='anul')?'<i class="r" title="Anulado"></i>':'')+'</span><span class="cnt">'+vis+'<small> '+(vis===1?'ingreso':'ingresos')+'</small></span><span class="ton">'+num(t)+' t</span>':'')+'</button>';}
+  const sel=CAL.sel&&CAL.sel.slice(0,7)===CAL.y+'-'+pad(CAL.m+1)?CAL.sel:null;const SL=sel?(byDay[sel]||[]).slice().sort((a,b)=>a.fecha.localeCompare(b.fecha)):[];
+  const sd=sel?new Date(sel+'T12:00'):null;
+  const panel='<div class="card flush"><div class="card-h" style="padding:16px 20px 10px"><div><h2>'+(sd?cap1(DIA[sd.getDay()])+' '+sd.getDate()+' de '+MES[sd.getMonth()]:'Elija un día')+'</h2>'+(sd?'<p class="small muted">'+SL.filter(i=>i.estado!=='anul').length+' ingresos, '+tn(tonOf(SL))+' netas registradas</p>':'')+'</div></div>'+
+    (!sd?'<p class="small muted" style="padding:0 20px 20px">Toque un día del calendario para ver qué volquetes llegaron.</p>':(!SL.length?'<p class="small muted" style="padding:0 20px 20px">No llegaron volquetes este día.</p>':
+    '<table class="tbl"><tbody>'+SL.map(i=>'<tr class="click'+(i.estado==='anul'?' dim':'')+'" data-a="go" data-h="#/ingresos/'+i.cod+'"><td class="main" data-l="" style="white-space:normal"><span style="white-space:nowrap">'+fT(i.fecha)+' · '+i.placa+'</span><div class="xs faint" style="font-weight:400">'+i.cod+', '+minName(i.min)+'</div></td><td class="r" data-l="Neto">'+(i.estado==='proc'?'<span class="faint small">Pendiente</span>':tn(i.neto))+'</td><td data-l="Estado">'+pill(ST[i.estado][0],ST[i.estado][1],1)+'</td></tr>').join('')+'</tbody></table>'))+'</div>';
+  return head('Calendario de llegadas','Vea de un vistazo cuántos volquetes llegaron cada día y cuántas toneladas sumaron',B(ic('tray',16)+'Ver lista','secondary','go','data-h="#/ingresos"'))+
+    '<div class="grid g4"><div class="card kpi"><div class="k-top"><span>Ingresos del mes</span><span class="tone-blue">'+ic('tray',18)+'</span></div><div class="k-val num">'+mI+'</div><div class="k-sub">Sin contar anulados</div></div><div class="card kpi"><div class="k-top"><span>Toneladas netas</span><span class="tone-green">'+ic('scale',18)+'</span></div><div class="k-val num">'+num(mT)+'<small>t</small></div><div class="k-sub">Solo Registrados</div></div><div class="card kpi"><div class="k-top"><span>Días con llegadas</span><span class="tone-purple">'+ic('cal',18)+'</span></div><div class="k-val num">'+mD+'</div><div class="k-sub">de '+days+' días</div></div><div class="card kpi"><div class="k-top"><span>En proceso</span><span class="tone-orange">'+ic('clock',18)+'</span></div><div class="k-val num">'+mP+'</div><div class="k-sub">Pendientes de destare</div></div></div>'+
+    '<div class="cal-wrap"><div class="card"><div class="cal-head"><h2>'+cap1(MES[CAL.m])+' de '+CAL.y+'</h2><div class="actions">'+B(ic('chevL',16),'secondary sm','cal-nav','data-k="-1" aria-label="Mes anterior"')+B('Hoy','secondary sm','cal-hoy')+B(ic('chevR',16),'secondary sm','cal-nav','data-k="1" aria-label="Mes siguiente"')+'</div></div>'+
+    '<div class="cal">'+cells+'</div><div class="legend"><span><i style="background:color-mix(in srgb,var(--gold) 45%,var(--surface))"></i>Más toneladas, color más intenso</span><span><i style="background:var(--orange-b)"></i>Hay ingresos en proceso</span><span><i style="background:var(--red-b)"></i>Hay anulados</span></div></div>'+panel+'</div>';}
+
+/* ================= Alta de lotes (venta) ================= */
+function durTxt(ms){if(!(ms>0))return '—';const h=Math.round(ms/3600000);const d=Math.floor(h/24),r=h%24;return (d?d+' d ':'')+r+' h';}
+function lotePend(l){const P=[];if(l.estado==='abierto'){P.push('el lote sigue abierto');return P;}if(!l.comunes.length)P.push('falta el secado del lote');
+  l.lineas.forEach(x=>{const s=nextStep(l,x);if(s)P.push(x.nombre+': '+(s==='elegir'?'definir la ruta':'falta '+s.toLowerCase()));});
+  (l.comp||[]).forEach(k=>{if(!k.etapas.length)P.push(k.ing+': falta su secado');(k.partes||[]).forEach(p=>{const s=partNext(l,p);if(s){const x=l.lineas.find(y=>y.id===p.lin);P.push(k.ing+' → '+x.nombre+': falta '+s.toLowerCase());}});});return P;}
+function loteRecs(l){const R=[];l.comunes.forEach(r=>R.push({r,sobre:'Todo el lote'}));l.lineas.forEach(x=>x.etapas.forEach(r=>R.push({r,sobre:x.nombre})));
+  (l.comp||[]).forEach(k=>{k.etapas.forEach(r=>R.push({r,sobre:k.ing+' (secado propio)'}));(k.partes||[]).forEach(p=>{const x=l.lineas.find(y=>y.id===p.lin);p.etapas.forEach(r=>R.push({r,sobre:k.ing+' → '+x.nombre}));});});
+  return R.sort((a,b)=>a.r.f.localeCompare(b.r.f));}
+function pAltas(){const L=S.lotes.slice().sort((a,b)=>b.cod.localeCompare(a.cod));
+  const listos=L.filter(l=>!l.alta&&loteCompleto(l)),proc=L.filter(l=>!l.alta&&!loteCompleto(l)),hechos=L.filter(l=>l.alta);
+  const fila=(l,act)=>'<tr class="click" data-a="go" data-h="#/altas/'+l.cod+'"><td class="main" data-l="">'+esc(l.nombre)+'<div class="xs faint" style="font-weight:400">'+l.cod+', '+minName(l.min)+'</div></td><td class="r" data-l="Registrado">'+tn(loteTon(l))+'</td><td class="r" data-l="Bigbags">'+(loteBB(l)||'—')+'</td><td data-l="Estado" style="white-space:normal">'+act+'</td></tr>';
+  const tabla=(rows,emp)=>rows?'<div class="card flush"><div class="table-scroll"><table class="tbl"><thead><tr><th>Lote</th><th class="r">Toneladas registradas</th><th class="r">Bigbags</th><th>Estado</th></tr></thead><tbody>'+rows+'</tbody></table></div></div>':'<div class="card"><p class="small muted">'+emp+'</p></div>';
+  return head('Alta de lotes','Lotes terminados que se entregan para la venta, con el resumen de todo su proceso')+
+    '<h2>Listos para dar de alta</h2>'+tabla(listos.map(l=>fila(l,pill('Listo para alta','green',1))).join(''),'No hay lotes con todo su mineral ensacado.')+
+    '<h2>En proceso</h2>'+tabla(proc.map(l=>{const p=lotePend(l);return fila(l,'<span class="small muted">'+esc(cap1(p[0]||''))+(p.length>1?' y '+(p.length-1)+' más':'')+'</span>');}).join(''),'No hay lotes en proceso.')+
+    '<h2>Dados de alta</h2>'+tabla(hechos.map(l=>fila(l,pill('Dado de alta el '+fD(l.alta.f),'gray',1))).join(''),'Aún no se ha dado de alta ningún lote.');}
+function pAlta(cod){const l=lote(cod);if(!l)return head('Lote no encontrado','',null,['Alta de lotes','#/altas'])+'<div class="card">'+empty('box','No existe el lote '+esc(cod),'')+'</div>';
+  const comp=loteCompleto(l),pend=lotePend(l),reg=loteTon(l);const ens=bbSumKeys(l,l.bb.map(b=>b.lin)),nbb=loteBB(l),dif=+(ens-reg).toFixed(2);
+  const R=loteRecs(l);const ultEns=R.filter(o=>o.r.e==='Ensacado').map(o=>o.r.f).sort().pop();const sec=l.comunes[0];
+  let h=head('Resumen de '+esc(l.nombre),l.cod+', '+minName(l.min),(can('alta')&&comp&&!l.alta?B(ic('checkC',16)+'Dar de alta','primary','alta-open','data-c="'+l.cod+'"'):'')+B('Ver lote','secondary','go','data-h="#/lotes/'+l.cod+'"'),['Alta de lotes','#/altas']);
+  if(l.alta)h+=bn('green','checkC','Dado de alta para la venta el '+fDT(l.alta.f)+' por '+esc(userName(l.alta.u))+(l.alta.obs?'. Observación: '+esc(l.alta.obs):'')+'. El lote quedó cerrado: no admite más ingresos ni etapas.');
+  else if(!comp)h+=bn('orange','clock','Todavía no se puede dar de alta. Pendiente: '+pend.map(esc).join('; ')+'.');
+  else h+=bn('blue','info','Todo el mineral está ensacado. '+(can('alta')?'Revise el resumen y dé de alta el lote.':'Solo el Administrador puede darlo de alta.'));
+  const K=[['Toneladas registradas',num(reg),'t','Suma de '+l.ing.filter(c=>ing(c)&&ing(c).estado==='reg').length+' ingresos','scale','blue'],
+    ['Ensacado aproximado',nbb?num(ens):'—',nbb?'t':'',nbb+' bigbags','box','green'],
+    ['Diferencia',nbb?(dif>0?'+':'')+num(dif):'—',nbb?'t':'',nbb?(dif<=0?'Merma de '+num(Math.abs(dif)/reg*100)+' %':'Supera lo registrado'):'Sin bigbags registrados','warn',dif>0?'orange':'gray'],
+    ['Duración del proceso',durTxt(ultEns&&l.ci?D(ultEns)-D(l.ci):0),'',l.ci?'Del cierre al último ensacado':'Lote abierto','clock','purple']];
+  h+='<div class="grid g4">'+K.map(k=>'<div class="card kpi"><div class="k-top"><span>'+k[0]+'</span><span class="tone-'+k[5]+'">'+ic(k[4],18)+'</span></div><div class="k-val num">'+k[1]+'<small>'+k[2]+'</small></div><div class="k-sub">'+k[3]+'</div></div>').join('')+'</div>';
+  h+='<div class="card"><h2>Tiempos</h2><div class="grid g4">'+kv('Apertura',fDT(l.ap))+kv('Cierre',l.ci?fDT(l.ci):'—')+kv('Secado del lote',sec?fDT(sec.f):'—')+kv('Último ensacado',ultEns?fDT(ultEns):'—')+kv('De la apertura al último ensacado',durTxt(ultEns?D(ultEns)-D(l.ap):0))+kv('Del cierre al secado',durTxt(sec&&l.ci?D(sec.f)-D(l.ci):0))+kv('Dado de alta',l.alta?fDT(l.alta.f):'Pendiente')+kv('Responsable del alta',l.alta?esc(userName(l.alta.u)):'—')+'</div></div>';
+  const filas=l.lineas.map(x=>{const keys=lineKeys(l,x),ton=lineaTon(l,x),e=bbSumKeys(l,keys),n=bbCntKeys(l,keys),d=+(e-ton).toFixed(2);
+    const mol=x.etapas.filter(r=>r.e==='Molienda'&&r.horas).concat(...compPartsFor(l,x,true).map(o=>o.p.etapas.filter(r=>r.e==='Molienda'&&r.horas)));const hs=mol.reduce((s,r)=>s+r.horas,0);
+    const rangos=l.bb.filter(b=>keys.includes(b.lin)).map(bbRange).join(', ');
+    return '<tr><td class="main" data-l="" style="white-space:normal">'+esc(x.nombre)+'<div class="xs faint" style="font-weight:400">'+(x.ruta?RUTA_TXT[x.ruta]:'Sin ruta')+'</div></td><td class="r" data-l="Registrado">'+tn(ton)+'</td><td class="r" data-l="Bigbags">'+(n||'—')+'</td><td data-l="Códigos" style="white-space:normal;max-width:220px">'+(rangos||'—')+'</td><td class="r" data-l="Ensacado">'+(n?'≈ '+tn(e):'—')+'</td><td class="r" data-l="Diferencia">'+(n?(d>0?'+':'')+num(d)+' t':'—')+'</td><td data-l="Molienda">'+(hs?num(hs).replace(',00','')+' h · '+num(ton/hs)+' t/h':(x.ruta&&RUTAS[x.ruta].includes('Molienda')?'Sin horas registradas':'No aplica'))+'</td></tr>';}).join('');
+  h+='<h2>Resultado por parte</h2><div class="card flush"><div class="table-scroll"><table class="tbl"><thead><tr><th>Parte</th><th class="r">Registrado</th><th class="r">Bigbags</th><th>Códigos</th><th class="r">Ensacado</th><th class="r">Diferencia</th><th>Molienda</th></tr></thead><tbody>'+filas+
+    '</tbody><tfoot><tr><td data-l="">Total del lote</td><td class="r" data-l="Registrado">'+tn(reg)+'</td><td class="r" data-l="Bigbags">'+(nbb||'—')+'</td><td data-l=""></td><td class="r" data-l="Ensacado">'+(nbb?'≈ '+tn(ens):'—')+'</td><td class="r" data-l="Diferencia">'+(nbb?(dif>0?'+':'')+num(dif)+' t':'—')+'</td><td data-l=""></td></tr></tfoot></table></div></div>';
+  if((l.comp||[]).length)h+='<p class="small muted">Incluye '+l.comp.length+(l.comp.length===1?' ingreso agregado':' ingresos agregados')+' después del secado, con secado propio y repartidos entre las partes: '+l.comp.map(k=>k.ing+' ('+((k.partes||[]).map(p=>(l.lineas.find(y=>y.id===p.lin)||{}).nombre+' '+tn(p.ton)).join(', ')||'sin repartir')+')').join('; ')+'.</p>';
+  h+='<h2>Recorrido del mineral</h2><div class="card">'+(R.length?'<div class="tl">'+R.map(o=>'<div class="tl-i"><span class="dot" style="background:'+(o.r.e==='Ensacado'?'#2E7D32':(o.r.e==='Molienda'?'#8A5C2B':'#C98A1B'))+'"></span><div class="t-b"><b>'+o.r.e+' · '+esc(o.sobre)+'</b><small>'+esc(userName(o.r.u))+(o.r.horas?' · '+num(o.r.horas).replace(',00','')+' h de molino':'')+(o.r.obs?' · '+esc(o.r.obs):'')+'</small></div><time>'+fDT(o.r.f)+'</time></div>').join('')+'</div>':'<p class="small muted">Aún no se registran etapas.</p>')+'</div>';
+  h+='<h2>Ingresos del lote</h2><div class="card flush"><table class="tbl"><thead><tr><th>Ingreso</th><th>Placa</th><th>Pesaje</th><th class="r">Peso neto</th></tr></thead><tbody>'+l.ing.map(c=>{const i=ing(c);return '<tr class="click'+(i.estado==='anul'?' dim':'')+'" data-a="go" data-h="#/ingresos/'+c+'"><td class="main" data-l="Ingreso">'+c+(l.tarde.includes(c)?' '+pill('Después del cierre','orange'):'')+'</td><td data-l="Placa">'+i.placa+'</td><td data-l="Pesaje" class="num">'+fDT(i.fecha)+'</td><td class="r" data-l="Neto">'+tn(i.neto)+'</td></tr>';}).join('')+'</tbody></table></div>';
   return h;}
 
 /* ================= Consolidación (HU-M08-01/02) ================= */
@@ -1007,7 +1233,8 @@ function pDenied(){const u=me();return '<div class="card" style="margin-top:40px
 function notifs(){const L=[];
   if(can('destare'))S.ingresos.filter(i=>i.estado==='proc').forEach(i=>L.push({ic:'clock',tone:'orange',t:i.cod+' espera el destare',s:'Vehículo '+i.placa+', peso bruto '+tn(i.bruto),h:'#/destare'}));
   S.ingresos.filter(i=>i.estado==='reg'&&i.just.V4&&isoD(i.fecha)===isoD(now())).forEach(i=>L.push({ic:'warn',tone:'orange',t:'Advertencia V4 justificada en '+i.cod,s:'Peso neto '+tn(i.neto)+' sobre la capacidad',h:'#/ingresos/'+i.cod+'/validacion'}));
-  if(can('lotes'))S.lotes.filter(l=>l.estado==='cerrado'&&l.etapas.length<4).forEach(l=>L.push({ic:'box',tone:'purple',t:l.cod+': sigue '+ETAPAS[l.etapas.length],s:'Registre el paso cuando termine la etapa',h:'#/lotes/'+l.cod}));
+  if(can('lotes'))S.lotes.filter(l=>l.estado==='cerrado'&&!loteCompleto(l)).forEach(l=>{const nx=(l.comunes.length<1?['Secado']:l.lineas.map(x=>{const s=nextStep(l,x);return s?x.nombre+': '+(s==='elegir'?'definir ruta':s.toLowerCase()):null;})).concat((l.comp||[]).flatMap(k=>{const a=[];if(compNext(l,k))a.push(k.ing+': secado');(k.partes||[]).forEach(p=>{const q=partNext(l,p);if(q)a.push(k.ing+': '+q.toLowerCase());});return a;})).filter(Boolean).join('; ');if(nx)L.push({ic:'box',tone:'purple',t:l.nombre,s:'Sigue: '+nx,h:'#/lotes/'+l.cod});});
+  if(can('alta'))S.lotes.filter(l=>!l.alta&&loteCompleto(l)).forEach(l=>L.push({ic:'checkC',tone:'green',t:l.nombre+' listo para dar de alta',s:tn(loteTon(l))+' registradas, '+loteBB(l)+' bigbags',h:'#/altas/'+l.cod}));
   if(can('lotes.gestion')){const lib=S.ingresos.filter(i=>i.estado==='reg'&&!i.lote);if(lib.length)L.push({ic:'tray',tone:'blue',t:lib.length+(lib.length===1?' ingreso sin lote':' ingresos sin lote'),s:lib.map(i=>i.cod).join(', '),h:'#/lotes'});}
   return L;}
 
@@ -1049,7 +1276,7 @@ A['pass-save']=()=>{const u=me();if(fv('p-a')!==u.pass)return formErr('La contra
 A['user-menu']=t=>{const u=me();let th='auto';try{th=localStorage.getItem(TKEY)||'auto';}catch(e){}
   pop('<div class="p-h"><b>'+esc(u.nombre)+'</b><small>'+esc(u.rol)+', usuario '+u.u+'</small></div>'+mi('key','Cambiar contraseña','pass-open')+'<div class="p-seg"><div class="xs faint" style="margin-bottom:6px">Apariencia</div>'+segBtns([['auto','Automática'],['light','Clara'],['dark','Oscura']],th,'theme')+'</div>'+mi('refresh','Restablecer datos de la demostración','reset-demo')+'<hr>'+mi('logout','Cerrar sesión','logout','','','red'),t,t.classList.contains('me')?'start':'end');};
 A.theme=t=>{setTheme(t.dataset.k);closePop();toast('Apariencia actualizada');};
-A['more-menu']=t=>{let h='';[['lotes','Trazabilidad','flow','#/lotes'],['consolidacion','Consolidación','chart','#/consolidacion'],['catalogos','Catálogos','doc','#/catalogos/vehiculos'],['admin','Administración','shield','#/admin/usuarios']].forEach(x=>{if(can(x[0]))h+=mi(x[2],x[1],'go','data-h="'+x[3]+'"');});
+A['more-menu']=t=>{let h='';[['ingresos','Calendario','cal','#/calendario'],['lotes','Trazabilidad','flow','#/lotes'],['alta','Alta de lotes','checkC','#/altas'],['consolidacion','Consolidación','chart','#/consolidacion'],['catalogos','Catálogos','doc','#/catalogos/vehiculos'],['admin','Administración','shield','#/admin/usuarios']].forEach(x=>{if(can(x[0]))h+=mi(x[2],x[1],'go','data-h="'+x[3]+'"');});
   if(can('destare'))h+=mi('scale','Registrar destare','go','data-h="#/destare"');const u=me();h+='<hr>'+mi('user',esc(u.nombre),'user-menu-m','',esc(u.rol));pop(h,t,'end');};
 A['user-menu-m']=()=>{closePop();setTimeout(()=>A['user-menu']($('.tb-avatar')),10);};
 A.notifs=t=>{const L=notifs();pop('<div style="width:330px;max-width:100%"><div class="p-h"><b>Notificaciones</b><small>'+(L.length?L.length+(L.length===1?' pendiente':' pendientes'):'Todo al día')+'</small></div>'+(L.length?L.map(n=>'<button type="button" class="mi" data-a="go" data-h="'+n.h+'"><span class="tone-'+n.tone+'">'+ic(n.ic,18)+'</span><div>'+esc(n.t)+'<small>'+esc(n.s)+'</small></div></button>').join(''):'<p class="small muted" style="padding:10px">No hay nada pendiente.</p>')+'</div>',t,'end');};
@@ -1058,9 +1285,9 @@ A['reset-ok']=()=>{const u=S.session;S=seed();S.session=u;clockBase=DEFAULT_NOW;
 A.gsearch=()=>{const q=fv('gq').trim().toUpperCase();if(!q)return;const i=S.ingresos.find(x=>x.cod===q||(/^\d{1,5}$/.test(q)&&x.cod.endsWith(q.padStart(5,'0'))));
   if(i&&can('ingresos')){go('#/ingresos/'+i.cod);return;}if(can('consulta')){CQ={placa:q,desde:'',hasta:'',res:null,sel:null,err:null};runConsulta();go('#/consulta');}};
 // Ingresos
-A['ing-est']=t=>{FI.est=t.dataset.k;route(true);};
-A['ing-f']=t=>{FI[t.dataset.k]=t.value;$('#ing-table').innerHTML=ingTable();};
-A['ing-q']=t=>{FI.q=t.value;$('#ing-table').innerHTML=ingTable();};
+A['ing-est']=t=>{FI.est=t.dataset.k;FI.page=1;route(true);};
+A['ing-f']=t=>{FI[t.dataset.k]=t.value;FI.page=1;$('#ing-table').innerHTML=ingTable();};
+A['ing-q']=t=>{FI.q=t.value;FI.page=1;$('#ing-table').innerHTML=ingTable();};
 A['ing-clear']=()=>{resetFI();route(true);};
 A['ing-export']=()=>exportCSV();
 A['row-menu']=t=>{const i=ing(t.dataset.c);let h='<div class="p-h"><b>'+i.cod+'</b><small>'+i.placa+', '+fDT(i.fecha)+'</small></div>'+mi('doc','Ver detalle','go','data-h="#/ingresos/'+i.cod+'"')+mi('photo','Ver ticket','go','data-h="#/ingresos/'+i.cod+'/ticket"');
@@ -1075,16 +1302,17 @@ A.corregir=t=>{const i=ing(t.dataset.c);if(!i)return;if(!can('corregir'))return 
     '<div class="field"><label for="c-mot">Motivo de la corrección *</label><textarea class="input" id="c-mot" placeholder="Ej. el peso bruto se leyó mal; se verificó con la imagen del ticket"></textarea></div>',
     B('Cancelar','secondary','close')+B('Guardar corrección','primary','corr-save','data-c="'+i.cod+'"')),'side');};
 A['corr-save']=t=>{const i=ing(t.dataset.c);if(i.estado==='anul')return formErr('No se puede corregir un ingreso anulado');
-  const d={placa:fv('c-placa').trim().toUpperCase(),fecha:fv('c-fecha'),bruto:pnum(fv('c-bruto')),min:fv('c-min')};const mot=fv('c-mot').trim(),just=fv('c-just').trim();
+  const cf=fv('c-fecha');const d={placa:fv('c-placa').trim().toUpperCase(),fecha:cf.slice(0,10),hora:cf.slice(11,16),bruto:pnum(fv('c-bruto')),min:fv('c-min')};const mot=fv('c-mot').trim(),just=fv('c-just').trim();
   if(!d.placa||!d.fecha||!(d.bruto>0)||!d.min)return formErr('Debe completar los campos obligatorios');
   if(!mot)return formErr('Debe indicar el motivo de la corrección');
   const e=evaluar(d,i.cod);const bl=RULES.map(r=>r[0]).find(c=>e.r[c]==='block');if(bl)return formErr(e.msg[bl]);
   const warns=['V1','V4'].filter(c=>e.r[c]==='warn');if(warns.length&&!just)return formErr('Debe corregir o justificar las inconsistencias señaladas ('+warns.join(' y ')+')');
+  if(e.vehEstado==='nuevo')return formErr('La placa '+d.placa+' no está registrada en el catálogo de vehículos');if(e.vehEstado==='baja')return formErr('El vehículo '+d.placa+' está dado de baja');
   if(i.lote&&d.min!==i.min)return formErr('El ingreso '+i.cod+' corresponde a otro tipo de mineral que el lote '+i.lote);
   const antes={},desp={};const ch=(k,a,b)=>{if(String(a)!==String(b)){antes[k]=a;desp[k]=b;}};
-  ch('placa',i.placa,d.placa);ch('fecha',fDT(i.fecha),fDT(d.fecha));ch('peso_bruto',num(i.bruto),num(d.bruto));ch('tipo_de_mineral',minName(i.min),minName(d.min));
+  ch('placa',i.placa,d.placa);ch('fecha',fDT(i.fecha),fDT(dtOf(d)));ch('peso_bruto',num(i.bruto),num(d.bruto));ch('tipo_de_mineral',minName(i.min),minName(d.min));
   if(!Object.keys(desp).length)return formErr('No hay cambios que guardar');
-  const v=e.v,oldNeto=i.neto;i.placa=d.placa;i.fecha=D(d.fecha).toISOString();i.bruto=d.bruto;i.min=d.min;i.tara=v.tara;
+  const v=e.v,oldNeto=i.neto;i.placa=d.placa;i.fecha=D(dtOf(d)).toISOString();i.bruto=d.bruto;i.min=d.min;i.tara=v.tara;
   if(v.tara==null){i.neto=null;i.estado='proc';}else{i.neto=e.neto;i.estado='reg';}
   if(oldNeto!==i.neto){antes.peso_neto=num(oldNeto);desp.peso_neto=num(i.neto);}
   i.val=Object.assign({},e.r);i.just={};warns.forEach(c=>{i.just[c]=just;});i.corr=true;
@@ -1103,31 +1331,70 @@ function handleFile(f){if(!['image/jpeg','image/png'].includes(f.type)||f.size>1
   const rd=new FileReader();rd.onload=()=>startReading(DEMOS[0],rd.result);rd.onerror=()=>{REG.err='No se pudo leer la imagen. Intente de nuevo.';route(true);};rd.readAsDataURL(f);}
 A['reg-pick']=t=>{const el=$(t.dataset.t==='cam'?'#reg-cam':'#reg-file');if(el)el.click();};
 A['reg-file']=t=>{const f=t.files&&t.files[0];if(f)handleFile(f);t.value='';};
-A['reg-demos']=()=>modal(sheet('Tickets de ejemplo','Cada uno muestra un caso distinto de las reglas de consistencia',DEMOS.map(d=>'<button type="button" class="check" data-a="reg-demo" data-k="'+d.k+'" style="width:100%;text-align:left;border:1px solid var(--sep)"><span class="tone-blue">'+ic('photo',22)+'</span><span style="flex:1"><b style="display:block;font-size:14px">'+d.t+'</b><span class="small muted">'+d.s+'</span></span>'+ic('chevR',16)+'</button>').join('')));
+A['reg-demos']=()=>modal(sheet('Tickets de ejemplo','Cada uno muestra un caso distinto del registro',DEMOS.map(d=>'<button type="button" class="check" data-a="reg-demo" data-k="'+d.k+'" style="width:100%;text-align:left;border:1px solid var(--sep)"><span class="tone-blue">'+ic('photo',22)+'</span><span style="flex:1"><b style="display:block;font-size:14px">'+d.t+'</b><span class="small muted">'+d.s+'</span></span>'+ic('chevR',16)+'</button>').join('')));
 A['reg-demo']=t=>{closeModal();startReading(DEMOS.find(d=>d.k===t.dataset.k));};
+A['reg-manual']=()=>{const t=now();REG.ini=t;REG.manual={tipo:'sinfoto'};REG.prop=null;REG.img=null;REG.imgT=null;REG.aviso=null;REG.dt={placa:'',fecha:isoD(t),hora:fT(t),bruto:null,min:'',motivo:''};REG.just={};REG.paso=2;route();};
 A['reg-in']=t=>{const k=t.dataset.k;let v=t.value;
-  if(k==='placa'){const up=v.toUpperCase();if(up!==v){const p=t.selectionStart;t.value=up;try{t.setSelectionRange(p,p);}catch(e){}}v=up.trim();}
-  if(k==='bruto'){v=pnum(v);if(v!=null&&isNaN(v))v=null;const p=REG.prop;t.classList.toggle('warn',p.c[2]<0.8&&v!=null&&Math.abs(v-p.bruto)<0.001);}
-  REG.dt[k]=v;const er=$('#reg-err');if(er)er.classList.remove('show');updReg();};
+  if(k==='placa'){const up=v.toUpperCase();if(up!==v){const p=t.selectionStart;t.value=up;try{t.setSelectionRange(p,p);}catch(e){}}v=up.trim();if(REG.prop&&!REG.manual)t.classList.toggle('warn',REG.prop.c[0]<0.8&&v===REG.prop.placa);}
+  if(k==='bruto'){v=pnum(v);if(v!=null&&isNaN(v))v=null;const p=REG.prop;if(p&&!REG.manual)t.classList.toggle('warn',p.c[1]<0.8&&v!=null&&Math.abs(v-p.bruto)<0.001);}
+  REG.dt[k]=v;const er=$('#reg-err');if(er)er.classList.remove('show');if(k!=='motivo')updReg();};
 A['reg-just']=t=>{REG.just[t.dataset.k]=t.value;const s=$('#reg-side');if(s)s.innerHTML=regSide();};
 A['reg-confirm']=()=>{const d=REG.dt,p=REG.prop,er=$('#reg-err');const fail=m=>{er.textContent=m;er.classList.add('show');er.scrollIntoView({block:'center',behavior:'smooth'});};
-  if(!d.placa||!d.fecha||!(d.bruto>0)||!d.min)return fail('Debe completar los campos obligatorios');
-  const e=evaluar(d);const bl=RULES.map(r=>r[0]).find(c=>e.r[c]==='block');if(bl)return fail('Debe corregir o justificar las inconsistencias señaladas. '+e.msg[bl]+'.');
+  const sf=REG.manual&&REG.manual.tipo==='sinfoto';if(!REG.manual){const n0=now();d.fecha=isoD(n0);d.hora=fT(n0);}const miss=[];
+  if(!d.placa)miss.push('placa');if(!d.fecha)miss.push('fecha del pesaje');if(!d.hora)miss.push('hora del pesaje');if(!(d.bruto>0))miss.push('peso bruto');if(!d.min)miss.push('tipo de mineral');if(sf&&!d.motivo)miss.push('motivo del registro sin foto');
+  if(miss.length)return fail('Debe completar los campos obligatorios: '+miss.join(', '));
+  const e=evaluar(d);
+  if(e.r.V3==='block')return fail('La placa no tiene un formato válido');
+  if(e.vehEstado==='nuevo')return fail('La placa '+d.placa+' no está registrada. Complete los datos del vehículo para continuar');
+  if(e.vehEstado==='baja')return fail('El vehículo '+d.placa+' está dado de baja: no puede asociarse a un ingreso');
+  const bl=['V2','V5'].find(c=>e.r[c]==='block');if(bl)return fail('Debe corregir o justificar las inconsistencias señaladas. '+e.msg[bl]);
   for(const c of ['V1','V4'])if(e.r[c]==='warn'&&!(REG.just[c]||'').trim())return fail(c==='V1'?'Debe indicar la justificación del posible duplicado':'Debe indicar la justificación del peso fuera de rango');
   const v=e.v;S.seq.ing++;const cod='ING-2027-'+String(S.seq.ing).padStart(5,'0');const t=now();
-  const i={cod,placa:d.placa,fecha:D(d.fecha).toISOString(),min:d.min,bruto:d.bruto,tara:v.tara,neto:v.tara==null?null:e.neto,estado:v.tara==null?'proc':'reg',user:me().u,ini:REG.ini.toISOString(),fin:t.toISOString(),lote:null,just:{},corr:false,
-    ocr:{placa:[p.placa,p.c[0]],fecha:[D(p.fecha).toISOString(),p.c[1]],bruto:[p.bruto,p.c[2]]},val:Object.assign({},e.r)};
+  const i={cod,placa:d.placa,fecha:D(dtOf(d)).toISOString(),min:d.min,bruto:d.bruto,tara:v.tara,neto:v.tara==null?null:e.neto,estado:v.tara==null?'proc':'reg',user:me().u,ini:REG.ini.toISOString(),fin:t.toISOString(),lote:null,just:{},corr:false,
+    ticket:String(++S.seq.tk).padStart(6,'0'),foto:!sf,manual:REG.manual?{tipo:REG.manual.tipo,motivo:sf?d.motivo:'Ticket ilegible: el reconocimiento no logró leerlo'}:null,
+    ocr:p&&!REG.manual?{placa:[p.placa,p.c[0]],bruto:[p.bruto,p.c[1]]}:null,val:Object.assign({},e.r)};
   ['V1','V4'].forEach(c=>{if(e.r[c]==='warn')i.just[c]=REG.just[c].trim();});
   if(REG.img)IMG[cod]=REG.img;S.ingresos.push(i);
-  log('Ticket reconocido','Ingreso',cod,'Placa '+p.placa+', peso bruto '+tn(p.bruto)+', confianza media '+num((p.c[0]+p.c[1]+p.c[2])/3));
-  if(p.placa!==d.placa)log('Dato propuesto corregido','Ingreso',cod,'Placa: '+p.placa+' → '+d.placa,{placa:p.placa},{placa:d.placa});
-  if(iso(p.fecha)!==iso(d.fecha))log('Dato propuesto corregido','Ingreso',cod,'Fecha: '+fDT(p.fecha)+' → '+fDT(d.fecha),{fecha:fDT(p.fecha)},{fecha:fDT(d.fecha)});
-  if(Math.abs(p.bruto-d.bruto)>0.001)log('Dato propuesto corregido','Ingreso',cod,'Peso bruto: '+tn(p.bruto)+' → '+tn(d.bruto),{peso_bruto:num(p.bruto)},{peso_bruto:num(d.bruto)});
+  if(i.ocr){log('Ticket reconocido','Ingreso',cod,'Placa '+p.placa+', peso bruto '+tn(p.bruto)+', confianza media '+num((p.c[0]+p.c[1])/2));
+    if(p.placa!==d.placa)log('Dato propuesto corregido','Ingreso',cod,'Placa: '+p.placa+' → '+d.placa,{placa:p.placa},{placa:d.placa});
+    if(Math.abs(p.bruto-d.bruto)>0.001)log('Dato propuesto corregido','Ingreso',cod,'Peso bruto: '+tn(p.bruto)+' → '+tn(d.bruto),{peso_bruto:num(p.bruto)},{peso_bruto:num(d.bruto)});}
+  else log('Registro manual','Ingreso',cod,i.manual.motivo);
   log('Ingreso registrado','Ingreso',cod,(i.estado==='proc'?'En proceso, pendiente del destare':'Registrado')+(i.just.V1?', posible duplicado justificado':'')+(i.just.V4?', con advertencia V4 justificada':''),null,{placa:i.placa,peso_bruto:num(i.bruto),peso_neto:num(i.neto),estado:ST[i.estado][0]});
-  REG.paso='ok';REG.cod=cod;save();route();toast('Ingreso '+cod+' registrado');};
-A['reg-discard']=()=>modal(alertBox('warn','orange','¿Descartar este registro?','La foto y los datos leídos se eliminarán. Todavía no se guardó nada.','',B('Seguir revisando','secondary','close')+B('Descartar','danger','reg-discard-ok')),'alert');
+  REG.paso='ok';REG.cod=cod;save();route();toast(i.estado==='proc'?'Ingreso '+cod+' registrado en proceso':'Ingreso registrado con el código '+cod);};
+A['reg-discard']=()=>modal(alertBox('warn','orange','¿Descartar este registro?','La foto y los datos se eliminarán. Todavía no se guardó nada.','',B('Seguir revisando','secondary','close')+B('Descartar','danger','reg-discard-ok')),'alert');
 A['reg-discard-ok']=()=>{closeModal();regNew();route();};
 A['reg-new']=()=>{regNew();go('#/registrar');};
+// Alta de vehículo sin salir del registro (HU-M02-01 CA12)
+A['veh-quick']=()=>{if(!can('vehiculo.alta'))return toast('Acción no autorizada','red');const p=REG&&REG.dt?REG.dt.placa:'';
+  const topt=S.transportistas.filter(x=>x.activo).map(x=>'<option value="'+x.id+'">'+esc(x.razon)+'</option>').join('');
+  modal(sheet('Registrar vehículo nuevo','Primer viaje a la planta. La tara se registra en el destare; hasta entonces el ingreso queda En proceso.',
+    '<div class="field"><label for="vq-placa">Placa *</label><input class="input" id="vq-placa" value="'+esc(p)+'" placeholder="ABC-123" autocapitalize="characters"></div>'+
+    '<div class="field"><span class="lbl">Titularidad *</span><div class="opts"><label class="opt"><input type="radio" name="vq-tit" value="Propio" data-ch="vq-tit">Propio</label><label class="opt"><input type="radio" name="vq-tit" value="Externo" data-ch="vq-tit">Externo</label></div></div>'+
+    '<div class="field"><label for="vq-tr">Transportista</label><select class="input" id="vq-tr" disabled><option value="">Seleccione</option>'+topt+'</select><span class="hint">Obligatorio para vehículos externos</span></div>'+
+    '<div class="field"><label for="vq-cap">Capacidad de carga *</label><div class="input-wrap"><input class="input" id="vq-cap" inputmode="decimal" placeholder="0,00"><span class="suffix">t</span></div></div>',
+    B('Cancelar','secondary','close')+B('Registrar vehículo','primary','vq-save')));};
+A['vq-tit']=()=>{const ext=($('input[name=vq-tit]:checked')||{}).value==='Externo';const s=$('#vq-tr');s.disabled=!ext;if(!ext)s.value='';};
+A['vq-save']=()=>{const placa=fv('vq-placa').trim().toUpperCase(),tit=($('input[name=vq-tit]:checked')||{}).value,tr=fv('vq-tr'),cap=pnum(fv('vq-cap'));
+  if(!placa||!tit||!(cap>0))return formErr('Debe completar los campos obligatorios');
+  if(!PLACA_RE.test(placa))return formErr('El formato de la placa no es válido');
+  if(veh(placa))return formErr('La placa ya está registrada');
+  if(tit==='Externo'&&!tr)return formErr('Debe indicar el transportista para un vehículo externo');
+  S.vehiculos.push({placa,tit,transp:tit==='Externo'?tr:null,cap,tara:null,taraF:null,taraU:null,activo:true,alta:now().toISOString(),altaU:me().u});
+  log('Vehículo registrado','Vehículo',placa,'Alta desde el registro de un ingreso, sin tara',null,{placa,titularidad:tit,capacidad:num(cap)});save();
+  REG.dt.placa=placa;closeModal();const f=$('#r-placa');if(f){f.value=placa;f.classList.remove('warn');}updReg();toast('Vehículo '+placa+' registrado. El ingreso quedará En proceso hasta el destare');};
+// Alta de tipo de mineral sin salir del registro (Administrativo y Administrador)
+function genMinCod(nom){const base=(nom.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toUpperCase().split(/\s+/).filter(w=>w&&!/^(MINERAL|DE|DEL|LA|EL|TIPO)$/.test(w)).map(w=>w[0]).join('').replace(/[^A-Z0-9]/g,'')||nom.toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,3)||'MIN');
+  let c=(base.length<2?(base+'M'):base).slice(0,5),k=2;while(S.minerales.some(m=>m.cod===c)){c=base.slice(0,4)+k;k++;}return c;}
+A['min-quick']=()=>{if(!can('catalogos'))return toast('Acción no autorizada','red');
+  modal(sheet('Nuevo tipo de mineral','Se agrega al catálogo y queda elegido para este ingreso.',
+    '<div class="field"><label for="mq-n">Nombre *</label><input class="input" id="mq-n" placeholder="Ej. Mineral óxido Rondoní"></div>'+
+    '<div class="field"><label for="mq-c">Código <span class="faint" style="font-weight:400">(opcional)</span></label><input class="input" id="mq-c" placeholder="Si lo deja vacío, lo genera el sistema" autocapitalize="characters"></div>',
+    B('Cancelar','secondary','close')+B('Agregar tipo de mineral','primary','mq-save')));};
+A['mq-save']=()=>{const nom=fv('mq-n').trim();let cod=fv('mq-c').trim().toUpperCase();if(!nom)return formErr('Debe indicar el nombre del tipo de mineral');
+  if(S.minerales.some(m=>m.nombre.toLowerCase()===nom.toLowerCase()))return formErr('Ya existe un tipo de mineral con ese nombre');
+  if(cod){if(!/^[A-Z0-9]{2,6}$/.test(cod))return formErr('El código debe tener de 2 a 6 letras o números');if(S.minerales.some(m=>m.cod===cod))return formErr('El código ya está registrado');}else cod=genMinCod(nom);
+  S.minerales.push({cod,nombre:nom,activo:true});log('Tipo de mineral registrado','Mineral',cod,nom+', alta desde el registro de un ingreso');save();
+  REG.dt.min=cod;closeModal();const sl=$('#r-min');if(sl){sl.innerHTML=minOpts(cod);sl.value=cod;}const er=$('#reg-err');if(er)er.classList.remove('show');toast('Tipo de mineral «'+nom+'» agregado ('+cod+')');};
 // Destare
 A['des-veh']=t=>{DES.placa=t.dataset.k;DES.tara='';DES.just={};route(true);};
 A['des-in']=t=>{DES[t.dataset.k]=t.value;if(t.dataset.k==='tara'){const p=$('#des-prev');if(p)p.innerHTML=desPrev();}const er=$('#des-err');if(er)er.classList.remove('show');};
@@ -1145,29 +1412,151 @@ A['des-save']=()=>{const er=$('#des-err');const fail=m=>{er.textContent=m;er.cla
   DES.ok={placa:v.placa,tara:t,fecha:v.taraF,ings:L.map(i=>i.cod)};save();route();toast('Destare registrado');};
 // Lotes
 A['lote-f']=t=>{FL=t.dataset.k;route(true);};
-A['lote-new']=()=>modal(sheet('Abrir lote de proceso','Agrupe los ingresos de un mismo tipo de mineral que se procesarán como una sola carga','<div class="field"><label for="ln-m">Tipo de mineral *</label><select class="input" id="ln-m"><option value="">Seleccione</option>'+S.minerales.filter(m=>m.activo).map(m=>'<option value="'+m.cod+'">'+esc(m.nombre)+'</option>').join('')+'</select></div><div class="field"><label for="ln-f">Fecha de apertura *</label><input class="input" type="date" id="ln-f" value="'+isoD(now())+'"></div><p class="small muted">El código lo asigna el sistema. Después podrá asignar ingresos Registrados del mismo mineral.</p>',B('Cancelar','secondary','close')+B('Abrir lote','primary','lote-create')));
-A['lote-create']=()=>{const m=fv('ln-m'),f=fv('ln-f');if(!m||!f)return formErr('Debe completar los campos obligatorios');if(f>isoD(now()))return formErr('La fecha de apertura no puede ser posterior a hoy');
+A['lote-new']=()=>modal(sheet('Abrir lote de proceso','Agrupe los ingresos de un mismo tipo de mineral que se procesarán juntos',
+  '<div class="field"><label for="ln-n">Nombre del lote *</label><input class="input" id="ln-n" placeholder="Ej. Lote Pique Pingüino"></div>'+
+  '<div class="field"><label for="ln-m">Tipo de mineral *</label><select class="input" id="ln-m"><option value="">Seleccione</option>'+S.minerales.filter(m=>m.activo).map(m=>'<option value="'+m.cod+'">'+esc(m.nombre)+'</option>').join('')+'</select></div>'+
+  '<div class="field"><label for="ln-f">Fecha de apertura *</label><input class="input" type="date" id="ln-f" value="'+isoD(now())+'"></div>'+
+  '<p class="small muted">El sistema le asigna además un código. Más adelante podrá dividir el lote, por ejemplo en una parte que se muele y otra que se ensaca solo con el zarandeo.</p>',
+  B('Cancelar','secondary','close')+B('Abrir lote','primary','lote-create')));
+A['lote-create']=()=>{const nom=fv('ln-n').trim(),m=fv('ln-m'),f=fv('ln-f');if(!nom||!m||!f)return formErr('Debe completar los campos obligatorios');
+  if(S.lotes.some(l=>l.nombre.toLowerCase()===nom.toLowerCase()))return formErr('Ya existe un lote con el nombre «'+nom+'»');
+  if(f>isoD(now()))return formErr('La fecha de apertura no puede ser posterior a hoy');
   S.seq.lot++;const cod='LOT-2027-'+String(S.seq.lot).padStart(3,'0');const ap=f===isoD(now())?now().toISOString():new Date(f+'T08:00').toISOString();
-  S.lotes.push({cod,min:m,ap,ci:null,estado:'abierto',ing:[],etapas:[]});log('Lote abierto','Lote',cod,minName(m));save();closeModal();go('#/lotes/'+cod);toast('Lote '+cod+' abierto');};
-A['lote-asignar']=t=>{const l=lote(t.dataset.c);const cand=S.ingresos.filter(i=>i.min===l.min&&i.estado!=='anul'&&!l.ing.includes(i.cod)&&(!i.lote||lote(i.lote).estado==='abierto')).sort((a,b)=>b.fecha.localeCompare(a.fecha));
-  const body=cand.length?'<div class="stack tight">'+cand.map(i=>{const dis=i.estado==='proc';return '<label class="check'+(dis?' disabled':'')+'" style="border:1px solid var(--sep)"><input type="checkbox" name="asig" value="'+i.cod+'"'+(dis?' disabled':'')+'><span style="flex:1;min-width:0"><b style="display:block;font-size:14px">'+i.cod+'</b><span class="small muted">'+(dis?'Está en proceso: falta el destare del vehículo':i.placa+', '+fDT(i.fecha)+(i.lote?', ahora en '+i.lote+' (se reasignará)':''))+'</span></span><b class="num">'+tn(i.neto)+'</b></label>';}).join('')+'</div>':empty('tray','No hay ingresos disponibles','Solo se asignan ingresos Registrados de '+minName(l.min)+' que no estén en un lote cerrado.');
-  modal(sheet('Asignar ingresos a '+l.cod,minName(l.min)+'. Los anulados y los En proceso no se asignan.',body,cand.length?B('Cancelar','secondary','close')+B('Asignar','primary','lote-asig-save','data-c="'+l.cod+'"'):B('Cerrar','secondary','close')),'side');};
-A['lote-asig-save']=t=>{const l=lote(t.dataset.c);if(l.estado!=='abierto')return formErr('El lote '+l.cod+' ya fue cerrado');const sel=$$('#modal-root input[name=asig]:checked').map(x=>x.value);if(!sel.length)return formErr('Seleccione al menos un ingreso');
-  sel.forEach(c=>{const i=ing(c);if(i.lote&&i.lote!==l.cod){const o=lote(i.lote);o.ing=o.ing.filter(x=>x!==c);log('Ingreso retirado del lote','Lote',o.cod,c+' (reasignado a '+l.cod+')');}l.ing.push(c);i.lote=l.cod;});
-  log('Ingresos asignados','Lote',l.cod,sel.join(', '));save();closeModal();route(true);toast(sel.length===1?'Ingreso asignado':'Ingresos asignados');};
-A['lote-cerrar']=t=>{const l=lote(t.dataset.c);modal(alertBox('lock','blue','Cerrar '+l.cod,l.ing.length?'La composición quedará fija con '+l.ing.length+(l.ing.length===1?' ingreso':' ingresos')+' ('+tn(loteTon(l))+') y podrá registrar las etapas.':'El lote todavía no tiene ingresos asignados.','',B('Cancelar','secondary','close')+B('Cerrar lote','primary','lote-cerrar-ok','data-c="'+l.cod+'"')),'alert');};
-A['lote-cerrar-ok']=t=>{const l=lote(t.dataset.c);if(!l.ing.length)return formErr('El lote no tiene ingresos asignados');if(l.estado!=='abierto')return formErr('El lote '+l.cod+' ya fue cerrado');
-  l.estado='cerrado';l.ci=now().toISOString();log('Lote cerrado','Lote',l.cod,l.ing.length+' ingresos, '+tn(loteTon(l)));save();closeModal();route(true);toast('Lote cerrado');};
-A['lote-retirar']=t=>{const l=lote(t.dataset.c),c=t.dataset.i;modal(alertBox('minus','orange','Retirar '+c+' de '+l.cod,'El ingreso vuelve a cancha y podrá asignarse a otro lote.','',B('Cancelar','secondary','close')+B('Retirar','danger','lote-retirar-ok','data-c="'+l.cod+'" data-i="'+c+'"')),'alert');};
-A['lote-retirar-ok']=t=>{const l=lote(t.dataset.c),c=t.dataset.i;if(l.estado!=='abierto')return formErr('El lote '+l.cod+' ya fue cerrado');l.ing=l.ing.filter(x=>x!==c);ing(c).lote=null;log('Ingreso retirado del lote','Lote',l.cod,c);save();closeModal();route(true);toast('Ingreso retirado del lote');};
-A['lote-paso']=t=>{const l=lote(t.dataset.c);const k=l.etapas.length;if(k>=4)return;const e=ETAPAS[k];
-  modal(sheet('Registrar '+e.toLowerCase(),l.cod+', '+minName(l.min)+'. '+(k?'Etapa anterior: '+ETAPAS[k-1]+', '+fDT(l.etapas[k-1].f)+'.':'Primera etapa del proceso.'),'<div class="field"><label for="lp-f">Fecha y hora en que terminó la etapa *</label><input class="input" type="datetime-local" id="lp-f" value="'+iso(now())+'"></div><div class="field"><label for="lp-o">Observación</label><textarea class="input" id="lp-o" placeholder="Opcional. Ej. cancha 2, secado al sol"></textarea></div>',B('Cancelar','secondary','close')+B('Registrar paso','primary','lote-paso-save','data-c="'+l.cod+'"')));};
-A['lote-paso-save']=t=>{const l=lote(t.dataset.c);if(l.estado!=='cerrado')return formErr('El lote debe cerrarse antes de registrar etapas');const k=l.etapas.length;if(k>=4)return formErr('La etapa Ensacado ya fue registrada para el lote '+l.cod);
+  S.lotes.push({cod,nombre:nom,min:m,ap,ci:null,estado:'abierto',ing:[],tarde:[],comunes:[],lineas:[{id:'A',nombre:nom,ruta:null,ton:null,etapas:[]}],bb:[],comp:[]});
+  log('Lote abierto','Lote',cod,nom+', '+minName(m));save();closeModal();go('#/lotes/'+cod);toast('Lote '+nom+' abierto');};
+A['lote-asignar']=t=>{const l=lote(t.dataset.c);const after=l.estado==='cerrado',div=l.lineas.length>1;
+  const cand=S.ingresos.filter(i=>i.min===l.min&&i.estado!=='anul'&&!l.ing.includes(i.cod)&&(!i.lote||lote(i.lote).estado==='abierto')).sort((a,b)=>b.fecha.localeCompare(a.fecha));
+  const sec=l.comunes.length>=1;
+  const body=(after?bn('orange','info',sec?'El secado del lote ya se registró. Cada ingreso que agregue tendrá su propio secado; al registrarlo, sus toneladas se reparten entre las partes del lote y siguen sus etapas hasta unificarse.':'El lote ya está cerrado. Los ingresos que agregue se secarán junto con el resto del lote.'):'')+
+    (after&&div&&!sec?'<div class="field"><label for="la-lin">Parte a la que se agregan *</label><select class="input" id="la-lin">'+l.lineas.map(x=>'<option value="'+x.id+'">'+esc(x.nombre)+' ('+(x.ruta?RUTA_TXT[x.ruta].toLowerCase():'ruta por definir')+')</option>').join('')+'</select></div>':'')+
+    (cand.length?'<div class="stack tight">'+cand.map(i=>{const dis=i.estado==='proc';return '<label class="check'+(dis?' disabled':'')+'" style="border:1px solid var(--sep)"><input type="checkbox" name="asig" value="'+i.cod+'"'+(dis?' disabled':'')+'><span style="flex:1;min-width:0"><b style="display:block;font-size:14px">'+i.cod+'</b><span class="small muted">'+(dis?'El ingreso '+i.cod+' está en proceso: falta el destare del vehículo':i.placa+', '+fDT(i.fecha)+(i.lote?', ahora en '+esc(lote(i.lote).nombre)+' (se trasladará)':''))+'</span></span><b class="num">'+(dis?'—':tn(i.neto))+'</b></label>';}).join('')+'</div>':empty('tray','No hay ingresos disponibles','Solo se agregan ingresos Registrados de '+minName(l.min)+' que no estén en un lote cerrado.'));
+  modal(sheet('Agregar ingresos a '+esc(l.nombre),minName(l.min)+'. Los anulados y los En proceso no se agregan.',body,cand.length?B('Cancelar','secondary','close')+B('Agregar','primary','lote-asig-save','data-c="'+l.cod+'"'):B('Cerrar','secondary','close')),'side');};
+A['lote-asig-save']=t=>{const l=lote(t.dataset.c);const sel=$$('#modal-root input[name=asig]:checked').map(x=>x.value);if(!sel.length)return formErr('Seleccione al menos un ingreso');
+  const after=l.estado==='cerrado',sec=l.comunes.length>=1;const lin=after&&!sec&&l.lineas.length>1?l.lineas.find(y=>y.id===fv('la-lin')):null;l.comp=l.comp||[];
+  sel.forEach(c=>{const i=ing(c);if(i.lote&&i.lote!==l.cod){const o=lote(i.lote);o.ing=o.ing.filter(x=>x!==c);log('Ingreso retirado del lote','Lote',o.cod,c+' (trasladado a '+l.nombre+')');}
+    l.ing.push(c);i.lote=l.cod;if(after){l.tarde.push(c);
+      if(sec)l.comp.push({id:'K'+(l.comp.length+1),ing:c,etapas:[],partes:[]});
+      else if(lin&&lin.ton!=null)lin.ton=+(lin.ton+(i.neto||0)).toFixed(2);}});
+  log(after?'Ingresos agregados después del cierre':'Ingresos asignados','Lote',l.cod,sel.join(', ')+(lin&&l.lineas.length>1?' para '+lin.nombre:'')+(after&&sec?', con secado propio':''));save();closeModal();route(true);toast(sel.length===1?'Ingreso agregado':sel.length+' ingresos agregados');};
+let DIVP=null;
+function divPartsHTML(){return DIVP.map((x,k)=>'<div class="card" style="box-shadow:none;background:var(--surface-2)"><div class="card-h"><h3>Parte '+(k+1)+'</h3>'+(k>1?B('Quitar','danger-plain sm','div-del','data-k="'+k+'"'):'')+'</div>'+
+  '<div class="field"><label for="dv-n'+k+'">Nombre *</label><input class="input" id="dv-n'+k+'" value="'+esc(x.nombre)+'" placeholder="Ej. Lote Pique Pingüino '+(k+1)+'"></div>'+
+  '<div class="field"><span class="lbl">Ruta *</span><div class="opts">'+Object.keys(RUTAS).map(r=>'<label class="opt"><input type="radio" name="dv-r'+k+'" value="'+r+'"'+(x.ruta===r?' checked':'')+'><span><b style="display:block;font-size:14px">'+RUTA_CORTO[r]+'</b><span class="xs muted">'+RUTAS[r].join(', ')+'</span></span></label>').join('')+'</div></div>'+
+  '<div class="field"><label for="dv-t'+k+'">Toneladas *</label><div class="input-wrap"><input class="input" id="dv-t'+k+'" inputmode="decimal" value="'+esc(x.ton)+'" placeholder="0,00"><span class="suffix">t</span></div></div></div>').join('')+
+  '<button type="button" class="btn secondary block" data-a="div-add">'+ic('plus',16)+'Agregar otro lote</button>';}
+function readDiv(){DIVP=DIVP.map((x,k)=>({nombre:fv('dv-n'+k),ruta:($('input[name=dv-r'+k+']:checked')||{}).value||'',ton:fv('dv-t'+k)}));}
+A['lote-dividir']=t=>{const l=lote(t.dataset.c);const tot=loteTon(l),a=+(tot/2).toFixed(2),b=+(tot-a).toFixed(2);
+  DIVP=[{nombre:l.nombre+' Molido',ruta:'molido',ton:num(a)},{nombre:l.nombre+' Zaranda',ruta:'zaranda',ton:num(b)}];
+  modal(sheet('Dividir '+esc(l.nombre),'Separe el lote en partes con rutas distintas. Total del lote: '+tn(tot)+'.','<div id="dv-parts" class="stack">'+divPartsHTML()+'</div><p class="small muted">El secado se registra para todo el lote. Después, cada parte sigue su ruta y se ensaca por separado.</p>',
+    B('Cancelar','secondary','close')+B('Dividir lote','primary','lote-div-save','data-c="'+l.cod+'"')),'side');};
+A['div-add']=()=>{readDiv();if(DIVP.length>=6)return formErr('Puede dividir el lote en seis partes como máximo');DIVP.push({nombre:'',ruta:'',ton:''});$('#dv-parts').innerHTML=divPartsHTML();const f=$('#dv-n'+(DIVP.length-1));if(f)f.focus();};
+A['div-del']=t=>{readDiv();DIVP.splice(+t.dataset.k,1);$('#dv-parts').innerHTML=divPartsHTML();};
+A['lote-div-save']=t=>{const l=lote(t.dataset.c);if(l.lineas.length>1)return formErr('El lote ya fue dividido');if(l.lineas[0].etapas.length)return formErr('No se puede dividir: el lote ya avanzó por su ruta');
+  readDiv();const p=DIVP.map(x=>({nombre:x.nombre.trim(),ruta:x.ruta,ton:pnum(x.ton)}));
+  if(p.some(x=>!x.nombre||!x.ruta||!(x.ton>0)))return formErr('Debe completar los campos obligatorios de cada parte');
+  if(new Set(p.map(x=>x.nombre.toLowerCase())).size!==p.length)return formErr('Cada parte debe tener un nombre distinto');
+  const tot=loteTon(l),sum=p.reduce((s,x)=>s+x.ton,0);if(Math.abs(sum-tot)>0.01)return formErr('Las toneladas de las partes suman '+tn(sum)+' y deben sumar el total del lote ('+tn(tot)+')');
+  l.lineas=p.map((x,k)=>({id:'ABCDEF'[k],nombre:x.nombre,ruta:x.ruta,ton:x.ton,etapas:[]}));
+  log('Lote dividido','Lote',l.cod,p.map(x=>x.nombre+' ('+tn(x.ton)+', '+RUTA_TXT[x.ruta].toLowerCase()+')').join('; '));save();closeModal();route(true);toast('Lote dividido en '+p.length+' partes');};
+A['lote-cerrar']=t=>{const l=lote(t.dataset.c);modal(alertBox('lock','blue','Cerrar '+esc(l.nombre),l.ing.length?'Empezará el recorrido con el secado de '+tn(loteTon(l))+'. Si llegan más volquetes, aún podrá agregarlos.':'El lote todavía no tiene ingresos asignados.','',B('Cancelar','secondary','close')+B('Cerrar e iniciar','primary','lote-cerrar-ok','data-c="'+l.cod+'"')),'alert');};
+A['lote-cerrar-ok']=t=>{const l=lote(t.dataset.c);if(!l.ing.length)return formErr('El lote no tiene ingresos asignados');if(l.estado!=='abierto')return formErr('El lote ya fue cerrado');
+  l.estado='cerrado';l.ci=now().toISOString();log('Lote cerrado','Lote',l.cod,l.ing.length+' ingresos, '+tn(loteTon(l)));save();closeModal();route(true);toast('Lote '+l.nombre+' cerrado');};
+A['lote-retirar']=t=>{const l=lote(t.dataset.c),c=t.dataset.i;modal(alertBox('minus','orange','Retirar '+c,'El ingreso vuelve a cancha y podrá agregarse a otro lote.','',B('Cancelar','secondary','close')+B('Retirar','danger','lote-retirar-ok','data-c="'+l.cod+'" data-i="'+c+'"')),'alert');};
+A['lote-retirar-ok']=t=>{const l=lote(t.dataset.c),c=t.dataset.i;if(l.estado!=='abierto')return formErr('El lote ya fue cerrado');l.ing=l.ing.filter(x=>x!==c);ing(c).lote=null;log('Ingreso retirado del lote','Lote',l.cod,c);save();closeModal();route(true);toast('Ingreso retirado del lote');};
+const prevRec=(l,x)=>x?(x.etapas.length?x.etapas[x.etapas.length-1]:l.comunes[0]):null;
+const horasField=(hide)=>'<div class="field'+(hide?' hide':'')+'" id="lp-hw"><label for="lp-h">Horas de molienda <span class="faint" style="font-weight:400">(opcional)</span></label><div class="input-wrap"><input class="input" id="lp-h" inputmode="decimal" placeholder="Ej. 4"><span class="suffix">h</span></div><span class="hint">Tiempo de uso del molino. Con él se calcula cuántas toneladas por hora se molieron.</span></div>';
+A['lote-paso']=t=>{const l=lote(t.dataset.c);const x=t.dataset.l?l.lineas.find(y=>y.id===t.dataset.l):null;const e=nextStep(l,x);if(!e)return;const prev=prevRec(l,x);const eleg=e==='elegir';
+  const who=x?x.nombre:l.nombre+' (todo el lote)';const ton=x?lineaTon(l,x):loteTon(l);
+  modal(sheet(eleg?'Registrar siguiente paso':'Registrar '+e.toLowerCase(),esc(who)+', '+tn(ton)+'. '+(prev?'Etapa anterior: '+prev.e+', '+fDT(prev.f)+'.':'Primera etapa del proceso.'),
+    (eleg?'<div class="field"><span class="lbl">¿Qué etapa sigue después del secado? *</span><div class="stack tight">'+Object.keys(RUTAS).map(r=>'<label class="opt"><input type="radio" name="lp-r" value="'+r+'" data-ch="lp-r"><span><b style="display:block;font-size:14px">'+RUTAS[r][0]+'</b><span class="xs muted">Ruta: '+RUTA_TXT[r].toLowerCase()+'</span></span></label>').join('')+'</div></div>':'')+
+    '<div class="field"><label for="lp-f">Fecha y hora en que terminó *</label><input class="input" type="datetime-local" id="lp-f" value="'+iso(now())+'"></div>'+
+    (e==='Molienda'||eleg?horasField(eleg):'')+
+    (e==='Ensacado'?bbBlock(ton,bbPref(x?x.nombre:l.nombre),true):'')+
+    '<div class="field"><label for="lp-o">Observación</label><textarea class="input" id="lp-o" placeholder="Opcional. Ej. cancha 2, secado al sol"></textarea></div>',
+    B('Cancelar','secondary','close')+B('Registrar paso','primary','lote-paso-save','data-c="'+l.cod+'" data-l="'+(x?x.id:'')+'"')));};
+A['lp-r']=t=>{const w=$('#lp-hw');if(w)w.classList.toggle('hide',t.value!=='molido');};
+A['lote-paso-save']=t=>{const l=lote(t.dataset.c);const x=t.dataset.l?l.lineas.find(y=>y.id===t.dataset.l):null;let e=nextStep(l,x);
+  if(l.estado!=='cerrado')return formErr('El lote debe cerrarse antes de registrar etapas');if(!e)return formErr('No hay etapas pendientes para este lote');
   const f=fv('lp-f');if(!f)return formErr('Debe completar los campos obligatorios');if(D(f)>now())return formErr('La fecha de la etapa no puede ser posterior a la fecha actual');
-  const mn=x=>Math.floor(D(x).getTime()/60000);if(k&&mn(f)<mn(l.etapas[k-1].f))return formErr('La fecha de la etapa no puede ser anterior a la de la etapa '+ETAPAS[k-1]);
-  if(!k&&l.ci&&mn(f)<mn(l.ci))return formErr('La fecha de la etapa no puede ser anterior al cierre del lote');
-  const o=fv('lp-o').trim();const et={e:ETAPAS[k],f:D(f).toISOString(),u:me().u};if(o)et.obs=o;l.etapas.push(et);
-  log('Etapa registrada','Lote',l.cod,ETAPAS[k]+(o?': '+o:''));save();closeModal();route(true);toast(ETAPAS[k]+' registrado en '+l.cod);};
+  const prev=prevRec(l,x);const mn=y=>Math.floor(D(y).getTime()/60000);if(prev&&mn(f)<mn(prev.f))return formErr('La fecha de la etapa no puede ser anterior a la de la etapa '+prev.e);
+  if(!prev&&l.ci&&mn(f)<mn(l.ci))return formErr('La fecha de la etapa no puede ser anterior al cierre del lote');
+  let ruta=null;if(e==='elegir'){ruta=($('input[name=lp-r]:checked')||{}).value;if(!ruta)return formErr('Elija qué etapa sigue después del secado');e=RUTAS[ruta][0];}
+  const hs=e==='Molienda'&&fv('lp-h').trim()?pnum(fv('lp-h')):null;if(hs!=null&&!(hs>0))return formErr('Las horas de molienda deben ser mayores que cero');
+  const tonL=x?lineaTon(l,x):loteTon(l);let bbr={n:0};if(e==='Ensacado'){bbr=bbRead();if(bbr.err)return formErr(bbr.err);}
+  if(ruta)x.ruta=ruta;const o=fv('lp-o').trim();const rec={e,f:D(f).toISOString(),u:me().u};if(o)rec.obs=o;if(hs)rec.horas=hs;(x?x.etapas:l.comunes).push(rec);
+  const ton=x?lineaTon(l,x):loteTon(l);
+  log('Etapa registrada','Lote',l.cod,e+' de '+(x?x.nombre:l.nombre)+(ruta?' (ruta: '+RUTA_TXT[ruta].toLowerCase()+')':'')+(hs?', '+num(hs)+' h de molienda, '+num(ton/hs)+' t/h':'')+(o?': '+o:''));
+  if(bbr.n>0)bbSave(l,x.id,x.nombre,bbr,rec.f);
+  save();closeModal();route(true);toast('Etapa '+e+' registrada para '+(x?x.nombre:l.nombre));};
+function bbTarget(l,id){const x=l.lineas.find(y=>y.id===id);if(x)return {id,nombre:x.nombre,ton:lineaTon(l,x),keys:lineKeys(l,x),pre:bbPref(x.nombre),ok:ensacada(x)};
+  const m=/^(K\d+)-(\w+)$/.exec(id);if(!m)return null;const k=(l.comp||[]).find(y=>y.id===m[1]);if(!k)return null;const p=(k.partes||[]).find(q=>q.lin===m[2]);const px=l.lineas.find(y=>y.id===m[2]);if(!p||!px)return null;
+  return {id,nombre:'complemento '+k.ing+' ('+px.nombre+')',ton:p.ton,keys:[id],pre:bbPref(px.nombre),ok:p.etapas.some(r=>r.e==='Ensacado')};}
+function bbBlock(ref,pre,opt,prev){prev=prev||0;const rem=Math.max(+(ref-prev).toFixed(2),0);return '<div class="card bbcalc" data-ton="'+ref+'" data-prev="'+prev+'" style="box-shadow:none;background:var(--surface-2)"><h3>Bigbags llenados'+(opt?' <span class="faint" style="font-weight:400;font-size:13px">(opcional)</span>':'')+'</h3>'+
+  '<div class="grid g2"><div class="field"><label for="lp-bb">Cantidad</label><input class="input" id="lp-bb" inputmode="numeric" placeholder="0" data-in="bb-est"></div><div class="field"><label for="lp-bp">Peso aproximado c/u</label><div class="input-wrap"><input class="input" id="lp-bp" inputmode="decimal" placeholder="Lo calcula el sistema" readonly data-in="bb-est"><span class="suffix">t</span></div></div></div>'+
+  '<label class="check" style="padding-left:0"><input type="checkbox" id="lp-rec" data-ch="bb-rec">Recalcular: indicar yo el peso de cada bigbag</label>'+
+  '<p class="small" id="bb-txt">'+bbBase(ref,prev)+'</p><p class="xs muted">Códigos automáticos desde '+pre+'-'+String(nextBB(pre)).padStart(3,'0')+'.</p></div>';}
+function bbBase(ref,prev){return 'Registrado: '+tn(ref)+(prev?', ya ensacado ≈ '+tn(prev)+', pendiente ≈ '+tn(Math.max(ref-prev,0)):'')+'. Ingrese la cantidad y el sistema calcula cuánto pesa cada bigbag.';}
+function bbUpd(){const box=$('.bbcalc');if(!box)return;const ref=+box.dataset.ton,prev=+box.dataset.prev||0,rem=Math.max(+(ref-prev).toFixed(2),0);const n=parseInt(fv('lp-bb'),10),rec=$('#lp-rec').checked,pe=$('#lp-bp'),t=$('#bb-txt');pe.readOnly=!rec;
+  if(!rec)pe.value=n>0&&rem>0?num(rem/n):'';
+  if(!(n>0)){t.innerHTML=bbBase(ref,prev);return;}
+  if(!rec){t.innerHTML=rem>0?'≈ <b>'+tn(rem/n)+'</b> por bigbag: '+tn(rem)+(prev?' pendientes de ensacar':' registradas')+' ÷ '+n+' bigbags.':'Lo registrado ya está ensacado. Marque Recalcular para indicar el peso de estos bigbags.';return;}
+  const p=pnum(pe.value);if(!(p>0)){t.innerHTML='Indique el peso aproximado de cada bigbag.'+(rem>0?' La estimación del sistema era '+tn(rem/n)+'.':'');return;}
+  const tot=prev+n*p,d=+(tot-ref).toFixed(2);t.innerHTML='Total ensacado ≈ <b>'+tn(tot)+'</b> de '+tn(ref)+' registradas · '+(Math.abs(d)<0.005?'igual a lo registrado':(d<0?num(d)+' t (merma por secado)':'<span style="color:var(--orange);font-weight:600">+'+num(d)+' t: supera lo registrado, revise</span>'));}
+A['bb-est']=()=>bbUpd();
+A['bb-rec']=()=>{const pe=$('#lp-bp');if($('#lp-rec').checked){pe.readOnly=false;pe.focus();pe.select();}bbUpd();};
+function bbRead(){const box=$('.bbcalc');const ref=+box.dataset.ton,prev=+box.dataset.prev||0,rem=Math.max(+(ref-prev).toFixed(2),0);
+  const raw=fv('lp-bb').trim();const n=raw===''?0:parseInt(raw,10);if(isNaN(n)||n<0)return {err:'La cantidad de bigbags no es válida'};if(!n)return {n:0};
+  const rec=$('#lp-rec').checked;if(!rec&&!(rem>0))return {err:'Lo registrado ya está ensacado: marque Recalcular e indique el peso de cada bigbag'};
+  const p=rec?pnum(fv('lp-bp')):+(rem/n).toFixed(2);if(rec&&!(p>0))return {err:'Indique el peso aproximado de cada bigbag'};return {n,p,rec,ref,prev};}
+function bbSave(l,lin,nombre,r,f){const pre=bbTarget(l,lin).pre;const b={lin,etapa:'Ensacado',cant:r.n,peso:r.p,rec:!!r.rec,ref:+(+r.ref).toFixed(2),pref:pre,ini:nextBB(pre),f:f||now().toISOString(),u:me().u};l.bb.push(b);
+  const d=+(r.prev+b.cant*b.peso-r.ref).toFixed(2);log('Bigbags asociados','Lote',l.cod,b.cant+' bigbags de '+nombre+' ('+bbRange(b)+'), ≈ '+tn(b.peso)+' c/u'+(r.rec?', recalculado: '+(Math.abs(d)<0.005?'igual a lo registrado':'diferencia '+(d>0?'+':'')+num(d)+' t'):', calculado por el sistema'));return b;}
+A['lote-bb']=t=>{const l=lote(t.dataset.c);const tg=bbTarget(l,t.dataset.l);if(!tg||!tg.ok)return toast('Los bigbags se asocian al registrar el ensacado','orange');const prev=+bbSumKeys(l,tg.keys).toFixed(2);
+  modal(sheet('Asociar bigbags',esc(cap1(tg.nombre))+'. Bigbags llenados en el ensacado.',bbBlock(tg.ton,tg.pre,false,prev),
+    B('Cancelar','secondary','close')+B('Asociar bigbags','primary','lote-bb-save','data-c="'+l.cod+'" data-l="'+tg.id+'"')));};
+A['lote-bb-save']=t=>{const l=lote(t.dataset.c);const tg=bbTarget(l,t.dataset.l);const r=bbRead();if(r.err)return formErr(r.err);if(!r.n)return formErr('Indique la cantidad de bigbags');
+  const b=bbSave(l,tg.id,tg.nombre,r);save();closeModal();route(true);toast(b.cant+' bigbags asociados: '+bbRange(b));};
+// Complementos: ingresos agregados después del secado del lote
+A['comp-paso']=t=>{const l=lote(t.dataset.c),k=l.comp.find(y=>y.id===t.dataset.k);const ton=compTon(k);
+  if(t.dataset.p===''){if(!compNext(l,k))return;const div=l.lineas.length>1;const tot=l.lineas.reduce((s,x)=>s+lineaTon(l,x),0)||1;
+    const sug=l.lineas.map(x=>+(ton*lineaTon(l,x)/tot).toFixed(2));if(div)sug[sug.length-1]=+(ton-sug.slice(0,-1).reduce((a,b)=>a+b,0)).toFixed(2);
+    const ini=x=>x.etapas.length>0&&!!x.ruta;
+    const fila=(x,k2)=>'<div class="field"><label for="cr-'+x.id+'">'+esc(x.nombre)+'</label><div class="input-wrap"><input class="input" id="cr-'+x.id+'" inputmode="decimal" value="'+num(sug[k2])+'" data-in="cr-sum"><span class="suffix">t</span></div><span class="hint">'+(ini(x)?'Ya avanzó por '+x.etapas[x.etapas.length-1].e.toLowerCase()+': esta porción recorrerá '+RUTAS[x.ruta].join(', ').toLowerCase()+' y luego se unifica.':'Aún no empezó su ruta: esta porción se une directamente.')+'</span></div>';
+    modal(sheet('Registrar secado de '+k.ing,tn(ton)+' de peso neto registrado. Secado propio, separado del resto del lote.',
+      '<div class="field"><label for="lp-f">Fecha y hora en que terminó *</label><input class="input" type="datetime-local" id="lp-f" value="'+iso(now())+'"></div>'+
+      (div?'<div class="card" style="box-shadow:none;background:var(--surface-2)"><h3>Reparto entre las partes del lote</h3><p class="xs muted">Debe sumar las '+tn(ton)+' del ingreso. La merma del secado se verá al ensacar.</p>'+l.lineas.map(fila).join('')+'<p class="small" id="cr-txt">Suma: '+tn(sug.reduce((a,b)=>a+b,0))+' de '+tn(ton)+'</p></div>':
+        bn('blue','info',ini(l.lineas[0])?esc(l.lineas[0].nombre)+' ya avanzó: este ingreso recorrerá '+RUTAS[l.lineas[0].ruta].join(', ').toLowerCase()+' y luego se unifica.':'Al secarse, se une a '+esc(l.lineas[0].nombre)+'.'))+
+      '<div class="field"><label for="lp-o">Observación</label><textarea class="input" id="lp-o" placeholder="Opcional"></textarea></div>',
+      B('Cancelar','secondary','close')+B('Registrar secado','primary','comp-paso-save','data-c="'+l.cod+'" data-k="'+k.id+'" data-p=""')),div?'side':'');return;}
+  const p=k.partes[+t.dataset.p];const e=partNext(l,p);if(!e)return;const x=l.lineas.find(y=>y.id===p.lin);const prev=p.etapas[p.etapas.length-1]||k.etapas[0];
+  modal(sheet('Registrar '+e.toLowerCase(),k.ing+' → '+esc(x.nombre)+', '+tn(p.ton)+'. Etapa anterior: '+prev.e+', '+fDT(prev.f)+'.',
+    '<div class="field"><label for="lp-f">Fecha y hora en que terminó *</label><input class="input" type="datetime-local" id="lp-f" value="'+iso(now())+'"></div>'+
+    (e==='Molienda'?horasField(false):'')+(e==='Ensacado'?bbBlock(p.ton,bbPref(x.nombre),true):'')+
+    '<div class="field"><label for="lp-o">Observación</label><textarea class="input" id="lp-o" placeholder="Opcional"></textarea></div>',
+    B('Cancelar','secondary','close')+B('Registrar paso','primary','comp-paso-save','data-c="'+l.cod+'" data-k="'+k.id+'" data-p="'+t.dataset.p+'"')));};
+A['cr-sum']=()=>{const tx=$('#cr-txt'),bt=$('[data-a=comp-paso-save]');if(!tx||!bt)return;const l=lote(bt.dataset.c),k=l.comp.find(y=>y.id===bt.dataset.k);const sum=l.lineas.reduce((s,x)=>s+(pnum(fv('cr-'+x.id))||0),0),ton=compTon(k);
+  tx.innerHTML='Suma: <b>'+tn(sum)+'</b> de '+tn(ton)+(Math.abs(sum-ton)<0.01?' <span class="tone-green">✓</span>':' <span style="color:var(--orange)">· '+(sum<ton?'faltan '+tn(ton-sum):'sobran '+tn(sum-ton))+'</span>');};
+A['comp-paso-save']=t=>{const l=lote(t.dataset.c),k=l.comp.find(y=>y.id===t.dataset.k);const ton=compTon(k);const mn=y=>Math.floor(D(y).getTime()/60000);
+  const f=fv('lp-f');if(!f)return formErr('Debe completar los campos obligatorios');if(D(f)>now())return formErr('La fecha de la etapa no puede ser posterior a la fecha actual');const o=fv('lp-o').trim();
+  if(t.dataset.p===''){if(!compNext(l,k))return formErr('El secado de este ingreso ya fue registrado');const i=ing(k.ing);if(i&&mn(f)<mn(i.fecha))return formErr('La fecha del secado no puede ser anterior al ingreso');
+    let rp=[];if(l.lineas.length>1){rp=l.lineas.map(x=>({x,t:pnum(fv('cr-'+x.id))}));if(rp.some(r=>r.t==null||isNaN(r.t)||r.t<0))return formErr('Indique las toneladas de cada parte (0 si no lleva)');
+      const sum=rp.reduce((s,r)=>s+r.t,0);if(Math.abs(sum-ton)>0.01)return formErr('El reparto suma '+tn(sum)+' y debe sumar las '+tn(ton)+' del ingreso');rp=rp.filter(r=>r.t>0);}
+    else rp=[{x:l.lineas[0],t:ton}];
+    const rec={e:'Secado',f:D(f).toISOString(),u:me().u};if(o)rec.obs=o;k.etapas.push(rec);
+    k.partes=rp.map(r=>{const ini=r.x.etapas.length>0&&!!r.x.ruta;return {lin:r.x.id,ton:+r.t.toFixed(2),ruta:ini?r.x.ruta:null,etapas:[],unido:ini?null:rec.f};});
+    log('Etapa registrada','Lote',l.cod,'Secado de '+k.ing+'; reparto: '+k.partes.map(p=>l.lineas.find(y=>y.id===p.lin).nombre+' '+tn(p.ton)+(p.unido?' (unido)':' (recorre sus etapas)')).join(', ')+(o?': '+o:''));
+    save();closeModal();route(true);toast('Secado de '+k.ing+' registrado');return;}
+  const p=k.partes[+t.dataset.p];const e=partNext(l,p);if(!e)return formErr('No hay etapas pendientes');const x=l.lineas.find(y=>y.id===p.lin);const prev=p.etapas[p.etapas.length-1]||k.etapas[0];
+  if(mn(f)<mn(prev.f))return formErr('La fecha de la etapa no puede ser anterior a la de la etapa '+prev.e);
+  const hs=e==='Molienda'&&fv('lp-h').trim()?pnum(fv('lp-h')):null;if(hs!=null&&!(hs>0))return formErr('Las horas de molienda deben ser mayores que cero');
+  let bbr={n:0};if(e==='Ensacado'){bbr=bbRead();if(bbr.err)return formErr(bbr.err);}
+  const rec={e,f:D(f).toISOString(),u:me().u};if(o)rec.obs=o;if(hs)rec.horas=hs;p.etapas.push(rec);
+  log('Etapa registrada','Lote',l.cod,e+' de '+k.ing+' ('+x.nombre+', '+tn(p.ton)+')'+(hs?', '+num(hs)+' h de molienda, '+num(p.ton/hs)+' t/h':'')+(partUnif(p)?'; unificado a '+x.nombre:'')+(o?': '+o:''));
+  if(bbr.n>0)bbSave(l,k.id+'-'+p.lin,'complemento '+k.ing+' ('+x.nombre+')',bbr,rec.f);
+  save();closeModal();route(true);toast(partUnif(p)?k.ing+' unificado a '+x.nombre:'Etapa '+e+' registrada para '+k.ing);};
+A['alta-open']=t=>{const l=lote(t.dataset.c);if(!can('alta'))return toast('Acción no autorizada','red');if(!loteCompleto(l))return toast('El lote aún tiene etapas pendientes','orange');
+  modal(alertBox('checkC','green','Dar de alta '+esc(l.nombre),'Se entrega para la venta con '+tn(loteTon(l))+' registradas y '+loteBB(l)+' bigbags. Después no admitirá más ingresos ni etapas.','<div class="field"><label for="al-o">Observación</label><textarea class="input" id="al-o" placeholder="Opcional. Ej. despachado en dos camiones"></textarea></div>',B('Cancelar','secondary','close')+B('Dar de alta','primary','alta-save','data-c="'+l.cod+'"')),'alert');};
+A['alta-save']=t=>{const l=lote(t.dataset.c);if(!can('alta'))return formErr('Acción no autorizada');if(l.alta)return formErr('El lote ya fue dado de alta');if(!loteCompleto(l))return formErr('El lote aún tiene etapas pendientes');const o=fv('al-o').trim();
+  l.alta={f:now().toISOString(),u:me().u};if(o)l.alta.obs=o;log('Lote dado de alta','Lote',l.cod,l.nombre+': '+tn(loteTon(l))+' registradas, '+loteBB(l)+' bigbags, ≈ '+tn(bbSumKeys(l,l.bb.map(b=>b.lin)))+' ensacadas'+(o?'. '+o:''));save();closeModal();route(true);toast('Lote '+l.nombre+' dado de alta');};
 // Consulta
 A.cq=()=>{CQ.placa=fv('cq-p');CQ.desde=fv('cq-d');CQ.hasta=fv('cq-h');runConsulta();route(true);};
 A['cq-chip']=t=>{CQ={placa:t.dataset.p,desde:'',hasta:'',res:null,sel:null,err:null};runConsulta();route(true);};
@@ -1240,6 +1629,12 @@ A['audit-detail']=t=>{const e=S.audit.find(x=>x.id===t.dataset.c);if(!e)return;c
   const lk=e.ent==='Ingreso'&&ing(e.ref)?B('Ver ingreso','secondary','go','data-h="#/ingresos/'+e.ref+'/historial"'):(e.ent==='Lote'&&lote(e.ref)?B('Ver lote','secondary','go','data-h="#/lotes/'+e.ref+'"'):'');
   modal(sheet(esc(e.acc),e.id+', '+fDTS(e.t),'<div class="grid g2">'+kv('Usuario',esc(userName(e.u)))+kv('Entidad',esc(e.ent))+kv('Referencia',esc(e.ref))+kv('Momento',fDTS(e.t))+'</div>'+(e.det?kv('Detalle',esc(e.det)):'')+tb,lk+B('Cerrar','primary','close')));};
 
+A['ing-page']=t=>{FI.page=+t.dataset.k;$('#ing-table').innerHTML=ingTable();};
+A.zoom=t=>{const i=ing(t.dataset.c);if(!i||i.foto===false)return;modal('<div class="zoomwrap">'+ticketFor(i)+'</div><footer class="sh-f"><span class="note">'+i.cod+', '+i.placa+', '+fDT(i.fecha)+'</span>'+B('Cerrar','primary','close')+'</footer>','zoomov');};
+A['cal-day']=t=>{CAL.sel=t.dataset.k;route(true);};
+A['cal-nav']=t=>{let m=CAL.m+(+t.dataset.k),y=CAL.y;if(m<0){m=11;y--;}if(m>11){m=0;y++;}CAL={y,m,sel:null};route(true);};
+A['cal-hoy']=()=>{CAL=null;route(true);};
+
 /* ================= Enrutador ================= */
 function go(h){closePop();if(location.hash===h)route();else location.hash=h;}
 let lastKey=null;
@@ -1247,7 +1642,7 @@ function route(keep){closePop();const app=$('#app');
   if(!me()){app.innerHTML=pLogin();document.title='Inicia sesión · Control de ingreso de mineral';lastKey=null;return;}
   let h=location.hash.replace(/^#\/?/,''),q='';const qi=h.indexOf('?');if(qi>=0){q=h.slice(qi+1);h=h.slice(0,qi);}
   const parts=h.split('/').filter(Boolean).map(decodeURIComponent);const key=parts[0]||'inicio';
-  const need={inicio:'inicio',ingresos:'ingresos',registrar:'registrar',destare:'destare',lotes:'lotes',consulta:'consulta',consolidacion:'consolidacion',catalogos:'catalogos',admin:'admin'}[key];
+  const need={inicio:'inicio',ingresos:'ingresos',calendario:'ingresos',altas:'alta',registrar:'registrar',destare:'destare',lotes:'lotes',consulta:'consulta',consolidacion:'consolidacion',catalogos:'catalogos',admin:'admin'}[key];
   if(!need){location.replace('#/inicio');return;}
   let html;
   if(!can(need)){if(lastKey!=='denied:'+key){log('Acceso rechazado','Usuario',me().u,'Intentó abrir '+(TITLES[key]||cap1(key))+' sin autorización');save();}html=pDenied();lastKey='denied:'+key;}
@@ -1257,7 +1652,7 @@ function route(keep){closePop();const app=$('#app');
     if(key==='consulta'&&q){const p=new URLSearchParams(q);CQ={placa:p.get('placa')||'',desde:p.get('f')||'',hasta:p.get('f')||'',res:null,sel:null,err:null};runConsulta();history.replaceState(null,'','#/consulta');}
     switch(key){case 'inicio':html=pInicio();break;case 'ingresos':html=parts[1]?pDetalle(parts[1],DTABS.find(x=>x[0]===parts[2])?parts[2]:'datos'):pIngresos();break;
       case 'registrar':html=pRegistrar();break;case 'destare':html=pDestare();break;case 'lotes':html=parts[1]?pLote(parts[1]):pLotes();break;
-      case 'consulta':html=pConsulta();break;case 'consolidacion':html=pConsolidacion();break;case 'catalogos':html=pCatalogos(parts[1]||'vehiculos');break;case 'admin':html=pAdmin(parts[1]||'usuarios');break;}
+      case 'consulta':html=pConsulta();break;case 'calendario':html=pCalendario();break;case 'altas':html=parts[1]?pAlta(parts[1]):pAltas();break;case 'consolidacion':html=pConsolidacion();break;case 'catalogos':html=pCatalogos(parts[1]||'vehiculos');break;case 'admin':html=pAdmin(parts[1]||'usuarios');break;}
     lastKey=key;}
   const sy=window.scrollY;const nk=({registrar:'ingresos',destare:'ingresos'})[key]||key;
   app.innerHTML=shell(html,nk);window.scrollTo(0,keep?sy:0);document.title=(TITLES[nk]||'Inicio')+' · Control de ingreso de mineral';afterRender();}
